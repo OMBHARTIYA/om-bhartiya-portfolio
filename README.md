@@ -1,6 +1,6 @@
 # Om Bhartiya Data Analyst Portfolio
 
-React/Vite portfolio site for Om Bhartiya, focused on Data Analyst, Power BI Analyst, reporting automation, operational analytics, and BI delivery roles.
+React/Vite portfolio site for Om Bhartiya, focused on Data Analyst, Power BI Analyst, BI Developer, reporting automation, operational analytics, and BI delivery roles.
 
 ## Run Locally
 
@@ -19,8 +19,8 @@ npm run build
 
 ## Profile Sources Reflected
 
-- CV: `Om_Bhartiya_Cv.pdf`
-- LinkedIn profile screenshots provided in Codex
+- CV/profile information provided by Om Bhartiya, rewritten into public-safe portfolio wording
+- Private production references reviewed locally only; no confidential data, screenshots, model files, or employer-owned source code are included
 - GitHub projects:
   - `https://github.com/OMBHARTIYA/construction-progress-dashboard`
   - `https://github.com/OMBHARTIYA/Api-ingestion-pipeline`

@@ -26,17 +26,17 @@ const assetPath = (file) => `${import.meta.env.BASE_URL}${file}`;
 
 const projects = [
   {
-    title: 'Construction Progress Dashboard Demo',
-    text: 'Portfolio-safe Power BI construction progress dashboard demo built with deterministic synthetic CSV data.',
+    title: 'Construction KPI Case Study',
+    text: 'Portfolio-safe Power BI construction progress case study built with deterministic synthetic CSV data and facade-style KPI logic.',
     tags: ['Power BI', 'Python', 'DAX', 'Star Schema'],
     metric: '12',
     label: 'CSV tables',
     visual: 'dashboard',
     repo: 'https://github.com/OMBHARTIYA/construction-progress-dashboard',
     bullets: [
-      'Generates fictional construction-progress data for progress, plan vs actual, quality issues, and deliveries.',
+      'Generates synthetic construction-progress data for progress, plan vs actual, quality issues, and deliveries.',
       'Documents the data model, recommended dashboard pages, and DAX measures for Power BI Desktop.',
-      'Shows construction/facade reporting thinking without exposing employer data, BIM IDs, or production screenshots.'
+      'Shows construction/facade reporting thinking without exposing employer data, BIM IDs, production models, or private screenshots.'
     ]
   },
   {
@@ -54,17 +54,17 @@ const projects = [
     ]
   },
   {
-    title: 'Open IFC Viewer Demo',
-    text: 'Clean-room browser-based IFC/BIM model viewer demo with local file loading, 3D viewport, selection, and model statistics.',
+    title: 'Open IFC Viewer Case Study',
+    text: 'Clean-room browser-based IFC/BIM model viewer case study with local file loading, 3D viewport, selection, and model statistics.',
     tags: ['React', 'TypeScript', 'Three.js', 'IFC'],
     metric: '3D',
     label: 'viewer',
     visual: 'table',
     repo: 'https://github.com/OMBHARTIYA/open-ifc-viewer',
     bullets: [
-      'Loads IFC files locally in the browser without upload, backend, database, telemetry, or external processing API.',
-      'Provides orbit controls, grid and axes helpers, object selection, highlighting, and a properties panel.',
-      'Connects BIM/model-viewer UI experience with construction analytics and dashboard-style product thinking.'
+      'Public repo loads IFC files locally in the browser without upload, backend, database, telemetry, or external processing API.',
+      'Demonstrates scene setup, orbit controls, grid and axes helpers, object selection, highlighting, properties, and model statistics.',
+      'Related private delivery experience includes status coloring, 2D/3D inspection, model conversion/compression, and Xano-backed status mapping; employer files are excluded.'
     ]
   },
   {
@@ -100,8 +100,13 @@ const skillGroups = [
   },
   {
     icon: ServerCog,
-    title: 'Platform Exposure',
-    items: ['Microsoft Fabric', 'OneLake', 'Lakehouse concepts', 'Dataflows', 'Data gateway', 'Refresh monitoring']
+    title: 'Microsoft Data Platform',
+    items: ['Microsoft Fabric', 'Fabric pipelines', 'OneLake', 'Lakehouse', 'PySpark', 'Delta Tables', 'Data gateway', 'Refresh monitoring']
+  },
+  {
+    icon: Network,
+    title: 'BIM & Model-Linked BI',
+    items: ['IFC/GLB concepts', 'Three.js viewers', 'Model status coloring', '2D/3D inspection', 'Xano integration', 'Facade progress tracking']
   },
   {
     icon: Network,
@@ -115,7 +120,7 @@ const experience = [
     period: 'May 2025 - Present',
     role: 'Data Analyst / Power BI Developer',
     company: 'DEFOR SA',
-    text: 'Delivered 3+ Power BI dashboards for construction, production, management, and client-facing teams, supporting 20+ stakeholders with near-live progress and KPI visibility.'
+    text: 'Delivered Power BI dashboards and BI workflows for construction/facade progress, combining REST API ingestion, Power Query, DAX, semantic models, Power BI Service refresh, and stakeholder UAT.'
   },
   {
     period: 'Feb 2023 - Apr 2025',
@@ -204,12 +209,13 @@ function Hero() {
         <div className="proof-row" aria-label="Portfolio focus areas">
           <span><Gauge size={18} /> KPI dashboards</span>
           <span><RefreshCw size={18} /> Reporting automation</span>
-          <span><Database size={18} /> Data modeling</span>
+          <span><Database size={18} /> Semantic modeling</span>
         </div>
         <div className="profile-links" aria-label="Profile links and skills">
           <span>SQL</span>
           <span>DAX</span>
           <span>Excel</span>
+          <span>Fabric</span>
           <span>Power Query</span>
           <a href="https://www.linkedin.com/in/om-bhartiya-b22279185/" target="_blank" rel="noreferrer">LinkedIn</a>
           <a href="https://github.com/OMBHARTIYA?tab=repositories" target="_blank" rel="noreferrer">GitHub</a>
@@ -234,7 +240,7 @@ function Projects() {
       <div className="section-heading">
         <div>
           <h2>Selected Projects</h2>
-          <p>Practical analytics work built around operational decisions, reporting reliability, and stakeholder adoption.</p>
+          <p>Portfolio projects built around reporting reliability, clean data models, and stakeholder adoption.</p>
         </div>
         <a href="https://github.com/OMBHARTIYA?tab=repositories" target="_blank" rel="noreferrer">View GitHub <ArrowRight size={17} /></a>
       </div>
@@ -324,7 +330,7 @@ function Experience() {
       <div className="section-heading">
         <div>
           <h2>Experience</h2>
-          <p>5+ years of professional experience, including 3+ years focused on dashboards, automation, data validation, and reporting systems.</p>
+          <p>5+ years of professional experience, including 3+ years focused on dashboards, automation, data validation, semantic models, and reporting systems.</p>
         </div>
       </div>
       <div className="timeline">
@@ -447,7 +453,7 @@ function App() {
       </main>
       <footer>
         <span>© 2026 Om Bhartiya</span>
-        <span>Data Analyst | Power BI Analyst | Reporting Specialist</span>
+        <span>Data Analyst | Power BI Analyst | BI Developer</span>
         <span>Built around dashboards, automation, and business impact</span>
       </footer>
     </>
