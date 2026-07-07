@@ -2,6 +2,13 @@
 
 React/Vite portfolio site for Om Bhartiya, focused on Data Analyst, Power BI Analyst, BI Developer, reporting automation, operational analytics, and BI delivery roles.
 
+## Public Proof Sections
+
+- Selected project cards
+- "How I Built This" case-study notes
+- Public-safe animated walkthroughs for the dashboard and IFC viewer workflows
+- Confidentiality note explaining why production work is represented with synthetic/clean-room case studies
+
 ## Run Locally
 
 ```bash

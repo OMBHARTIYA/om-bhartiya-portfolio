@@ -82,6 +82,45 @@ const projects = [
   }
 ];
 
+const caseStudies = [
+  {
+    title: 'Construction KPI Case Study',
+    repo: 'https://github.com/OMBHARTIYA/construction-progress-dashboard',
+    problem: 'Operational teams need a trusted way to see progress, delays, quality issues, deliveries, and plan-vs-actual movement without exposing production project data.',
+    build: ['Synthetic construction-progress data generator', 'Star-schema style CSV outputs', 'Recommended Power BI pages and DAX measures', 'Facade-style KPI summary and issue tracking logic'],
+    proof: 'Shows how I structure operational event history into reporting-ready dimensions, facts, KPI summaries, and stakeholder dashboard pages.'
+  },
+  {
+    title: 'API Ingestion Pipeline',
+    repo: 'https://github.com/OMBHARTIYA/Api-ingestion-pipeline',
+    problem: 'Reporting from API data needs repeatable ingestion, quality checks, status history logic, and clean outputs for BI consumption.',
+    build: ['Raw JSON landing layer', 'Bronze normalization', 'Silver fact and dimension tables', 'Gold reporting summaries with validation report'],
+    proof: 'Shows ETL thinking, data quality controls, latest-status derivation, and Power BI-ready output design.'
+  },
+  {
+    title: 'Open IFC Viewer Case Study',
+    repo: 'https://github.com/OMBHARTIYA/open-ifc-viewer',
+    problem: 'BIM/model-linked reporting needs a safe public proof format because real building models and construction data are confidential.',
+    build: ['Clean-room React and TypeScript viewer', 'Local IFC loading without server upload', 'Three.js scene, camera, selection, and property inspection', 'Privacy-first architecture notes'],
+    proof: 'Shows front-end/BIM visualization skills and connects model inspection thinking with construction analytics.'
+  }
+];
+
+const walkthroughs = [
+  {
+    title: 'Dashboard Workflow',
+    image: 'assets/walkthrough-dashboard.gif',
+    alt: 'Animated synthetic dashboard walkthrough showing KPI cards, status history, and progress charts',
+    points: ['Power Query-ready event history', 'DAX-style current status logic', 'KPI cards and progress distribution', 'Portfolio-safe synthetic data only']
+  },
+  {
+    title: 'IFC Viewer Workflow',
+    image: 'assets/walkthrough-ifc-viewer.gif',
+    alt: 'Animated synthetic IFC viewer walkthrough showing a 3D model, selected element, and property inspector',
+    points: ['Local model loading concept', '3D scene and element selection', 'Property/status inspection', 'No client model or employer data included']
+  }
+];
+
 const skillGroups = [
   {
     icon: BarChart3,
@@ -178,6 +217,8 @@ function Header() {
       </a>
       <nav aria-label="Primary navigation">
         <a href="#projects">Projects</a>
+        <a href="#case-studies">Case Studies</a>
+        <a href="#walkthroughs">Walkthroughs</a>
         <a href="#skills">Skills</a>
         <a href="#experience">Experience</a>
         <a href="#education">Education</a>
@@ -297,6 +338,83 @@ function ProjectVisual({ type, title }) {
         </div>
       )}
     </div>
+  );
+}
+
+function CaseStudies() {
+  return (
+    <section className="section-shell content-section" id="case-studies">
+      <div className="section-heading">
+        <div>
+          <h2>How I Built This</h2>
+          <p>Short build notes for reviewers who want to understand the thinking behind each public proof project.</p>
+        </div>
+      </div>
+      <div className="case-study-grid">
+        {caseStudies.map((study) => (
+          <article className="case-study-card" key={study.title}>
+            <h3>{study.title}</h3>
+            <div>
+              <span>Problem</span>
+              <p>{study.problem}</p>
+            </div>
+            <div>
+              <span>Build</span>
+              <ul>
+                {study.build.map((item) => <li key={item}>{item}</li>)}
+              </ul>
+            </div>
+            <div>
+              <span>Proof</span>
+              <p>{study.proof}</p>
+            </div>
+            <a href={study.repo} target="_blank" rel="noreferrer">Open repo <ExternalLink size={14} /></a>
+          </article>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function Walkthroughs() {
+  return (
+    <section className="section-shell content-section" id="walkthroughs">
+      <div className="section-heading">
+        <div>
+          <h2>Public Walkthroughs</h2>
+          <p>Sanitized animated previews that show workflow ideas without using confidential dashboards, models, screenshots, or data.</p>
+        </div>
+      </div>
+      <div className="walkthrough-grid">
+        {walkthroughs.map((item) => (
+          <article className="walkthrough-card" key={item.title}>
+            <img src={assetPath(item.image)} alt={item.alt} />
+            <div>
+              <h3>{item.title}</h3>
+              <ul>
+                {item.points.map((point) => <li key={point}>{point}</li>)}
+              </ul>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function Confidentiality() {
+  return (
+    <section className="section-shell confidentiality-section" id="confidentiality">
+      <div>
+        <ShieldCheck size={30} />
+        <h2>Confidentiality & Proof</h2>
+      </div>
+      <p>
+        My production work includes real Power BI, API, Fabric, and BIM/model-linked reporting delivery. Public portfolio
+        projects are rebuilt as clean-room case studies with synthetic data so reviewers can inspect my approach without
+        exposing employer dashboards, client files, private model data, source systems, or internal screenshots.
+      </p>
+    </section>
   );
 }
 
@@ -445,6 +563,9 @@ function App() {
       <main>
         <Hero />
         <Projects />
+        <CaseStudies />
+        <Walkthroughs />
+        <Confidentiality />
         <Skills />
         <Experience />
         <Education />
