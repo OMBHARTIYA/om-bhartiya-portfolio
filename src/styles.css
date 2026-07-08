@@ -546,7 +546,16 @@ textarea {
   line-height: 1.55;
 }
 
-.project-details a {
+.project-link-row,
+.case-study-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-self: end;
+}
+
+.project-details a,
+.case-study-actions a {
   display: inline-flex;
   align-items: center;
   gap: 6px;
@@ -681,14 +690,14 @@ textarea {
 
 .case-study-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 18px;
 }
 
 .case-study-card {
   display: grid;
   gap: 22px;
-  min-height: 560px;
+  min-height: 620px;
   padding: 24px;
 }
 
@@ -733,7 +742,6 @@ textarea {
   display: inline-flex;
   align-items: center;
   gap: 7px;
-  align-self: end;
   color: var(--teal-dark);
   font-size: 14px;
   font-weight: 850;

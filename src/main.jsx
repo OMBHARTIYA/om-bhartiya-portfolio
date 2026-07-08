@@ -78,16 +78,18 @@ const projects = [
     ]
   },
   {
-    title: 'Operational Reporting Tools',
-    text: 'Warehouse, inventory, order, invoice, payment, and project-tracking reporting views replacing fragmented spreadsheets.',
-    tags: ['React/TypeScript', 'SQL', 'Excel', 'Automation'],
-    metric: '5-10h',
-    label: 'saved weekly',
+    title: 'Warehouse Management App',
+    text: 'Live full-stack inventory operations platform with role-based access, built by reshaping an existing codebase into a new business domain.',
+    tags: ['Next.js', 'Express', 'PostgreSQL'],
+    metric: 'Live',
+    label: 'deployed app',
     visual: 'warehouse',
+    repo: 'https://github.com/OMBHARTIYA/Warehouse-Frontend',
+    live: 'https://project-ytm78.vercel.app',
     bullets: [
-      'Built internal reporting tools for warehouse, products, stock, movements, users, and inventory visibility.',
-      'Designed SQL/Excel-supported views for stock movement, order status, invoice/payment status, and workflow performance.',
-      'Gathered KPI/reporting requirements and translated them into internal tools, process dashboards, and reporting workflows.'
+      'Built a Next.js/TypeScript frontend and Express/TypeScript backend for warehouse, product, stock, movement, and user workflows.',
+      'Implemented JWT authentication, role-based access, PostgreSQL persistence, and production deployment hardening.',
+      'Reshaped an existing task-manager codebase into a warehouse operations domain with a live deployed interface.'
     ]
   }
 ];
@@ -113,6 +115,20 @@ const caseStudies = [
     problem: 'BIM/model-linked reporting needs a safe public proof format because real building models and construction data are confidential.',
     build: ['Clean-room React and TypeScript viewer', 'Local IFC loading without server upload', 'Three.js scene, camera, selection, and property inspection', 'Privacy-first architecture notes'],
     proof: 'Shows front-end/BIM visualization skills and connects model inspection thinking with construction analytics.'
+  },
+  {
+    title: 'Warehouse Management App',
+    repo: 'https://github.com/OMBHARTIYA/Warehouse-Frontend',
+    live: 'https://project-ytm78.vercel.app',
+    problem: 'Small teams need warehouse visibility - stock levels, movement history, and multi-user access - without adopting a heavy ERP system.',
+    build: [
+      'Next.js/TypeScript frontend with Tailwind CSS and Axios',
+      'Express/TypeScript backend with JWT authentication',
+      'PostgreSQL database on Neon with role-based admin/user access',
+      'Reshaped an existing task-manager codebase into warehouses, products, stock, and movements',
+      'Production security hardening: bcrypt password hashing, rate-limited auth endpoints, CORS fix, and disabled admin bootstrap route in production'
+    ],
+    proof: 'Shows full-stack product ownership end to end - architecture, authentication, security hardening, and cloud deployment - plus the ability to take an existing codebase and reshape it into a different business domain.'
   }
 ];
 
@@ -460,9 +476,16 @@ function Projects() {
               <ul>
                 {project.bullets.map((bullet) => <li key={bullet}>{bullet}</li>)}
               </ul>
-              <a href={project.repo || '#contact'} target={project.repo ? '_blank' : undefined} rel={project.repo ? 'noreferrer' : undefined}>
-                {project.repo ? 'Open repository' : 'Request walkthrough'} <ExternalLink size={14} />
-              </a>
+              <div className="project-link-row">
+                <a href={project.repo || '#contact'} target={project.repo ? '_blank' : undefined} rel={project.repo ? 'noreferrer' : undefined}>
+                  {project.repo ? 'Open repository' : 'Request walkthrough'} <ExternalLink size={14} />
+                </a>
+                {project.live && (
+                  <a href={project.live} target="_blank" rel="noreferrer">
+                    View live demo <ExternalLink size={14} />
+                  </a>
+                )}
+              </div>
             </details>
           </article>
         ))}
@@ -522,7 +545,10 @@ function CaseStudies() {
               <span>Proof</span>
               <p>{study.proof}</p>
             </div>
-            <a href={study.repo} target="_blank" rel="noreferrer">Open repo <ExternalLink size={14} /></a>
+            <div className="case-study-actions">
+              <a href={study.repo} target="_blank" rel="noreferrer">Open repo <ExternalLink size={14} /></a>
+              {study.live && <a href={study.live} target="_blank" rel="noreferrer">View live demo <ExternalLink size={14} /></a>}
+            </div>
           </article>
         ))}
       </div>

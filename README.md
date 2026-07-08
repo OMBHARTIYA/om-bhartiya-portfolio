@@ -6,6 +6,7 @@ React/Vite portfolio site for Om Bhartiya, focused on Data Analyst, Power BI Ana
 
 - Selected project cards
 - Outcome-led hero with direct CV download
+- Live Warehouse Management App project card and case study
 - Flagship construction progress BI case study
 - Analyst proof snippets for SQL, DAX, Power Query, and delivery checks
 - "How I Built This" case-study notes
@@ -36,6 +37,9 @@ npm run build
 - CV/profile information provided by Om Bhartiya, rewritten into public-safe portfolio wording
 - Private production references reviewed locally only; no confidential data, screenshots, model files, or employer-owned source code are included
 - GitHub projects:
+  - `https://github.com/OMBHARTIYA/Warehouse-Frontend`
   - `https://github.com/OMBHARTIYA/construction-progress-dashboard`
   - `https://github.com/OMBHARTIYA/Api-ingestion-pipeline`
   - `https://github.com/OMBHARTIYA/open-ifc-viewer`
+- Live personal project:
+  - `https://project-ytm78.vercel.app`
