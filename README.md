@@ -5,9 +5,16 @@ React/Vite portfolio site for Om Bhartiya, focused on Data Analyst, Power BI Ana
 ## Public Proof Sections
 
 - Selected project cards
+- Outcome-led hero with direct CV download
+- Flagship construction progress BI case study
+- Analyst proof snippets for SQL, DAX, Power Query, and delivery checks
 - "How I Built This" case-study notes
 - Public-safe animated walkthroughs for the dashboard and IFC viewer workflows
 - Confidentiality note explaining why production work is represented with synthetic/clean-room case studies
+
+## Portfolio Positioning
+
+This site is positioned for Data Analyst, Power BI Analyst, Reporting Specialist, Operations Data Analyst, and BI Developer roles. It emphasizes business value, repeatable reporting logic, stakeholder delivery, and public-safe proof of confidential production experience.
 
 ## Run Locally
 

@@ -4,8 +4,11 @@ import {
   ArrowRight,
   BarChart3,
   CheckCircle2,
+  ClipboardCheck,
+  Code2,
   Database,
   ExternalLink,
+  FileText,
   Gauge,
   GitBranch,
   LineChart,
@@ -23,6 +26,13 @@ import {
 import './styles.css';
 
 const assetPath = (file) => `${import.meta.env.BASE_URL}${file}`;
+
+const impactMetrics = [
+  { value: '3+', label: 'Power BI dashboards delivered' },
+  { value: '20+', label: 'stakeholders supported' },
+  { value: '5-10h', label: 'manual reporting saved weekly' },
+  { value: '10-min', label: 'dashboard update logic supported' }
+];
 
 const projects = [
   {
@@ -106,6 +116,40 @@ const caseStudies = [
   }
 ];
 
+const flagshipCaseStudy = {
+  title: 'Flagship Case Study: Construction Progress BI',
+  summary:
+    'A public-safe reconstruction of the reporting pattern I use for construction/facade progress analytics: event history, latest-status logic, issue tracking, KPI visibility, and stakeholder-ready Power BI pages.',
+  steps: [
+    {
+      label: 'Business problem',
+      text: 'Teams needed one trusted view of unit progress, delays, issues, deliveries, and status movement instead of fragmented trackers and manual updates.'
+    },
+    {
+      label: 'Data model',
+      text: 'I shaped synthetic event-history data into dimensions and facts for projects, buildings, levels, zones, units, statuses, plans, quality issues, deliveries, and contractors.'
+    },
+    {
+      label: 'Transformation',
+      text: 'Power Query-style cleaning rules normalize dates, status names, keys, current status snapshots, and plan-vs-actual reporting fields before dashboard use.'
+    },
+    {
+      label: 'Measures',
+      text: 'DAX-style logic covers latest status, completed units, progress percentage, delayed work, issue volume, delivery health, and slicer-ready KPI summaries.'
+    },
+    {
+      label: 'Validation',
+      text: 'Outputs are checked with row counts, key relationships, status validity, latest-event logic, and reviewer-friendly proof summaries.'
+    },
+    {
+      label: 'Business outcome',
+      text: 'This mirrors the real delivery pattern behind better KPI visibility, cleaner stakeholder handover, and 5-10 hours/week reduction in manual reporting.'
+    }
+  ],
+  stack: ['Power BI', 'Power Query', 'DAX', 'Star schema', 'Python synthetic data', 'Construction KPIs'],
+  repo: 'https://github.com/OMBHARTIYA/construction-progress-dashboard'
+};
+
 const walkthroughs = [
   {
     title: 'Dashboard Workflow',
@@ -118,6 +162,49 @@ const walkthroughs = [
     image: 'assets/walkthrough-ifc-viewer.gif',
     alt: 'Animated synthetic IFC viewer walkthrough showing a 3D model, selected element, and property inspector',
     points: ['Local model loading concept', '3D scene and element selection', 'Property/status inspection', 'No client model or employer data included']
+  }
+];
+
+const technicalProof = [
+  {
+    title: 'SQL / Reporting Logic',
+    icon: Database,
+    note: 'Latest-status and progress summaries built from event history.',
+    code: `SELECT
+  WorkItemID,
+  MAX(EventDate) AS LatestEventDate
+FROM fact_status_events
+GROUP BY WorkItemID;`
+  },
+  {
+    title: 'DAX Measure Thinking',
+    icon: BarChart3,
+    note: 'Portfolio-safe measure pattern for KPI cards and progress tracking.',
+    code: `Completed Units :=
+CALCULATE(
+  DISTINCTCOUNT(fact_unit_status[UnitID]),
+  dim_status[Status] = "Installed"
+)`
+  },
+  {
+    title: 'Power Query Cleaning',
+    icon: Code2,
+    note: 'Normalize operational fields before semantic modeling.',
+    code: `Table.TransformColumns(
+  Source,
+  {{"StatusName", Text.Proper},
+   {"UpdatedAt", DateTime.From}}
+)`
+  },
+  {
+    title: 'BI Delivery Controls',
+    icon: ClipboardCheck,
+    note: 'Checks I use before dashboard handover and stakeholder UAT.',
+    code: `checks:
+  row_counts: pass
+  foreign_keys: pass
+  status_values: pass
+  latest_event_logic: pass`
   }
 ];
 
@@ -217,6 +304,8 @@ function Header() {
       </a>
       <nav aria-label="Primary navigation">
         <a href="#projects">Projects</a>
+        <a href="#flagship">Flagship</a>
+        <a href="#proof">Proof</a>
         <a href="#case-studies">Case Studies</a>
         <a href="#walkthroughs">Walkthroughs</a>
         <a href="#skills">Skills</a>
@@ -242,11 +331,19 @@ function Hero() {
     <section className="hero section-shell" id="top">
       <div className="hero-copy">
         <h1>Om Bhartiya</h1>
-        <p className="hero-title">Data Analyst / Power BI Analyst</p>
+        <p className="hero-title">Data Analyst for Operations, Power BI & Construction BI</p>
         <p className="hero-text">
-          I help businesses turn operational data into clear KPI dashboards, automated reporting workflows, and
-          actionable insights across construction/facade, manufacturing, warehouse, project, and finance operations.
+          I turn operational data into validated KPI dashboards, automated reporting workflows, and decision-ready
+          insights across construction/facade, manufacturing, warehouse, project, and finance operations.
         </p>
+        <div className="impact-grid" aria-label="Portfolio impact metrics">
+          {impactMetrics.map((item) => (
+            <span key={item.label}>
+              <strong>{item.value}</strong>
+              {item.label}
+            </span>
+          ))}
+        </div>
         <div className="proof-row" aria-label="Portfolio focus areas">
           <span><Gauge size={18} /> KPI dashboards</span>
           <span><RefreshCw size={18} /> Reporting automation</span>
@@ -264,12 +361,69 @@ function Hero() {
         </div>
         <div className="hero-actions">
           <a className="button primary" href="#projects"><Play size={17} /> View Projects</a>
-          <a className="button secondary" href="#contact"><Mail size={17} /> Contact</a>
+          <a className="button secondary" href={assetPath('assets/om-bhartiya-cv.pdf')} download><FileText size={17} /> Download CV</a>
+          <a className="button secondary compact" href="#contact"><Mail size={17} /> Contact</a>
         </div>
         <p className="availability"><MapPin size={17} /> Poznan, Poland - open to on-site, hybrid, and remote roles</p>
       </div>
       <div className="hero-visual" aria-label="Executive KPI dashboard preview">
         <img src={assetPath('assets/dashboard-hero.png')} alt="Executive KPI dashboard preview with operations, warehouse, manufacturing, and finance reporting" />
+      </div>
+    </section>
+  );
+}
+
+function FlagshipCaseStudy() {
+  return (
+    <section className="section-shell content-section flagship-section" id="flagship">
+      <div className="flagship-layout">
+        <div>
+          <span className="section-label">Deep case study</span>
+          <h2>{flagshipCaseStudy.title}</h2>
+          <p>{flagshipCaseStudy.summary}</p>
+          <div className="tag-row flagship-tags">
+            {flagshipCaseStudy.stack.map((item) => <span key={item}>{item}</span>)}
+          </div>
+          <a className="button primary" href={flagshipCaseStudy.repo} target="_blank" rel="noreferrer">
+            Open Case Repo <ExternalLink size={16} />
+          </a>
+        </div>
+        <div className="case-flow" aria-label="Construction BI case study workflow">
+          {flagshipCaseStudy.steps.map((step, index) => (
+            <article className="case-flow-step" key={step.label}>
+              <span>{String(index + 1).padStart(2, '0')}</span>
+              <div>
+                <h3>{step.label}</h3>
+                <p>{step.text}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function TechnicalProof() {
+  return (
+    <section className="section-shell content-section" id="proof">
+      <div className="section-heading">
+        <div>
+          <h2>Analyst Proof</h2>
+          <p>Small sanitized examples that show how I think about data modeling, KPI logic, transformation, and delivery checks.</p>
+        </div>
+      </div>
+      <div className="proof-snippet-grid">
+        {technicalProof.map(({ title, icon: Icon, note, code }) => (
+          <article className="proof-snippet-card" key={title}>
+            <div className="proof-snippet-top">
+              <Icon size={22} />
+              <h3>{title}</h3>
+            </div>
+            <p>{note}</p>
+            <pre><code>{code}</code></pre>
+          </article>
+        ))}
       </div>
     </section>
   );
@@ -563,6 +717,8 @@ function App() {
       <main>
         <Hero />
         <Projects />
+        <FlagshipCaseStudy />
+        <TechnicalProof />
         <CaseStudies />
         <Walkthroughs />
         <Confidentiality />
