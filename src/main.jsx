@@ -362,7 +362,7 @@ function Hero() {
   return (
     <section className="hero section-shell" id="top">
       <div className="hero-copy">
-        <span className="hero-kicker"><span /> Authorized to work in Poland</span>
+        <span className="hero-kicker"><span /> Authorized to work in Poland · No employer-sponsored work permit required</span>
         <h1>Om Bhartiya</h1>
         <p className="hero-title">I turn operational complexity into <em>clear decisions.</em></p>
         <p className="hero-text">
