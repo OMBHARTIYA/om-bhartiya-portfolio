@@ -319,15 +319,10 @@ function Header() {
         <strong>Om Bhartiya</strong>
       </a>
       <nav aria-label="Primary navigation">
-        <a href="#projects">Projects</a>
-        <a href="#flagship">Flagship</a>
-        <a href="#proof">Proof</a>
-        <a href="#case-studies">Case Studies</a>
-        <a href="#walkthroughs">Walkthroughs</a>
+        <a href="#projects">Work</a>
+        <a href="#flagship">Case Study</a>
         <a href="#skills">Skills</a>
         <a href="#experience">Experience</a>
-        <a href="#education">Education</a>
-        <a href="#certifications">Certifications</a>
         <a href="#contact">Contact</a>
       </nav>
       <div className="header-socials" aria-label="Profile links">
@@ -346,11 +341,12 @@ function Hero() {
   return (
     <section className="hero section-shell" id="top">
       <div className="hero-copy">
+        <span className="hero-kicker"><span /> Available for data &amp; BI opportunities</span>
         <h1>Om Bhartiya</h1>
-        <p className="hero-title">Data Analyst for Operations, Power BI & Construction BI</p>
+        <p className="hero-title">I turn operational complexity into <em>clear decisions.</em></p>
         <p className="hero-text">
-          I turn operational data into validated KPI dashboards, automated reporting workflows, and decision-ready
-          insights across construction/facade, manufacturing, warehouse, project, and finance operations.
+          Data Analyst and Power BI Developer building trusted KPI dashboards, automated reporting workflows, and
+          decision-ready data products for construction, manufacturing, warehouse, and finance teams.
         </p>
         <div className="impact-grid" aria-label="Portfolio impact metrics">
           {impactMetrics.map((item) => (
@@ -383,7 +379,9 @@ function Hero() {
         <p className="availability"><MapPin size={17} /> Poznan, Poland - open to on-site, hybrid, and remote roles</p>
       </div>
       <div className="hero-visual" aria-label="Executive KPI dashboard preview">
+        <div className="visual-caption"><span>Featured work</span><strong>Operations KPI system</strong></div>
         <img src={assetPath('assets/dashboard-hero.png')} alt="Executive KPI dashboard preview with operations, warehouse, manufacturing, and finance reporting" />
+        <div className="visual-note"><strong>From raw events</strong><span>to stakeholder-ready insight</span></div>
       </div>
     </section>
   );
