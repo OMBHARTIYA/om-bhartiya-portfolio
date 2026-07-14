@@ -249,8 +249,8 @@ const skillGroups = [
   },
   {
     icon: Workflow,
-    title: 'Automation',
-    items: ['Power Automate', 'Scheduled refresh', 'REST APIs', 'JSON sources', 'SharePoint docs', 'Handover workflows']
+    title: 'Automation & VBA',
+    items: ['Power Automate', 'Excel VBA & Macros', 'Scheduled refresh', 'REST APIs', 'JSON sources', 'Workflow handover']
   },
   {
     icon: ServerCog,
@@ -258,16 +258,18 @@ const skillGroups = [
     items: ['Microsoft Fabric', 'OneLake', 'Lakehouse', 'Dataflows', 'Data gateway', 'Refresh monitoring']
   },
   {
-    icon: Network,
-    title: 'BIM & Model-Linked BI',
-    items: ['IFC/GLB concepts', 'Three.js viewers', 'Model status coloring', '2D/3D inspection', 'Xano integration', 'Facade progress tracking']
+    icon: Code2,
+    title: 'Web Apps & Visualization',
+    items: ['React & TypeScript', 'Next.js', 'Three.js viewers', 'REST API integration', 'Interactive data tools', 'Local file viewers']
   },
   {
     icon: Network,
-    title: 'Business Context',
-    items: ['Construction reporting', 'Warehouse & inventory', 'Manufacturing KPIs', 'Oracle ERP', 'Stakeholder UAT', 'Requirements gathering']
+    title: 'Business & BIM Context',
+    items: ['Construction & facade', 'BIM/Revit-linked data', 'Warehouse & inventory', 'Manufacturing KPIs', 'Oracle ERP', 'Stakeholder UAT']
   }
 ];
+
+const aiDeliverySkills = ['Codex', 'Claude', 'Prompt Engineering', 'Rapid Prototyping', 'Code Review', 'Testing & Validation'];
 
 const experience = [
   {
@@ -637,6 +639,20 @@ function Skills() {
           </article>
         ))}
       </div>
+      <article className="ai-delivery" aria-label="AI-assisted delivery approach">
+        <div className="ai-delivery-icon"><Sparkles size={24} /></div>
+        <div className="ai-delivery-copy">
+          <span>Future-ready delivery</span>
+          <h3>AI-assisted, human-owned delivery</h3>
+          <p>
+            I use Codex and Claude to accelerate planning, rapid prototyping, debugging, documentation, and testing.
+            I retain ownership of requirements, architecture, business logic, validation, security, and final delivery.
+          </p>
+        </div>
+        <div className="ai-delivery-tags">
+          {aiDeliverySkills.map((item) => <span key={item}>{item}</span>)}
+        </div>
+      </article>
     </section>
   );
 }
