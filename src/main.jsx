@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { createRoot } from 'react-dom/client';
 import {
   ArrowRight,
@@ -14,6 +14,7 @@ import {
   LineChart,
   Mail,
   MapPin,
+  Moon,
   Phone,
   Network,
   Play,
@@ -21,11 +22,22 @@ import {
   ServerCog,
   ShieldCheck,
   Sparkles,
+  Sun,
   Workflow
 } from 'lucide-react';
 import './styles.css';
 
 const assetPath = (file) => `${import.meta.env.BASE_URL}${file}`;
+
+const getInitialTheme = () => {
+  try {
+    const savedTheme = window.localStorage.getItem('portfolio-theme');
+    if (savedTheme === 'light' || savedTheme === 'dark') return savedTheme;
+  } catch {
+    // Use the visitor's system preference when storage is unavailable.
+  }
+  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+};
 
 const impactMetrics = [
   { value: '3+', label: 'Power BI dashboards delivered' },
@@ -243,7 +255,7 @@ const skillGroups = [
   {
     icon: ServerCog,
     title: 'Microsoft Data Platform',
-    items: ['Microsoft Fabric', 'Fabric pipelines', 'OneLake', 'Lakehouse', 'PySpark', 'Delta Tables', 'Data gateway', 'Refresh monitoring']
+    items: ['Microsoft Fabric', 'OneLake', 'Lakehouse', 'Dataflows', 'Data gateway', 'Refresh monitoring']
   },
   {
     icon: Network,
@@ -253,7 +265,7 @@ const skillGroups = [
   {
     icon: Network,
     title: 'Business Context',
-    items: ['Construction reporting', 'Warehouse operations', 'Manufacturing KPIs', 'Finance tracking', 'Stakeholder UAT', 'Requirements gathering']
+    items: ['Construction reporting', 'Warehouse & inventory', 'Manufacturing KPIs', 'Oracle ERP', 'Stakeholder UAT', 'Requirements gathering']
   }
 ];
 
@@ -285,18 +297,18 @@ const experience = [
 ];
 
 const certifications = [
-  'Business Analysis Foundations: Competencies - LinkedIn',
-  'Microsoft Fabric Analytics Engineer DP-600 Preparation - LinkedIn Learning',
   'Extract, Transform and Load Data in Power BI - Microsoft',
   'Data Analyst with Excel - Microsoft',
   'SQL for Data Science - UC Davis',
   'Python for Data Science, AI & Development - IBM'
 ];
 
+const languages = ['English - Full Professional', 'Polish - Elementary', 'Hindi - Native'];
+
 const education = [
   {
     school: 'Poznan University of Technology',
-    detail: "Bachelor's degree, Engineering / Industrial Management",
+    detail: "Bachelor's Degree, Engineering / Industrial Management (Graduated)",
     period: 'Oct 2022 - Mar 2026'
   },
   {
@@ -311,7 +323,7 @@ const education = [
   }
 ];
 
-function Header() {
+function Header({ theme, onToggleTheme }) {
   return (
     <header className="site-header">
       <a className="brand" href="#top" aria-label="Om Bhartiya home">
@@ -326,6 +338,15 @@ function Header() {
         <a href="#contact">Contact</a>
       </nav>
       <div className="header-socials" aria-label="Profile links">
+        <button
+          className="theme-toggle"
+          type="button"
+          onClick={onToggleTheme}
+          aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
+          title={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
+        >
+          {theme === 'dark' ? <Sun size={17} /> : <Moon size={17} />}
+        </button>
         <a className="header-link" href="https://www.linkedin.com/in/om-bhartiya-b22279185/" target="_blank" rel="noreferrer">
           in
         </a>
@@ -341,12 +362,12 @@ function Hero() {
   return (
     <section className="hero section-shell" id="top">
       <div className="hero-copy">
-        <span className="hero-kicker"><span /> Available for data &amp; BI opportunities</span>
+        <span className="hero-kicker"><span /> Authorized to work in Poland</span>
         <h1>Om Bhartiya</h1>
         <p className="hero-title">I turn operational complexity into <em>clear decisions.</em></p>
         <p className="hero-text">
-          Data Analyst and Power BI Developer building trusted KPI dashboards, automated reporting workflows, and
-          decision-ready data products for construction, manufacturing, warehouse, and finance teams.
+          Data Analyst with 5+ years in operational and KPI reporting, including 1+ year specializing as a dedicated
+          Power BI Developer. I build validated dashboards, automated workflows, and stakeholder-ready insights.
         </p>
         <div className="impact-grid" aria-label="Portfolio impact metrics">
           {impactMetrics.map((item) => (
@@ -376,7 +397,7 @@ function Hero() {
           <a className="button secondary" href={assetPath('assets/om-bhartiya-cv.pdf')} download><FileText size={17} /> Download CV</a>
           <a className="button secondary compact" href="#contact"><Mail size={17} /> Contact</a>
         </div>
-        <p className="availability"><MapPin size={17} /> Poznan, Poland - open to on-site, hybrid, and remote roles</p>
+        <p className="availability"><MapPin size={17} /> Poznan, Poland - residence permit with the right to work</p>
       </div>
       <div className="hero-visual" aria-label="Executive KPI dashboard preview">
         <div className="visual-caption"><span>Featured work</span><strong>Operations KPI system</strong></div>
@@ -626,7 +647,7 @@ function Experience() {
       <div className="section-heading">
         <div>
           <h2>Experience</h2>
-          <p>5+ years of professional experience, including 3+ years focused on dashboards, automation, data validation, semantic models, and reporting systems.</p>
+          <p>5+ years in operational and KPI reporting, including the past 1+ year specializing as a dedicated Power BI Developer.</p>
         </div>
       </div>
       <div className="timeline">
@@ -676,8 +697,8 @@ function Certifications() {
     <section className="section-shell content-section" id="certifications">
       <div className="section-heading">
         <div>
-          <h2>Certifications</h2>
-          <p>Learning record aligned with Power BI, Excel analytics, SQL, Python, and modern Microsoft data platforms.</p>
+          <h2>Certifications &amp; Languages</h2>
+          <p>Verified learning across Power BI, Excel, SQL, and Python, plus the languages I use across international teams.</p>
         </div>
       </div>
       <div className="cert-grid">
@@ -687,6 +708,9 @@ function Certifications() {
             <span>{cert}</span>
           </article>
         ))}
+      </div>
+      <div className="language-row" aria-label="Languages">
+        {languages.map((language) => <span key={language}>{language}</span>)}
       </div>
     </section>
   );
@@ -735,9 +759,21 @@ function Contact() {
 }
 
 function App() {
+  const [theme, setTheme] = useState(getInitialTheme);
+
+  useEffect(() => {
+    document.documentElement.dataset.theme = theme;
+    document.documentElement.style.colorScheme = theme;
+    try {
+      window.localStorage.setItem('portfolio-theme', theme);
+    } catch {
+      // Theme switching still works when storage is blocked.
+    }
+  }, [theme]);
+
   return (
     <>
-      <Header />
+      <Header theme={theme} onToggleTheme={() => setTheme((value) => value === 'dark' ? 'light' : 'dark')} />
       <main>
         <Hero />
         <Projects />
