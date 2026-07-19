@@ -8,7 +8,6 @@ import {
   Code2,
   Database,
   ExternalLink,
-  FileText,
   Gauge,
   GitBranch,
   LineChart,
@@ -90,9 +89,9 @@ const projects = [
     ]
   },
   {
-    title: 'Warehouse Management App',
-    text: 'Live full-stack inventory operations platform with role-based access, built by reshaping an existing codebase into a new business domain.',
-    tags: ['Next.js', 'Express', 'PostgreSQL'],
+    title: 'Warehouse Operations & Reporting Project',
+    text: 'Independent full-stack portfolio project demonstrating warehouse, inventory, workflow, and operational reporting skills.',
+    tags: ['Next.js', 'TypeScript', 'PostgreSQL', 'Reporting'],
     metric: 'Live',
     label: 'deployed app',
     visual: 'warehouse',
@@ -100,8 +99,8 @@ const projects = [
     live: 'https://project-ytm78.vercel.app',
     bullets: [
       'Built a Next.js/TypeScript frontend and Express/TypeScript backend for warehouse, product, stock, movement, and user workflows.',
-      'Implemented JWT authentication, role-based access, PostgreSQL persistence, and production deployment hardening.',
-      'Reshaped an existing task-manager codebase into a warehouse operations domain with a live deployed interface.'
+      'Created structured operational views for inventory visibility, stock movements, user access, and dashboard-ready reporting data.',
+      'Demonstrates SQL-backed workflow design, role-based access, automation thinking, and translating business requirements into a deployed tool.'
     ]
   }
 ];
@@ -129,18 +128,19 @@ const caseStudies = [
     proof: 'Shows front-end/BIM visualization skills and connects model inspection thinking with construction analytics.'
   },
   {
-    title: 'Warehouse Management App',
+    title: 'Warehouse Operations & Reporting Project',
     repo: 'https://github.com/OMBHARTIYA/Warehouse-Frontend',
     live: 'https://project-ytm78.vercel.app',
-    problem: 'Small teams need warehouse visibility - stock levels, movement history, and multi-user access - without adopting a heavy ERP system.',
+    problem: 'Small teams need structured warehouse visibility - inventory, stock levels, movement history, reporting data, and multi-user access - without adopting a heavy ERP system.',
     build: [
       'Next.js/TypeScript frontend with Tailwind CSS and Axios',
       'Express/TypeScript backend with JWT authentication',
       'PostgreSQL database on Neon with role-based admin/user access',
       'Reshaped an existing task-manager codebase into warehouses, products, stock, and movements',
+      'Operational views designed for inventory visibility, workflow monitoring, and dashboard-ready reporting',
       'Production security hardening: bcrypt password hashing, rate-limited auth endpoints, CORS fix, and disabled admin bootstrap route in production'
     ],
-    proof: 'Shows full-stack product ownership end to end - architecture, authentication, security hardening, and cloud deployment - plus the ability to take an existing codebase and reshape it into a different business domain.'
+    proof: 'Shows warehouse and reporting skills as independent project work: requirements translation, SQL-backed data design, workflow automation thinking, access control, operational views, and cloud deployment.'
   }
 ];
 
@@ -279,12 +279,6 @@ const experience = [
     text: 'Delivered Power BI dashboards and BI workflows for construction/facade progress, combining REST API ingestion, Power Query, DAX, semantic models, Power BI Service refresh, and stakeholder UAT.'
   },
   {
-    period: 'Feb 2023 - Apr 2025',
-    role: 'Digital Operations & Reporting Automation Specialist',
-    company: 'All For Expo',
-    text: 'Replaced fragmented warehouse, inventory, project, order, invoice, and payment spreadsheets with centralized reporting tools and dashboard-style operational visibility.'
-  },
-  {
     period: 'Oct 2019 - Sep 2022',
     role: 'Process Control & Operational Reporting',
     company: 'UFLEX Group',
@@ -396,7 +390,6 @@ function Hero() {
         </div>
         <div className="hero-actions">
           <a className="button primary" href="#projects"><Play size={17} /> View Projects</a>
-          <a className="button secondary" href={assetPath('assets/om-bhartiya-cv.pdf')} download><FileText size={17} /> Download CV</a>
           <a className="button secondary compact" href="#contact"><Mail size={17} /> Contact</a>
         </div>
         <p className="availability"><MapPin size={17} /> Poznan, Poland - residence permit with the right to work</p>
@@ -663,7 +656,7 @@ function Experience() {
       <div className="section-heading">
         <div>
           <h2>Experience</h2>
-          <p>5+ years in operational and KPI reporting, including the past 1+ year specializing as a dedicated Power BI Developer.</p>
+          <p>Professional experience across data analysis, BI delivery, manufacturing reporting, operational KPIs, and process improvement.</p>
         </div>
       </div>
       <div className="timeline">
