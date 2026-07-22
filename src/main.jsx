@@ -21,7 +21,6 @@ import {
   RefreshCw,
   ServerCog,
   ShieldCheck,
-  Sparkles,
   Sun,
   Workflow
 } from 'lucide-react';
@@ -40,10 +39,10 @@ const getInitialTheme = () => {
 };
 
 const impactMetrics = [
-  { value: '3+', label: 'Power BI dashboards delivered' },
-  { value: '20+', label: 'stakeholders supported' },
-  { value: '5-10h', label: 'manual reporting saved weekly' },
-  { value: '10-min', label: 'dashboard update logic supported' }
+  { value: 'Up to 15', label: 'stakeholders supported' },
+  { value: '3–5', label: 'concurrent projects' },
+  { value: '1–2 min', label: 'refresh runtime' },
+  { value: '30–60 min', label: 'reporting cycle' }
 ];
 
 const projects = [
@@ -101,47 +100,9 @@ const projects = [
     bullets: [
       'Built a Next.js/TypeScript frontend and Express/TypeScript backend for warehouse, product, stock, movement, and user workflows.',
       'Created structured operational views for inventory visibility, stock movements, user access, and dashboard-ready reporting data.',
-      'Demonstrates SQL-backed workflow design, role-based access, automation thinking, and translating business requirements into a deployed tool.'
+      'Demonstrates SQL-backed workflow design, role-based access, automation thinking, and translating business requirements into a deployed tool.',
+      'The live deployment is authentication-protected; visitors can use Register to create a demo account.'
     ]
-  }
-];
-
-const caseStudies = [
-  {
-    title: 'Construction KPI Case Study',
-    repo: 'https://github.com/OMBHARTIYA/construction-progress-dashboard',
-    problem: 'Operational teams need a trusted way to see progress, delays, quality issues, deliveries, and plan-vs-actual movement without exposing production project data.',
-    build: ['Synthetic construction-progress data generator', 'Star-schema style CSV outputs', 'Recommended Power BI pages and DAX measures', 'Facade-style KPI summary and issue tracking logic'],
-    proof: 'Shows how I structure operational event history into reporting-ready dimensions, facts, KPI summaries, and stakeholder dashboard pages.'
-  },
-  {
-    title: 'API Ingestion Pipeline',
-    repo: 'https://github.com/OMBHARTIYA/Api-ingestion-pipeline',
-    problem: 'Reporting from API data needs repeatable ingestion, quality checks, status history logic, and clean outputs for BI consumption.',
-    build: ['Raw JSON landing layer', 'Bronze normalization', 'Silver fact and dimension tables', 'Gold reporting summaries with validation report'],
-    proof: 'Shows ETL thinking, data quality controls, latest-status derivation, and Power BI-ready output design.'
-  },
-  {
-    title: 'Open IFC Viewer Case Study',
-    repo: 'https://github.com/OMBHARTIYA/open-ifc-viewer',
-    problem: 'BIM/model-linked reporting needs a safe public proof format because real building models and construction data are confidential.',
-    build: ['Clean-room React and TypeScript viewer', 'Local IFC loading without server upload', 'Three.js scene, camera, selection, and property inspection', 'Privacy-first architecture notes'],
-    proof: 'Shows front-end/BIM visualization skills and connects model inspection thinking with construction analytics.'
-  },
-  {
-    title: 'Warehouse Operations & Reporting Project',
-    repo: 'https://github.com/OMBHARTIYA/Warehouse-Frontend',
-    live: 'https://project-ytm78.vercel.app',
-    problem: 'Small teams need structured warehouse visibility - inventory, stock levels, movement history, reporting data, and multi-user access - without adopting a heavy ERP system.',
-    build: [
-      'Next.js/TypeScript frontend with Tailwind CSS and Axios',
-      'Express/TypeScript backend with JWT authentication',
-      'PostgreSQL database on Neon with role-based admin/user access',
-      'Reshaped an existing task-manager codebase into warehouses, products, stock, and movements',
-      'Operational views designed for inventory visibility, workflow monitoring, and dashboard-ready reporting',
-      'Production security hardening: bcrypt password hashing, rate-limited auth endpoints, CORS fix, and disabled admin bootstrap route in production'
-    ],
-    proof: 'Shows warehouse and reporting skills as independent project work: requirements translation, SQL-backed data design, workflow automation thinking, access control, operational views, and cloud deployment.'
   }
 ];
 
@@ -172,7 +133,7 @@ const flagshipCaseStudy = {
     },
     {
       label: 'Business outcome',
-      text: 'This mirrors the real delivery pattern behind better KPI visibility, cleaner stakeholder handover, and 5-10 hours/week reduction in manual reporting.'
+      text: 'This mirrors the real delivery pattern behind 30–60 minute reporting cycles, 1–2 minute refreshes, clearer handovers, and self-service status visibility.'
     }
   ],
   stack: ['Power BI', 'Power Query', 'DAX', 'Star schema', 'Python synthetic data', 'Construction KPIs'],
@@ -239,6 +200,11 @@ CALCULATE(
 
 const skillGroups = [
   {
+    icon: ClipboardCheck,
+    title: 'Business Analysis & Delivery',
+    items: ['Requirements elicitation', 'Stakeholder management', 'KPI definition', 'Process mapping', 'User acceptance testing', 'Documentation']
+  },
+  {
     icon: BarChart3,
     title: 'Business Intelligence',
     items: ['Power BI Desktop & Service', 'DAX', 'Power Query (M)', 'Semantic models', 'Star schema modelling', 'RLS & workspace publishing']
@@ -246,12 +212,12 @@ const skillGroups = [
   {
     icon: Database,
     title: 'Data & Querying',
-    items: ['SQL', 'Data modelling', 'Dimensional modelling', 'Data quality & validation', 'KPI definition', 'Excel: pivots, INDEX-MATCH & VBA']
+    items: ['SQL', 'Data modelling', 'Dimensional modelling', 'Data quality & validation', 'Advanced Excel', 'Oracle ERP validation']
   },
   {
     icon: Workflow,
-    title: 'Automation & VBA',
-    items: ['REST APIs & JSON', 'Power Automate', 'Excel VBA & macros', 'Scheduled & incremental refresh', 'On-premises data gateway', 'Dataflows & ETL pipelines']
+    title: 'Automation & Integration',
+    items: ['REST APIs & JSON', 'Power Automate', 'Excel VBA & macros', 'Scheduled & incremental refresh', 'On-premises gateway', 'ETL pipelines']
   },
   {
     icon: ServerCog,
@@ -259,18 +225,11 @@ const skillGroups = [
     items: ['Microsoft Fabric', 'OneLake', 'Lakehouse notebooks', 'Fabric ETL pipelines', 'Dataflows', 'Refresh monitoring']
   },
   {
-    icon: Code2,
-    title: 'Web Apps & Visualization',
-    items: ['React & TypeScript', 'Next.js', 'Git', 'Three.js viewers', 'REST API integration', 'Interactive data tools']
-  },
-  {
     icon: Network,
-    title: 'Business & BIM Context',
-    items: ['Construction & facade', 'Autodesk Construction Cloud', 'BIM / Revit / IFC', 'Warehouse & inventory', 'Manufacturing KPIs', 'Oracle ERP & stakeholder UAT']
+    title: 'Operational Domains & Technical Context',
+    items: ['Construction & facade', 'BIM / Revit / IFC', 'Warehouse & inventory', 'Manufacturing KPIs', 'React & TypeScript', 'Git']
   }
 ];
-
-const aiDeliverySkills = ['Codex', 'Claude', 'Prompt Engineering', 'Rapid Prototyping', 'Code Review', 'Testing & Validation'];
 
 const experience = [
   {
@@ -351,7 +310,7 @@ function Header({ theme, onToggleTheme }) {
         >
           {theme === 'dark' ? <Sun size={17} /> : <Moon size={17} />}
         </button>
-        <a className="header-link" href="https://www.linkedin.com/in/om-bhartiya/" target="_blank" rel="noreferrer">
+        <a className="header-link" href="https://www.linkedin.com/in/om-bhartiya-b22279185/" target="_blank" rel="noreferrer">
           in
         </a>
         <a className="header-link" href="https://github.com/OMBHARTIYA?tab=repositories" target="_blank" rel="noreferrer" aria-label="GitHub profile">
@@ -366,12 +325,12 @@ function Hero() {
   return (
     <section className="hero section-shell" id="top">
       <div className="hero-copy">
-        <span className="hero-kicker"><span /> Authorized to work in Poland · No employer-sponsored work permit required</span>
+        <span className="hero-kicker"><span /> Poland-based · TRC holder · Open to employment-contract roles</span>
         <h1>Om Bhartiya</h1>
         <p className="hero-title">I turn operational complexity into <em>clear decisions.</em></p>
         <p className="hero-text">
-          Data Analyst and Power BI Developer with 5+ years across manufacturing, construction, and operations data.
-          I turn validated source data into stakeholder-ready dashboards, automated reporting, and decision-ready insight.
+          Business Intelligence, Data and Business Analyst with 5+ years across manufacturing, construction, and operations.
+          I translate stakeholder requirements into trusted KPIs, Power BI dashboards, automated reporting, and improved business processes.
         </p>
         <div className="impact-grid" aria-label="Portfolio impact metrics">
           {impactMetrics.map((item) => (
@@ -382,9 +341,9 @@ function Hero() {
           ))}
         </div>
         <div className="proof-row" aria-label="Portfolio focus areas">
+          <span><ClipboardCheck size={18} /> Requirements & process analysis</span>
           <span><Gauge size={18} /> KPI dashboards</span>
           <span><RefreshCw size={18} /> Reporting automation</span>
-          <span><Database size={18} /> Semantic modeling</span>
         </div>
         <div className="profile-links" aria-label="Profile links and skills">
           <span>SQL</span>
@@ -392,7 +351,7 @@ function Hero() {
           <span>Excel</span>
           <span>Fabric</span>
           <span>Power Query</span>
-          <a href="https://www.linkedin.com/in/om-bhartiya/" target="_blank" rel="noreferrer">LinkedIn</a>
+          <a href="https://www.linkedin.com/in/om-bhartiya-b22279185/" target="_blank" rel="noreferrer">LinkedIn</a>
           <a href="https://github.com/OMBHARTIYA?tab=repositories" target="_blank" rel="noreferrer">GitHub</a>
           <a href="mailto:ombhartiya16@gmail.com">Email</a>
         </div>
@@ -401,11 +360,11 @@ function Hero() {
           <a className="button secondary" href={assetPath('assets/om-bhartiya-cv.pdf')} download><FileText size={17} /> Download CV</a>
           <a className="button secondary compact" href="#contact"><Mail size={17} /> Contact</a>
         </div>
-        <p className="availability"><MapPin size={17} /> Poland · open to relocation</p>
+        <p className="availability"><MapPin size={17} /> Poland · open to hybrid, on-site, and relocation</p>
       </div>
       <div className="hero-visual" aria-label="Executive KPI dashboard preview">
         <div className="visual-caption"><span>Featured work</span><strong>Operations KPI system</strong></div>
-        <img src={assetPath('assets/dashboard-hero.png')} alt="Executive KPI dashboard preview with operations, warehouse, manufacturing, and finance reporting" />
+        <img src={assetPath('assets/dashboard-hero.png')} alt="Executive KPI dashboard preview with operations, warehouse, manufacturing, and finance reporting" fetchPriority="high" decoding="async" />
         <div className="visual-note"><strong>From raw events</strong><span>to stakeholder-ready insight</span></div>
       </div>
     </section>
@@ -525,8 +484,8 @@ function ProjectVisual({ type, title }) {
         <span />
         <span />
       </div>
-      {type === 'dashboard' && <img src={assetPath('assets/dashboard-hero.png')} alt="" />}
-      {type === 'warehouse' && <img src={assetPath('assets/warehouse-os.png')} alt="" />}
+      {type === 'dashboard' && <img src={assetPath('assets/dashboard-hero.png')} alt="" loading="lazy" decoding="async" />}
+      {type === 'warehouse' && <img src={assetPath('assets/warehouse-os.png')} alt="" loading="lazy" decoding="async" />}
       {type !== 'dashboard' && type !== 'warehouse' && (
         <div className="visual-body">
           <i />
@@ -538,44 +497,6 @@ function ProjectVisual({ type, title }) {
         </div>
       )}
     </div>
-  );
-}
-
-function CaseStudies() {
-  return (
-    <section className="section-shell content-section" id="case-studies">
-      <div className="section-heading">
-        <div>
-          <h2>How I Built This</h2>
-          <p>Short build notes for reviewers who want to understand the thinking behind each public proof project.</p>
-        </div>
-      </div>
-      <div className="case-study-grid">
-        {caseStudies.map((study) => (
-          <article className="case-study-card" key={study.title}>
-            <h3>{study.title}</h3>
-            <div>
-              <span>Problem</span>
-              <p>{study.problem}</p>
-            </div>
-            <div>
-              <span>Build</span>
-              <ul>
-                {study.build.map((item) => <li key={item}>{item}</li>)}
-              </ul>
-            </div>
-            <div>
-              <span>Proof</span>
-              <p>{study.proof}</p>
-            </div>
-            <div className="case-study-actions">
-              <a href={study.repo} target="_blank" rel="noreferrer">Open repo <ExternalLink size={14} /></a>
-              {study.live && <a href={study.live} target="_blank" rel="noreferrer">View live demo <ExternalLink size={14} /></a>}
-            </div>
-          </article>
-        ))}
-      </div>
-    </section>
   );
 }
 
@@ -591,7 +512,7 @@ function Walkthroughs() {
       <div className="walkthrough-grid">
         {walkthroughs.map((item) => (
           <article className="walkthrough-card" key={item.title}>
-            <img src={assetPath(item.image)} alt={item.alt} />
+            <img src={assetPath(item.image)} alt={item.alt} loading="lazy" decoding="async" />
             <div>
               <h3>{item.title}</h3>
               <ul>
@@ -641,20 +562,6 @@ function Skills() {
           </article>
         ))}
       </div>
-      <article className="ai-delivery" aria-label="AI-assisted delivery approach">
-        <div className="ai-delivery-icon"><Sparkles size={24} /></div>
-        <div className="ai-delivery-copy">
-          <span>Future-ready delivery</span>
-          <h3>AI-assisted, human-owned delivery</h3>
-          <p>
-            I use Codex and Claude to accelerate planning, rapid prototyping, debugging, documentation, and testing.
-            I retain ownership of requirements, architecture, business logic, validation, security, and final delivery.
-          </p>
-        </div>
-        <div className="ai-delivery-tags">
-          {aiDeliverySkills.map((item) => <span key={item}>{item}</span>)}
-        </div>
-      </article>
     </section>
   );
 }
@@ -741,14 +648,14 @@ function Contact() {
         <div>
           <h2>Let's Work Together</h2>
           <p>
-            Open to Data Analyst, Power BI Analyst, Reporting Specialist, Operations Data Analyst, and Junior/Mid BI
-            Developer opportunities in Poland and across EU teams.
+            Open to Business Intelligence Analyst, Data Analyst, Business Analyst, Operations Analyst, and Power BI
+            Developer opportunities in Poland and across Europe.
           </p>
           <div className="contact-lines">
             <a href="mailto:ombhartiya16@gmail.com"><Mail size={18} /> ombhartiya16@gmail.com</a>
             <a href="tel:+48516901712"><Phone size={18} /> +48 516 901 712</a>
-            <a href="https://www.linkedin.com/in/om-bhartiya/" target="_blank" rel="noreferrer">
-              <ExternalLink size={18} /> linkedin.com/in/om-bhartiya
+            <a href="https://www.linkedin.com/in/om-bhartiya-b22279185/" target="_blank" rel="noreferrer">
+              <ExternalLink size={18} /> linkedin.com/in/om-bhartiya-b22279185
             </a>
             <a href="https://github.com/OMBHARTIYA?tab=repositories" target="_blank" rel="noreferrer">
               <GitBranch size={18} /> github.com/OMBHARTIYA
@@ -756,21 +663,16 @@ function Contact() {
             <span><MapPin size={18} /> Poznan, Poland</span>
           </div>
         </div>
-        <form className="contact-card" action="mailto:ombhartiya16@gmail.com" method="post" encType="text/plain">
-          <label>
-            Name
-            <input name="name" autoComplete="name" />
-          </label>
-          <label>
-            Email
-            <input name="email" type="email" autoComplete="email" />
-          </label>
-          <label className="wide">
-            Message
-            <textarea name="message" rows="5" />
-          </label>
-          <button className="button primary" type="submit"><Sparkles size={17} /> Send Message</button>
-        </form>
+        <aside className="contact-card contact-cta" aria-label="Direct contact options">
+          <span className="section-label">Direct contact</span>
+          <h3>Let's discuss the role or business problem.</h3>
+          <p>The fastest way to reach me is by email or LinkedIn. I usually respond within one business day.</p>
+          <div className="contact-actions">
+            <a className="button primary" href="mailto:ombhartiya16@gmail.com"><Mail size={17} /> Email Om</a>
+            <a className="button secondary" href="https://www.linkedin.com/in/om-bhartiya-b22279185/" target="_blank" rel="noreferrer"><ExternalLink size={17} /> Connect on LinkedIn</a>
+            <a className="button secondary" href={assetPath('assets/om-bhartiya-cv.pdf')} download><FileText size={17} /> Download CV</a>
+          </div>
+        </aside>
       </div>
     </section>
   );
@@ -797,7 +699,6 @@ function App() {
         <Projects />
         <FlagshipCaseStudy />
         <TechnicalProof />
-        <CaseStudies />
         <Walkthroughs />
         <Confidentiality />
         <Skills />
@@ -808,7 +709,7 @@ function App() {
       </main>
       <footer>
         <span>© 2026 Om Bhartiya</span>
-        <span>Data Analyst | Power BI Analyst | BI Developer</span>
+        <span>Business Intelligence | Data Analyst | Business Analyst</span>
         <span>Built around dashboards, automation, and business impact</span>
       </footer>
     </>
