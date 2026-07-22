@@ -8,6 +8,7 @@ import {
   Code2,
   Database,
   ExternalLink,
+  FileText,
   Gauge,
   GitBranch,
   LineChart,
@@ -240,32 +241,32 @@ const skillGroups = [
   {
     icon: BarChart3,
     title: 'Business Intelligence',
-    items: ['Power BI Desktop', 'Power BI Service', 'DAX', 'Power Query', 'Semantic models', 'Drill-through reporting']
+    items: ['Power BI Desktop & Service', 'DAX', 'Power Query (M)', 'Semantic models', 'Star schema modelling', 'RLS & workspace publishing']
   },
   {
     icon: Database,
-    title: 'Data & Analytics',
-    items: ['SQL', 'Excel advanced', 'Data validation', 'KPI definition', 'Data modeling', 'ETL transformation']
+    title: 'Data & Querying',
+    items: ['SQL', 'Data modelling', 'Dimensional modelling', 'Data quality & validation', 'KPI definition', 'Excel: pivots, INDEX-MATCH & VBA']
   },
   {
     icon: Workflow,
     title: 'Automation & VBA',
-    items: ['Power Automate', 'Excel VBA & Macros', 'Scheduled refresh', 'REST APIs', 'JSON sources', 'Workflow handover']
+    items: ['REST APIs & JSON', 'Power Automate', 'Excel VBA & macros', 'Scheduled & incremental refresh', 'On-premises data gateway', 'Dataflows & ETL pipelines']
   },
   {
     icon: ServerCog,
     title: 'Microsoft Data Platform',
-    items: ['Microsoft Fabric', 'OneLake', 'Lakehouse', 'Dataflows', 'Data gateway', 'Refresh monitoring']
+    items: ['Microsoft Fabric', 'OneLake', 'Lakehouse notebooks', 'Fabric ETL pipelines', 'Dataflows', 'Refresh monitoring']
   },
   {
     icon: Code2,
     title: 'Web Apps & Visualization',
-    items: ['React & TypeScript', 'Next.js', 'Three.js viewers', 'REST API integration', 'Interactive data tools', 'Local file viewers']
+    items: ['React & TypeScript', 'Next.js', 'Git', 'Three.js viewers', 'REST API integration', 'Interactive data tools']
   },
   {
     icon: Network,
     title: 'Business & BIM Context',
-    items: ['Construction & facade', 'BIM/Revit-linked data', 'Warehouse & inventory', 'Manufacturing KPIs', 'Oracle ERP', 'Stakeholder UAT']
+    items: ['Construction & facade', 'Autodesk Construction Cloud', 'BIM / Revit / IFC', 'Warehouse & inventory', 'Manufacturing KPIs', 'Oracle ERP & stakeholder UAT']
   }
 ];
 
@@ -276,13 +277,19 @@ const experience = [
     period: 'May 2025 - Present',
     role: 'Data Analyst / Power BI Developer',
     company: 'DEFOR SA',
-    text: 'Delivered Power BI dashboards and BI workflows for construction/facade progress, combining REST API ingestion, Power Query, DAX, semantic models, Power BI Service refresh, and stakeholder UAT.'
+    text: 'Built DEFOR’s first Power BI capability as sole analyst, unifying REST API, Autodesk Construction Cloud, Speckle, and CSV data into a 3D-linked star-schema model for 3–5 concurrent projects and up to 15 stakeholders. Re-architected refreshes from 5–15 minutes to 1–2 minutes using incremental refresh and Fabric ETL.'
+  },
+  {
+    period: 'Feb 2023 - Apr 2025',
+    role: 'Operations Data & Reporting Analyst',
+    company: 'All For Expo',
+    text: 'Replaced WhatsApp, phone, and email tracking with a centralised system covering project stages, materials, stock, invoices, and payment status. Consolidated Google Sheets, Drive, Gmail, and loose PDFs into one source of truth for project, warehouse, logistics, and finance teams.'
   },
   {
     period: 'Oct 2019 - Sep 2022',
-    role: 'Process Control & Operational Reporting',
+    role: 'Process Control & Operational Reporting Engineer',
     company: 'UFLEX Group',
-    text: 'Monitored production KPIs across 2 active production lines per 8-hour shift using Oracle ERP data, daily reports, and structured process checklists.'
+    text: 'Produced two operational reports every 24 hours across two production lines, validating Oracle ERP output, inventory, and material consumption against shift checklists and physical output to identify recurring downtime and quality patterns.'
   },
   {
     period: 'Aug 2018 - Apr 2019',
@@ -293,18 +300,19 @@ const experience = [
 ];
 
 const certifications = [
+  'PL-300 Power BI Data Analyst - in progress',
   'Extract, Transform and Load Data in Power BI - Microsoft',
   'Data Analyst with Excel - Microsoft',
   'SQL for Data Science - UC Davis',
   'Python for Data Science, AI & Development - IBM'
 ];
 
-const languages = ['English - Full Professional', 'Polish - Elementary', 'Hindi - Native'];
+const languages = ['English - C1', 'Polish - A2', 'Hindi - Native'];
 
 const education = [
   {
     school: 'Poznan University of Technology',
-    detail: "Bachelor's Degree, Engineering / Industrial Management (Graduated)",
+    detail: 'B.Eng., Engineering / Industrial Management · Grade: 4.5 / 5.0',
     period: 'Oct 2022 - Mar 2026'
   },
   {
@@ -343,7 +351,7 @@ function Header({ theme, onToggleTheme }) {
         >
           {theme === 'dark' ? <Sun size={17} /> : <Moon size={17} />}
         </button>
-        <a className="header-link" href="https://www.linkedin.com/in/om-bhartiya-b22279185/" target="_blank" rel="noreferrer">
+        <a className="header-link" href="https://www.linkedin.com/in/om-bhartiya/" target="_blank" rel="noreferrer">
           in
         </a>
         <a className="header-link" href="https://github.com/OMBHARTIYA?tab=repositories" target="_blank" rel="noreferrer" aria-label="GitHub profile">
@@ -362,8 +370,8 @@ function Hero() {
         <h1>Om Bhartiya</h1>
         <p className="hero-title">I turn operational complexity into <em>clear decisions.</em></p>
         <p className="hero-text">
-          Data Analyst with 5+ years in operational and KPI reporting, including 1+ year specializing as a dedicated
-          Power BI Developer. I build validated dashboards, automated workflows, and stakeholder-ready insights.
+          Data Analyst and Power BI Developer with 5+ years across manufacturing, construction, and operations data.
+          I turn validated source data into stakeholder-ready dashboards, automated reporting, and decision-ready insight.
         </p>
         <div className="impact-grid" aria-label="Portfolio impact metrics">
           {impactMetrics.map((item) => (
@@ -384,15 +392,16 @@ function Hero() {
           <span>Excel</span>
           <span>Fabric</span>
           <span>Power Query</span>
-          <a href="https://www.linkedin.com/in/om-bhartiya-b22279185/" target="_blank" rel="noreferrer">LinkedIn</a>
+          <a href="https://www.linkedin.com/in/om-bhartiya/" target="_blank" rel="noreferrer">LinkedIn</a>
           <a href="https://github.com/OMBHARTIYA?tab=repositories" target="_blank" rel="noreferrer">GitHub</a>
           <a href="mailto:ombhartiya16@gmail.com">Email</a>
         </div>
         <div className="hero-actions">
           <a className="button primary" href="#projects"><Play size={17} /> View Projects</a>
+          <a className="button secondary" href={assetPath('assets/om-bhartiya-cv.pdf')} download><FileText size={17} /> Download CV</a>
           <a className="button secondary compact" href="#contact"><Mail size={17} /> Contact</a>
         </div>
-        <p className="availability"><MapPin size={17} /> Poznan, Poland - residence permit with the right to work</p>
+        <p className="availability"><MapPin size={17} /> Poland · open to relocation</p>
       </div>
       <div className="hero-visual" aria-label="Executive KPI dashboard preview">
         <div className="visual-caption"><span>Featured work</span><strong>Operations KPI system</strong></div>
@@ -656,7 +665,7 @@ function Experience() {
       <div className="section-heading">
         <div>
           <h2>Experience</h2>
-          <p>Professional experience across data analysis, BI delivery, manufacturing reporting, operational KPIs, and process improvement.</p>
+          <p>5+ years across manufacturing, construction, and operations data—from process control and reporting into BI development.</p>
         </div>
       </div>
       <div className="timeline">
@@ -738,8 +747,8 @@ function Contact() {
           <div className="contact-lines">
             <a href="mailto:ombhartiya16@gmail.com"><Mail size={18} /> ombhartiya16@gmail.com</a>
             <a href="tel:+48516901712"><Phone size={18} /> +48 516 901 712</a>
-            <a href="https://www.linkedin.com/in/om-bhartiya-b22279185/" target="_blank" rel="noreferrer">
-              <ExternalLink size={18} /> linkedin.com/in/om-bhartiya-b22279185
+            <a href="https://www.linkedin.com/in/om-bhartiya/" target="_blank" rel="noreferrer">
+              <ExternalLink size={18} /> linkedin.com/in/om-bhartiya
             </a>
             <a href="https://github.com/OMBHARTIYA?tab=repositories" target="_blank" rel="noreferrer">
               <GitBranch size={18} /> github.com/OMBHARTIYA
