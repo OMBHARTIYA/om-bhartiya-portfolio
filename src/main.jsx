@@ -231,8 +231,8 @@ const skillGroups = [
   },
   {
     icon: Network,
-    title: 'AI-Assisted Product Development',
-    items: ['React & Next.js', 'TypeScript & JavaScript', 'Node.js & Express', 'REST API design', 'Three.js & Vite', 'Git & deployment workflows']
+    title: 'AI-Assisted Product Development & Low-Code Automation',
+    items: ['React & Next.js', 'TypeScript & JavaScript', 'Node.js & Express', 'REST API design', 'Power Automate & Xano', 'Three.js & Vite', 'Git & deployment workflows']
   },
   {
     icon: Gauge,
