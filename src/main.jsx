@@ -60,15 +60,15 @@ const projects = [
   {
     title: 'API Ingestion Pipeline',
     category: 'data',
-    text: 'Synthetic REST-style ingestion that lands JSON, normalizes data, validates quality and prepares Power BI-ready outputs.',
-    tags: ['Python', 'REST JSON', 'ETL', 'Data Quality'],
+    text: 'Public-safe proof of Microsoft Fabric ingestion delivery: runnable synthetic ETL plus sanitized incremental-control and operations patterns.',
+    tags: ['Microsoft Fabric', 'REST JSON', 'PySpark', 'Data Quality'],
     metric: '7.5k',
     label: 'work items',
     visual: 'bars',
     repo: 'https://github.com/OMBHARTIYA/Api-ingestion-pipeline',
-    problem: 'Operational API data is difficult to trust when pagination, status history and validation are handled manually.',
-    built: 'A REST/JSON ingestion flow with raw landing, bronze and silver layers, quality checks, latest-event logic and gold reporting summaries.',
-    outcome: 'A repeatable pipeline pattern that produces project, contractor and monthly progress outputs with visible delivery controls.'
+    problem: 'Incremental API reporting is difficult to trust without a stable extraction window, explicit pagination, safe reruns and quality gates.',
+    built: 'A runnable synthetic raw-to-gold workflow plus delivery-informed Fabric controls for frozen watermarks, OneLake-style staging, PySpark/Delta curation, archive-before-delete and commit-on-success.',
+    outcome: 'A reviewer-ready proof of ETL, pipeline operations, validation and recovery depth without exposing production identifiers, endpoints, schemas, records or exported definitions.'
   },
   {
     title: 'Oracle ERP Reconciliation',
@@ -192,14 +192,16 @@ CALCULATE(
 )`
   },
   {
-    title: 'BI Delivery Controls',
-    icon: ClipboardCheck,
-    note: 'Checks I use before dashboard handover and stakeholder UAT.',
-    code: `checks:
-  row_counts: pass
-  foreign_keys: pass
-  status_values: pass
-  latest_event_logic: pass`
+    title: 'Incremental Pipeline Control',
+    icon: ShieldCheck,
+    note: 'Failure-safe control pattern for paginated API ingestion.',
+    code: `run_window:
+  start: last_success
+  end: frozen_at_start
+pagination:
+  terminal_signal: explicit
+watermark_commit:
+  when: all_required_steps_pass`
   }
 ];
 
@@ -584,7 +586,8 @@ function Confidentiality() {
       <p>
         My production work includes real Power BI, API, Fabric, and BIM/model-linked reporting delivery. Public portfolio
         projects are rebuilt as clean-room case studies with synthetic data so reviewers can inspect my approach without
-        exposing employer dashboards, client files, private model data, source systems, or internal screenshots.
+        exposing employer dashboards, client files, private model data, source records, endpoints, credentials, project or
+        workspace identifiers, connection names, production schemas, internal screenshots, or exported definitions.
       </p>
     </section>
   );
