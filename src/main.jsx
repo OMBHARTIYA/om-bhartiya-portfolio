@@ -221,7 +221,7 @@ const skillGroups = [
   },
   {
     icon: Workflow,
-    title: 'Automation & Integration',
+    title: 'Automation, Low-Code & Integration',
     items: ['REST APIs & JSON', 'Power Automate', 'Excel VBA & macros', 'Scheduled & incremental refresh', 'On-premises gateway', 'ETL pipelines']
   },
   {
@@ -231,8 +231,13 @@ const skillGroups = [
   },
   {
     icon: Network,
-    title: 'AI-Assisted Product Development & Low-Code Automation',
-    items: ['React & Next.js', 'TypeScript & JavaScript', 'Node.js & Express', 'REST API design', 'Power Automate & Xano', 'Three.js & Vite', 'Git & deployment workflows']
+    title: 'Frontend Development',
+    items: ['React & Next.js', 'TypeScript & JavaScript', 'Vite', 'Three.js', 'Tailwind CSS', 'Axios & Recharts']
+  },
+  {
+    icon: Code2,
+    title: 'Backend & API Development',
+    items: ['Node.js & Express', 'TypeScript', 'REST API design', 'JWT authentication', 'Role-based access', 'Xano backend workflows', 'Zod validation & API security']
   },
   {
     icon: Gauge,
