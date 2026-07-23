@@ -17,8 +17,6 @@ import {
   Moon,
   Phone,
   Network,
-  Play,
-  RefreshCw,
   ServerCog,
   ShieldCheck,
   Sun,
@@ -48,61 +46,68 @@ const impactMetrics = [
 const projects = [
   {
     title: 'Construction KPI Case Study',
-    text: 'Portfolio-safe Power BI construction progress case study built with deterministic synthetic CSV data and facade-style KPI logic.',
+    category: 'data',
+    text: 'A public-safe reconstruction of construction progress reporting, from event history to stakeholder-ready KPIs.',
     tags: ['Power BI', 'Python', 'DAX', 'Star Schema'],
     metric: '12',
     label: 'CSV tables',
     visual: 'dashboard',
     repo: 'https://github.com/OMBHARTIYA/construction-progress-dashboard',
-    bullets: [
-      'Generates synthetic construction-progress data for progress, plan vs actual, quality issues, and deliveries.',
-      'Documents the data model, recommended dashboard pages, and DAX measures for Power BI Desktop.',
-      'Shows construction/facade reporting thinking without exposing employer data, BIM IDs, production models, or private screenshots.'
-    ]
+    problem: 'Project teams need one trusted view of progress, delays, issues and deliveries instead of fragmented trackers and manual status updates.',
+    built: 'Synthetic construction data, a star-schema design, Power Query cleaning rules and DAX measure patterns for plan-vs-actual, current status and delivery health.',
+    outcome: 'A reviewable, employer-safe case study that demonstrates the reporting logic behind faster refreshes and clearer stakeholder handovers.'
   },
   {
     title: 'API Ingestion Pipeline',
-    text: 'Synthetic REST-style ingestion case study that lands JSON, normalizes data, validates quality, and prepares Power BI-ready outputs.',
+    category: 'data',
+    text: 'Synthetic REST-style ingestion that lands JSON, normalizes data, validates quality and prepares Power BI-ready outputs.',
     tags: ['Python', 'REST JSON', 'ETL', 'Data Quality'],
     metric: '7.5k',
     label: 'work items',
     visual: 'bars',
     repo: 'https://github.com/OMBHARTIYA/Api-ingestion-pipeline',
-    bullets: [
-      'Implements raw JSON, bronze CSV, silver fact/dimension tables, and gold reporting summaries.',
-      'Includes row-count logging, foreign-key checks, valid-status checks, and latest-event identification.',
-      'Creates project progress, contractor performance, and monthly progress summaries for BI consumption.'
-    ]
+    problem: 'Operational API data is difficult to trust when pagination, status history and validation are handled manually.',
+    built: 'A REST/JSON ingestion flow with raw landing, bronze and silver layers, quality checks, latest-event logic and gold reporting summaries.',
+    outcome: 'A repeatable pipeline pattern that produces project, contractor and monthly progress outputs with visible delivery controls.'
+  },
+  {
+    title: 'Oracle ERP Reconciliation',
+    category: 'data',
+    text: 'Manufacturing reporting grounded in reconciling system records against real production activity.',
+    tags: ['Oracle ERP', 'Excel', 'Data Quality', 'KPI Reporting'],
+    metric: '2',
+    label: 'production lines',
+    visual: 'table',
+    problem: 'ERP records, shift reports and physical output can disagree, weakening daily KPI reporting and root-cause analysis.',
+    built: 'A structured reconciliation routine across Oracle ERP output, inventory, material consumption, shift checklists and physical production records.',
+    outcome: 'More reliable twice-daily operational reporting and clearer evidence for downtime, quality and corrective-action discussions.'
   },
   {
     title: 'Open IFC Viewer Case Study',
-    text: 'Clean-room browser-based IFC/BIM model viewer case study with local file loading, 3D viewport, selection, and model statistics.',
+    category: 'application',
+    text: 'A clean-room browser application for locally loading, navigating and inspecting IFC/BIM models.',
     tags: ['React', 'TypeScript', 'Three.js', 'IFC'],
     metric: '3D',
     label: 'viewer',
     visual: 'table',
     repo: 'https://github.com/OMBHARTIYA/open-ifc-viewer',
-    bullets: [
-      'Public repo loads IFC files locally in the browser without upload, backend, database, telemetry, or external processing API.',
-      'Demonstrates scene setup, orbit controls, grid and axes helpers, object selection, highlighting, properties, and model statistics.',
-      'Related private delivery experience includes status coloring, 2D/3D inspection, model conversion/compression, and Xano-backed status mapping; employer files are excluded.'
-    ]
+    problem: 'Technical reviewers need an accessible way to inspect a building model without exposing the file to an external processing service.',
+    built: 'A React, TypeScript and Three.js viewer with local browser loading, orbit controls, selection, highlighting, properties and model statistics.',
+    outcome: 'A public, inspectable application pattern that demonstrates 3D product delivery while keeping employer models, status data and private source code out of the repository.'
   },
   {
-    title: 'Warehouse Operations & Reporting Project',
-    text: 'Independent full-stack portfolio project demonstrating warehouse, inventory, workflow, and operational reporting skills.',
-    tags: ['Next.js', 'TypeScript', 'PostgreSQL', 'Reporting'],
+    title: 'Warehouse Management Application',
+    category: 'application',
+    text: 'An independent full-stack build that turns warehouse requirements into a usable, deployed operational product.',
+    tags: ['Next.js', 'TypeScript', 'Express', 'REST API'],
     metric: 'Live',
     label: 'deployed app',
     visual: 'warehouse',
     repo: 'https://github.com/OMBHARTIYA/Warehouse-Frontend',
     live: 'https://project-ytm78.vercel.app',
-    bullets: [
-      'Built a Next.js/TypeScript frontend and Express/TypeScript backend for warehouse, product, stock, movement, and user workflows.',
-      'Created structured operational views for inventory visibility, stock movements, user access, and dashboard-ready reporting data.',
-      'Demonstrates SQL-backed workflow design, role-based access, automation thinking, and translating business requirements into a deployed tool.',
-      'The live deployment is authentication-protected; visitors can use Register to create a demo account.'
-    ]
+    problem: 'Warehouse information spread across messages, calls and manual trackers creates conflicting versions of stock and movement history.',
+    built: 'A Next.js and TypeScript interface plus a clean Express/TypeScript API for users, roles, warehouses, products, stock, movements and dashboard statistics.',
+    outcome: 'A live, authentication-protected frontend and public-safe API design that demonstrates requirements translation, workflow modelling and end-to-end product delivery.'
   }
 ];
 
@@ -226,8 +231,13 @@ const skillGroups = [
   },
   {
     icon: Network,
-    title: 'Operational Domains & Technical Context',
-    items: ['Construction & facade', 'BIM / Revit / IFC', 'Warehouse & inventory', 'Manufacturing KPIs', 'React & TypeScript', 'Git']
+    title: 'AI-Assisted Product Development',
+    items: ['React & Next.js', 'TypeScript & JavaScript', 'Node.js & Express', 'REST API design', 'Three.js & Vite', 'Git & deployment workflows']
+  },
+  {
+    icon: Gauge,
+    title: 'Operational Domains',
+    items: ['Construction & facade', 'BIM / Revit / IFC / GLB', 'Warehouse & inventory', 'Manufacturing KPIs', 'Project operations', 'Process control']
   }
 ];
 
@@ -236,7 +246,7 @@ const experience = [
     period: 'May 2025 - Present',
     role: 'Data Analyst / Power BI Developer',
     company: 'DEFOR SA',
-    text: 'Built DEFOR’s first Power BI capability as sole analyst, unifying REST API, Autodesk Construction Cloud, Speckle, and CSV data into a 3D-linked star-schema model for 3–5 concurrent projects and up to 15 stakeholders. Re-architected refreshes from 5–15 minutes to 1–2 minutes using incremental refresh and Fabric ETL.'
+    text: 'Built DEFOR’s first Power BI capability as sole analyst, unifying REST API, Autodesk Construction Cloud, Speckle, and CSV data into a 3D-linked star-schema model for 3–5 concurrent projects and up to 15 stakeholders. Re-architected refreshes from 5–15 minutes to 1–2 minutes using incremental refresh and Fabric ETL. Also co-built a React/Vite browser application for model-linked construction status, connecting analytics requirements with an interactive 2D/3D product workflow.'
   },
   {
     period: 'Feb 2023 - Apr 2025',
@@ -294,7 +304,8 @@ function Header({ theme, onToggleTheme }) {
         <strong>Om Bhartiya</strong>
       </a>
       <nav aria-label="Primary navigation">
-        <a href="#projects">Work</a>
+        <a href="#data-work">Data &amp; BI</a>
+        <a href="#applications">Applications</a>
         <a href="#flagship">Case Study</a>
         <a href="#skills">Skills</a>
         <a href="#experience">Experience</a>
@@ -327,10 +338,10 @@ function Hero() {
       <div className="hero-copy">
         <span className="hero-kicker"><span /> Poland-based · TRC holder · Open to employment-contract roles</span>
         <h1>Om Bhartiya</h1>
-        <p className="hero-title">I turn operational complexity into <em>clear decisions.</em></p>
+        <p className="hero-title">I find the operational problem and <em>build what solves it.</em></p>
         <p className="hero-text">
           Business Intelligence, Data and Business Analyst with 5+ years across manufacturing, construction, and operations.
-          I translate stakeholder requirements into trusted KPIs, Power BI dashboards, automated reporting, and improved business processes.
+          I translate stakeholder requirements into trusted data models, Power BI products and the software around them—using full-stack development when a dashboard alone is not enough.
         </p>
         <div className="impact-grid" aria-label="Portfolio impact metrics">
           {impactMetrics.map((item) => (
@@ -343,7 +354,7 @@ function Hero() {
         <div className="proof-row" aria-label="Portfolio focus areas">
           <span><ClipboardCheck size={18} /> Requirements & process analysis</span>
           <span><Gauge size={18} /> KPI dashboards</span>
-          <span><RefreshCw size={18} /> Reporting automation</span>
+          <span><Code2 size={18} /> Analytics applications</span>
         </div>
         <div className="profile-links" aria-label="Profile links and skills">
           <span>SQL</span>
@@ -351,16 +362,18 @@ function Hero() {
           <span>Excel</span>
           <span>Fabric</span>
           <span>Power Query</span>
+          <span>React</span>
+          <span>TypeScript</span>
           <a href="https://www.linkedin.com/in/om-bhartiya-b22279185/" target="_blank" rel="noreferrer">LinkedIn</a>
           <a href="https://github.com/OMBHARTIYA?tab=repositories" target="_blank" rel="noreferrer">GitHub</a>
           <a href="mailto:ombhartiya16@gmail.com">Email</a>
         </div>
         <div className="hero-actions">
-          <a className="button primary" href="#projects"><Play size={17} /> View Projects</a>
+          <a className="button primary" href="#data-work"><BarChart3 size={17} /> Data &amp; BI Work</a>
+          <a className="button secondary" href="#applications"><Code2 size={17} /> Applications</a>
           <a className="button secondary" href={assetPath('assets/om-bhartiya-cv.pdf')} download><FileText size={17} /> Download CV</a>
-          <a className="button secondary compact" href="#contact"><Mail size={17} /> Contact</a>
         </div>
-        <p className="availability"><MapPin size={17} /> Poland · open to hybrid, on-site, and relocation</p>
+        <p className="availability"><MapPin size={17} /> Poznan, Poland · open to hybrid and on-site work</p>
       </div>
       <div className="hero-visual" aria-label="Executive KPI dashboard preview">
         <div className="visual-caption"><span>Featured work</span><strong>Operations KPI system</strong></div>
@@ -427,18 +440,19 @@ function TechnicalProof() {
   );
 }
 
-function Projects() {
+function WorkSection({ id, label, title, description, items }) {
   return (
-    <section className="section-shell content-section" id="projects">
+    <section className="section-shell content-section" id={id}>
       <div className="section-heading">
         <div>
-          <h2>Selected Projects</h2>
-          <p>Portfolio projects built around reporting reliability, clean data models, and stakeholder adoption.</p>
+          <span className="section-label">{label}</span>
+          <h2>{title}</h2>
+          <p>{description}</p>
         </div>
         <a href="https://github.com/OMBHARTIYA?tab=repositories" target="_blank" rel="noreferrer">View GitHub <ArrowRight size={17} /></a>
       </div>
       <div className="project-grid">
-        {projects.map((project) => (
+        {items.map((project) => (
           <article className="project-card" key={project.title}>
             <ProjectVisual type={project.visual} title={project.title} />
             <div className="project-top">
@@ -454,10 +468,15 @@ function Projects() {
               {project.tags.map((tag) => <span key={tag}>{tag}</span>)}
             </div>
             <details className="project-details">
-              <summary>Read more <ArrowRight size={15} /></summary>
-              <ul>
-                {project.bullets.map((bullet) => <li key={bullet}>{bullet}</li>)}
-              </ul>
+              <summary>Open case study <ArrowRight size={15} /></summary>
+              <div className="case-copy">
+                <h4>The problem</h4>
+                <p>{project.problem}</p>
+                <h4>What I built</h4>
+                <p>{project.built}</p>
+                <h4>The outcome</h4>
+                <p>{project.outcome}</p>
+              </div>
               <div className="project-link-row">
                 <a href={project.repo || '#contact'} target={project.repo ? '_blank' : undefined} rel={project.repo ? 'noreferrer' : undefined}>
                   {project.repo ? 'Open repository' : 'Request walkthrough'} <ExternalLink size={14} />
@@ -473,6 +492,30 @@ function Projects() {
         ))}
       </div>
     </section>
+  );
+}
+
+function DataWork() {
+  return (
+    <WorkSection
+      id="data-work"
+      label="Data leads"
+      title="Data & BI Work"
+      description="Operational problems translated into reliable models, reporting logic, quality controls and decision-ready Power BI outputs."
+      items={projects.filter((project) => project.category === 'data')}
+    />
+  );
+}
+
+function Applications() {
+  return (
+    <WorkSection
+      id="applications"
+      label="Software proves range"
+      title="Applications"
+      description="Working products that show how I move beyond analysis when the business problem needs an interface, workflow or interactive tool."
+      items={projects.filter((project) => project.category === 'application')}
+    />
   );
 }
 
@@ -649,7 +692,7 @@ function Contact() {
           <h2>Let's Work Together</h2>
           <p>
             Open to Business Intelligence Analyst, Data Analyst, Business Analyst, Operations Analyst, and Power BI
-            Developer opportunities in Poland and across Europe.
+            Developer opportunities in Poland. I also bring AI-assisted full-stack product development experience for analytics and operational applications.
           </p>
           <div className="contact-lines">
             <a href="mailto:ombhartiya16@gmail.com"><Mail size={18} /> ombhartiya16@gmail.com</a>
@@ -696,7 +739,8 @@ function App() {
       <Header theme={theme} onToggleTheme={() => setTheme((value) => value === 'dark' ? 'light' : 'dark')} />
       <main>
         <Hero />
-        <Projects />
+        <DataWork />
+        <Applications />
         <FlagshipCaseStudy />
         <TechnicalProof />
         <Walkthroughs />
@@ -710,7 +754,7 @@ function App() {
       <footer>
         <span>© 2026 Om Bhartiya</span>
         <span>Business Intelligence | Data Analyst | Business Analyst</span>
-        <span>Built around dashboards, automation, and business impact</span>
+        <span>Data models, dashboards, and the software around them</span>
       </footer>
     </>
   );

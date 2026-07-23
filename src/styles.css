@@ -244,7 +244,9 @@ button, input, textarea { font: inherit; }
 .project-details { align-self: end; margin-top: 16px; }
 .project-details summary { display: inline-flex; align-items: center; gap: 6px; color: var(--teal-dark); cursor: pointer; font-size: 12px; font-weight: 800; list-style: none; }
 .project-details summary::-webkit-details-marker { display: none; }
-.project-details ul { margin: 13px 0; padding-left: 18px; color: var(--muted); font-size: 12px; line-height: 1.5; }
+.case-copy { display: grid; gap: 5px; margin: 15px 0 17px; }
+.case-copy h4 { margin: 8px 0 0; color: var(--ink); font: 800 10px/1.2 'Manrope', sans-serif; letter-spacing: .09em; text-transform: uppercase; }
+.case-copy p { margin: 0; color: var(--muted); font-size: 12px; line-height: 1.55; }
 .project-link-row { display: flex; flex-wrap: wrap; gap: 12px; }
 .project-details a { display: inline-flex; align-items: center; gap: 5px; color: var(--teal-dark); font-size: 12px; font-weight: 800; }
 
