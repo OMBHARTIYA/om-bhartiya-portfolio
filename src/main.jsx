@@ -60,7 +60,7 @@ const projects = [
   {
     title: 'API Ingestion Pipeline',
     category: 'data',
-    text: 'A syntheticized reconstruction of the Microsoft Fabric API ingestion operating design I authored—from extraction control through recovery.',
+    text: 'A public-safe presentation of the Microsoft Fabric API ingestion operating design I authored—from extraction control through recovery.',
     tags: ['Microsoft Fabric', 'OneLake', 'PySpark', 'Delta Lake'],
     metric: 'E2E',
     label: 'operating design',
@@ -148,7 +148,7 @@ const flagshipCaseStudy = {
 const fabricPipelineCaseStudy = {
   title: 'Microsoft Fabric API Ingestion Operating Design',
   summary:
-    'This is a syntheticized reconstruction of an operating design I authored for scheduled construction-data ingestion. The workflow and engineering decisions are real; every source-specific name, identifier, path, connection and record has been replaced or omitted.',
+    'This presents an operating design I authored and documented for scheduled construction-data ingestion. The workflow and engineering decisions come from that real design; only source-specific names, identifiers, paths, connections and records are syntheticized or omitted.',
   publicModel: {
     incremental: ['asset_records', 'status_events'],
     snapshots: ['catalog', 'project_register', 'issue_register'],
