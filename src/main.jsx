@@ -60,15 +60,15 @@ const projects = [
   {
     title: 'API Ingestion Pipeline',
     category: 'data',
-    text: 'Public-safe proof of Microsoft Fabric ingestion delivery: runnable synthetic ETL plus sanitized incremental-control and operations patterns.',
-    tags: ['Microsoft Fabric', 'REST JSON', 'PySpark', 'Data Quality'],
-    metric: '7.5k',
-    label: 'work items',
+    text: 'A syntheticized reconstruction of the Microsoft Fabric API ingestion operating design I authored—from extraction control through recovery.',
+    tags: ['Microsoft Fabric', 'OneLake', 'PySpark', 'Delta Lake'],
+    metric: 'E2E',
+    label: 'operating design',
     visual: 'bars',
     repo: 'https://github.com/OMBHARTIYA/Api-ingestion-pipeline',
-    problem: 'Incremental API reporting is difficult to trust without a stable extraction window, explicit pagination, safe reruns and quality gates.',
-    built: 'A runnable synthetic raw-to-gold workflow plus delivery-informed Fabric controls for frozen watermarks, OneLake-style staging, PySpark/Delta curation, archive-before-delete and commit-on-success.',
-    outcome: 'A reviewer-ready proof of ETL, pipeline operations, validation and recovery depth without exposing production identifiers, endpoints, schemas, records or exported definitions.'
+    problem: 'Scheduled API reporting is difficult to trust when pages can be missed, run boundaries move during extraction, stale files survive a retry, or state advances after only part of the workflow succeeds.',
+    built: 'A public reconstruction of my real operating pattern: frozen incremental windows, explicit page state, parallel incremental and snapshot branches, run-isolated JSON landing, PySpark curation, Delta outputs, archive-before-cleanup, validation gates and commit-on-success state control.',
+    outcome: 'The case study shows both the delivered workflow and the hardening decisions I identified—without publishing any real organization, endpoint, project, artifact, connection, schema, path, record or identifier.'
   },
   {
     title: 'Oracle ERP Reconciliation',
@@ -145,6 +145,69 @@ const flagshipCaseStudy = {
   repo: 'https://github.com/OMBHARTIYA/construction-progress-dashboard'
 };
 
+const fabricPipelineCaseStudy = {
+  title: 'Microsoft Fabric API Ingestion Operating Design',
+  summary:
+    'This is a syntheticized reconstruction of an operating design I authored for scheduled construction-data ingestion. The workflow and engineering decisions are real; every source-specific name, identifier, path, connection and record has been replaced or omitted.',
+  publicModel: {
+    incremental: ['asset_records', 'status_events'],
+    snapshots: ['catalog', 'project_register', 'issue_register'],
+    state: 'control.pipeline_state',
+    landing: 'Files/portfolio_demo/runs/{run_id}/{dataset}/page_{n}.json'
+  },
+  stages: [
+    {
+      icon: ShieldCheck,
+      label: 'Freeze the run window',
+      text: 'Read one committed state row, capture the upper time boundary once, and reuse the same start and end values for every paginated request.'
+    },
+    {
+      icon: GitBranch,
+      label: 'Extract in parallel',
+      text: 'Run incremental event streams beside supporting snapshot branches, then require every reporting-critical branch to join the same success gate.'
+    },
+    {
+      icon: Network,
+      label: 'Paginate and land',
+      text: 'Initialize page state explicitly, follow the documented next-page signal, and persist each response in a run-specific raw JSON location.'
+    },
+    {
+      icon: Database,
+      label: 'Curate with PySpark',
+      text: 'Flatten nested payloads, cast fields, deduplicate by deterministic key, preserve unaffected prior rows, and publish analytics-ready Delta tables.'
+    },
+    {
+      icon: ClipboardCheck,
+      label: 'Validate the load',
+      text: 'Check page and row counts, keys, rejected records, valid categories, timestamp coverage, schema drift, zero-row behavior and output freshness.'
+    },
+    {
+      icon: ServerCog,
+      label: 'Archive, commit, recover',
+      text: 'Archive raw evidence before cleanup. Advance the committed boundary only after all required work passes; otherwise replay the unchanged window.'
+    }
+  ],
+  controls: [
+    {
+      title: 'Stable boundaries',
+      text: 'A source window cannot drift while later pages are being requested.'
+    },
+    {
+      title: 'Replay safety',
+      text: 'A failed run keeps its original lower boundary and uses deterministic replacement logic.'
+    },
+    {
+      title: 'Whole-run visibility',
+      text: 'Extraction, transformation and validation failures route to one actionable failure path.'
+    },
+    {
+      title: 'Scale hardening',
+      text: 'Run isolation, concurrency control, single-call pagination and atomic Delta merge are explicit improvement paths.'
+    }
+  ],
+  repo: 'https://github.com/OMBHARTIYA/Api-ingestion-pipeline'
+};
+
 const walkthroughs = [
   {
     title: 'Dashboard Workflow',
@@ -194,14 +257,15 @@ CALCULATE(
   {
     title: 'Incremental Pipeline Control',
     icon: ShieldCheck,
-    note: 'Failure-safe control pattern for paginated API ingestion.',
-    code: `run_window:
-  start: last_success
-  end: frozen_at_start
-pagination:
-  terminal_signal: explicit
-watermark_commit:
-  when: all_required_steps_pass`
+    note: 'The same frozen window is replayed until the entire required workflow passes.',
+    code: `state = read_one("control.pipeline_state")
+window = [state.last_committed_ms, captured_once()]
+
+extract_all_required_branches(window)
+validate_curated_outputs()
+archive_raw_evidence()
+
+commit(window.end)  # only after full success`
   }
 ];
 
@@ -514,6 +578,83 @@ function DataWork() {
   );
 }
 
+function FabricPipelineCaseStudy() {
+  const { publicModel } = fabricPipelineCaseStudy;
+
+  return (
+    <section className="pipeline-case-section" id="pipeline-case">
+      <div className="section-shell pipeline-case-shell">
+        <div className="pipeline-case-heading">
+          <div>
+            <span className="pipeline-case-kicker">Real workflow · synthetic identifiers</span>
+            <h2>{fabricPipelineCaseStudy.title}</h2>
+            <p>{fabricPipelineCaseStudy.summary}</p>
+          </div>
+          <a className="button primary" href={fabricPipelineCaseStudy.repo} target="_blank" rel="noreferrer">
+            Review the full case study <ExternalLink size={16} />
+          </a>
+        </div>
+
+        <div className="pipeline-public-model" aria-label="Synthetic public data model">
+          <div>
+            <span>Incremental streams</span>
+            <code>{publicModel.incremental.join(' · ')}</code>
+          </div>
+          <div>
+            <span>Reference snapshots</span>
+            <code>{publicModel.snapshots.join(' · ')}</code>
+          </div>
+          <div>
+            <span>Run state</span>
+            <code>{publicModel.state}</code>
+          </div>
+          <div>
+            <span>Run-isolated landing</span>
+            <code>{publicModel.landing}</code>
+          </div>
+        </div>
+
+        <div className="pipeline-stage-grid">
+          {fabricPipelineCaseStudy.stages.map(({ icon: Icon, label, text }, index) => (
+            <article className="pipeline-stage-card" key={label}>
+              <div className="pipeline-stage-top">
+                <span>{String(index + 1).padStart(2, '0')}</span>
+                <Icon size={21} />
+              </div>
+              <h3>{label}</h3>
+              <p>{text}</p>
+            </article>
+          ))}
+        </div>
+
+        <div className="pipeline-control-panel">
+          <div>
+            <span className="pipeline-case-kicker">Operating controls</span>
+            <h3>What makes the design trustworthy</h3>
+          </div>
+          <div className="pipeline-control-grid">
+            {fabricPipelineCaseStudy.controls.map((control) => (
+              <article key={control.title}>
+                <CheckCircle2 size={18} />
+                <div>
+                  <h4>{control.title}</h4>
+                  <p>{control.text}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+
+        <p className="pipeline-safety-note">
+          Public boundary: the labels above are synthetic. No live API URL, organization name, project identifier,
+          tenant, workspace, lakehouse, warehouse, connection, internal table, storage path, credential, source row,
+          screenshot or exported pipeline definition is included.
+        </p>
+      </div>
+    </section>
+  );
+}
+
 function Applications() {
   return (
     <WorkSection
@@ -748,6 +889,7 @@ function App() {
       <main>
         <Hero />
         <DataWork />
+        <FabricPipelineCaseStudy />
         <Applications />
         <FlagshipCaseStudy />
         <TechnicalProof />
