@@ -12,6 +12,9 @@ React/Vite portfolio site for Om Bhartiya, positioned as a Business Intelligence
 - Flagship construction progress BI case study
 - Analyst proof snippets for SQL, DAX, Power Query, and delivery checks
 - "How I Built This" case-study notes
+- Dedicated Microsoft Fabric API ingestion case study presenting an operating design authored and documented by Om
+- Visible six-stage workflow covering frozen incremental windows, parallel branches, pagination, run-isolated OneLake landing, PySpark/Delta curation, quality gates, raw-file lifecycle, and failure-safe state commits
+- Synthetic public model showing safe example dataset, state-table, and run-path conventions without reproducing source-specific identifiers
 - Public-safe animated walkthroughs for the dashboard and IFC viewer workflows
 - Confidentiality note explaining why production work is represented with synthetic/clean-room case studies
 
@@ -37,7 +40,8 @@ npm run build
 ## Profile Sources Reflected
 
 - CV/profile information provided by Om Bhartiya, rewritten into public-safe portfolio wording
-- Private production references reviewed locally only; no confidential data, screenshots, model files, or employer-owned source code are included
+- Private production references reviewed locally only; no confidential identifiers, endpoints, credentials, connection or artifact names, source records, screenshots, model files, exported definitions, or employer-owned source code are included
+- The Fabric case study presents the real authored process and engineering decisions while replacing or omitting every organization, source, project, tenant, workspace, lakehouse, warehouse, connection, schema, path, credential, record, and deployment identifier
 - GitHub projects:
   - `https://github.com/OMBHARTIYA/Warehouse-Frontend`
   - `https://github.com/OMBHARTIYA/construction-progress-dashboard`
