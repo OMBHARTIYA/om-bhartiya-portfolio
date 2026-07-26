@@ -50,9 +50,13 @@ const projects = [
     text: 'A public-safe reconstruction of construction progress reporting, from event history to stakeholder-ready KPIs.',
     tags: ['Power BI', 'Python', 'DAX', 'Star Schema'],
     metric: '12',
-    label: 'CSV tables',
-    visual: 'dashboard',
+    label: 'model tables',
+    visualImage: 'assets/dashboard-hero.png',
+    visualAlt: 'Construction KPI dashboard generated from the public case-study dataset',
+    visualNote: 'Reproducible demo · public synthetic data',
     repo: 'https://github.com/OMBHARTIYA/construction-progress-dashboard',
+    proofUrl: 'https://github.com/OMBHARTIYA/construction-progress-dashboard/blob/main/docs/kpi-proof-summary.md',
+    proofLabel: 'Review KPI proof pack',
     problem: 'Project teams need one trusted view of progress, delays, issues and deliveries instead of fragmented trackers and manual status updates.',
     built: 'Synthetic construction data, a star-schema design, Power Query cleaning rules and DAX measure patterns for plan-vs-actual, current status and delivery health.',
     outcome: 'A reviewable, employer-safe case study that demonstrates the reporting logic behind faster refreshes and clearer stakeholder handovers.'
@@ -60,12 +64,26 @@ const projects = [
   {
     title: 'API Ingestion Pipeline',
     category: 'data',
-    text: 'A public-safe presentation of the Microsoft Fabric API ingestion operating design I authored—from extraction control through recovery.',
+    text: 'A runnable raw-to-gold pipeline paired with the Microsoft Fabric API ingestion operating design I authored.',
     tags: ['Microsoft Fabric', 'OneLake', 'PySpark', 'Delta Lake'],
-    metric: 'E2E',
-    label: 'operating design',
-    visual: 'bars',
+    metric: 'PASS',
+    label: 'pipeline validation',
+    proof: {
+      kind: 'pipeline',
+      kicker: 'Reproducible validation',
+      status: 'PASS',
+      value: '45,194',
+      valueLabel: 'status events processed',
+      metrics: [
+        { value: '7,500', label: 'work items' },
+        { value: '12/12', label: 'quality checks' }
+      ],
+      flow: ['RAW', 'BRONZE', 'SILVER', 'GOLD'],
+      source: 'Rerun 26 Jul 2026 · public repository'
+    },
     repo: 'https://github.com/OMBHARTIYA/Api-ingestion-pipeline',
+    proofUrl: 'https://github.com/OMBHARTIYA/Api-ingestion-pipeline/blob/main/docs/validation-report.md',
+    proofLabel: 'Open validation report',
     problem: 'Scheduled API reporting is difficult to trust when pages can be missed, run boundaries move during extraction, stale files survive a retry, or state advances after only part of the workflow succeeds.',
     built: 'A public reconstruction of my real operating pattern: frozen incremental windows, explicit page state, parallel incremental and snapshot branches, run-isolated JSON landing, PySpark curation, Delta outputs, archive-before-cleanup, validation gates and commit-on-success state control.',
     outcome: 'The case study shows both the delivered workflow and the hardening decisions I identified—without publishing any real organization, endpoint, project, artifact, connection, schema, path, record or identifier.'
@@ -75,9 +93,23 @@ const projects = [
     category: 'data',
     text: 'Manufacturing reporting grounded in reconciling system records against real production activity.',
     tags: ['Oracle ERP', 'Excel', 'Data Quality', 'KPI Reporting'],
-    metric: '2',
-    label: 'production lines',
-    visual: 'table',
+    metric: '99%',
+    label: 'data accuracy',
+    proof: {
+      kind: 'professional',
+      kicker: 'Professional outcome',
+      status: 'RÉSUMÉ',
+      value: '99%',
+      valueLabel: 'reported data accuracy',
+      metrics: [
+        { value: '2×', label: 'daily summaries' },
+        { value: 'ERP', label: 'source reconciled' }
+      ],
+      flow: ['ORACLE ERP', 'SHIFT CHECK', 'PHYSICAL OUTPUT'],
+      source: 'Production data confidential · outcome disclosed in résumé'
+    },
+    proofAsset: 'assets/om-bhartiya-cv.pdf',
+    proofLabel: 'View résumé evidence',
     problem: 'ERP records, shift reports and physical output can disagree, weakening daily KPI reporting and root-cause analysis.',
     built: 'A structured reconciliation routine across Oracle ERP output, inventory, material consumption, shift checklists and physical production records.',
     outcome: 'More reliable twice-daily operational reporting and clearer evidence for downtime, quality and corrective-action discussions.'
@@ -87,10 +119,24 @@ const projects = [
     category: 'application',
     text: 'A clean-room browser application for locally loading, navigating and inspecting IFC/BIM models.',
     tags: ['React', 'TypeScript', 'Three.js', 'IFC'],
-    metric: '3D',
-    label: 'viewer',
-    visual: 'table',
+    metric: 'PASS',
+    label: 'production build',
+    proof: {
+      kind: 'repository',
+      kicker: 'Public clean-room repository',
+      status: 'PASS',
+      value: 'Verified',
+      valueLabel: 'TypeScript + Vite production build',
+      metrics: [
+        { value: 'LOCAL', label: 'IFC loading' },
+        { value: '0', label: 'file uploads' }
+      ],
+      flow: ['LOCAL FILE', '3D VIEW', 'PROPERTIES'],
+      source: 'Built successfully 26 Jul 2026 · no private model used'
+    },
     repo: 'https://github.com/OMBHARTIYA/open-ifc-viewer',
+    proofUrl: 'https://github.com/OMBHARTIYA/open-ifc-viewer/blob/main/docs/verification.md',
+    proofLabel: 'Review build evidence',
     problem: 'Technical reviewers need an accessible way to inspect a building model without exposing the file to an external processing service.',
     built: 'A React, TypeScript and Three.js viewer with local browser loading, orbit controls, selection, highlighting, properties and model statistics.',
     outcome: 'A public, inspectable application pattern that demonstrates 3D product delivery while keeping employer models, status data and private source code out of the repository.'
@@ -102,7 +148,9 @@ const projects = [
     tags: ['Next.js', 'TypeScript', 'Express', 'REST API'],
     metric: 'Live',
     label: 'deployed app',
-    visual: 'warehouse',
+    visualImage: 'assets/warehouse-os.png',
+    visualAlt: 'Live warehouse management application interface',
+    visualNote: 'Live deployment · independently built',
     repo: 'https://github.com/OMBHARTIYA/Warehouse-Frontend',
     live: 'https://project-ytm78.vercel.app',
     problem: 'Warehouse information spread across messages, calls and manual trackers creates conflicting versions of stock and movement history.',
@@ -214,12 +262,6 @@ const walkthroughs = [
     image: 'assets/walkthrough-dashboard.gif',
     alt: 'Animated synthetic dashboard walkthrough showing KPI cards, status history, and progress charts',
     points: ['Power Query-ready event history', 'DAX-style current status logic', 'KPI cards and progress distribution', 'Portfolio-safe synthetic data only']
-  },
-  {
-    title: 'IFC Viewer Workflow',
-    image: 'assets/walkthrough-ifc-viewer.gif',
-    alt: 'Animated synthetic IFC viewer walkthrough showing a 3D model, selected element, and property inspector',
-    points: ['Local model loading concept', '3D scene and element selection', 'Property/status inspection', 'No client model or employer data included']
   }
 ];
 
@@ -515,7 +557,7 @@ function WorkSection({ id, label, title, description, items }) {
       <div className="project-grid">
         {items.map((project) => (
           <article className="project-card" key={project.title}>
-            <ProjectVisual type={project.visual} title={project.title} />
+            <ProjectVisual project={project} />
             <div className="project-top">
               <LineChart size={22} />
               <div>
@@ -528,6 +570,16 @@ function WorkSection({ id, label, title, description, items }) {
             <div className="tag-row">
               {project.tags.map((tag) => <span key={tag}>{tag}</span>)}
             </div>
+            {(project.proofUrl || project.proofAsset) && (
+              <a
+                className="project-proof-link"
+                href={project.proofUrl || assetPath(project.proofAsset)}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <CheckCircle2 size={14} /> {project.proofLabel} <ExternalLink size={13} />
+              </a>
+            )}
             <details className="project-details">
               <summary>Open case study <ArrowRight size={15} /></summary>
               <div className="case-copy">
@@ -657,24 +709,67 @@ function Applications() {
   );
 }
 
-function ProjectVisual({ type, title }) {
+function ProjectVisual({ project }) {
+  const { proof } = project;
+  const ProofIcon = proof?.kind === 'professional'
+    ? ShieldCheck
+    : proof?.kind === 'repository'
+      ? GitBranch
+      : Database;
+
   return (
-    <div className={`project-visual ${type}`} aria-label={`${title} preview`}>
+    <div className={`project-visual ${proof ? 'evidence-proof' : 'image-proof'}`} aria-label={`${project.title} evidence`}>
       <div className="visual-header">
         <span />
         <span />
         <span />
+        <strong>{proof ? 'VERIFICATION' : 'PROJECT PREVIEW'}</strong>
       </div>
-      {type === 'dashboard' && <img src={assetPath('assets/dashboard-hero.png')} alt="" loading="lazy" decoding="async" />}
-      {type === 'warehouse' && <img src={assetPath('assets/warehouse-os.png')} alt="" loading="lazy" decoding="async" />}
-      {type !== 'dashboard' && type !== 'warehouse' && (
-        <div className="visual-body">
-          <i />
-          <i />
-          <i />
-          <i />
-          <i />
-          <i />
+      {project.visualImage && (
+        <>
+          <img
+            src={assetPath(project.visualImage)}
+            alt={project.visualAlt}
+            loading="lazy"
+            decoding="async"
+          />
+          <div className="visual-proof-badge">
+            <CheckCircle2 size={15} />
+            <span>{project.visualNote}</span>
+          </div>
+        </>
+      )}
+      {proof && (
+        <div className="evidence-panel">
+          <div className="evidence-heading">
+            <div className="evidence-icon"><ProofIcon size={20} /></div>
+            <span>{proof.kicker}</span>
+            <strong>{proof.status}</strong>
+          </div>
+          <div className="evidence-primary">
+            <strong>{proof.value}</strong>
+            <span>{proof.valueLabel}</span>
+          </div>
+          <div className="evidence-metrics">
+            {proof.metrics.map((metric) => (
+              <div key={metric.label}>
+                <strong>{metric.value}</strong>
+                <span>{metric.label}</span>
+              </div>
+            ))}
+          </div>
+          <div className="evidence-flow" aria-label={proof.flow.join(' to ')}>
+            {proof.flow.map((stage, index) => (
+              <React.Fragment key={stage}>
+                <span>{stage}</span>
+                {index < proof.flow.length - 1 && <b aria-hidden="true">→</b>}
+              </React.Fragment>
+            ))}
+          </div>
+          <div className="evidence-source">
+            <CheckCircle2 size={14} />
+            <span>{proof.source}</span>
+          </div>
         </div>
       )}
     </div>
@@ -690,7 +785,7 @@ function Walkthroughs() {
           <p>Sanitized animated previews that show workflow ideas without using confidential dashboards, models, screenshots, or data.</p>
         </div>
       </div>
-      <div className="walkthrough-grid">
+      <div className={`walkthrough-grid ${walkthroughs.length === 1 ? 'single' : ''}`}>
         {walkthroughs.map((item) => (
           <article className="walkthrough-card" key={item.title}>
             <img src={assetPath(item.image)} alt={item.alt} loading="lazy" decoding="async" />
