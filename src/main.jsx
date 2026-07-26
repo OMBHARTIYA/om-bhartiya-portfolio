@@ -37,10 +37,10 @@ const getInitialTheme = () => {
 };
 
 const impactMetrics = [
-  { value: 'Up to 15', label: 'stakeholders supported' },
-  { value: '3–5', label: 'concurrent projects' },
-  { value: '1–2 min', label: 'refresh runtime' },
-  { value: '30–60 min', label: 'reporting cycle' }
+  { value: '90%', label: 'reporting performance gain' },
+  { value: '15+', label: 'stakeholders enabled' },
+  { value: '4+', label: 'data sources unified' },
+  { value: '5,000+', label: 'records processed per load' }
 ];
 
 const projects = [
@@ -138,7 +138,7 @@ const flagshipCaseStudy = {
     },
     {
       label: 'Business outcome',
-      text: 'This mirrors the real delivery pattern behind 30–60 minute reporting cycles, 1–2 minute refreshes, clearer handovers, and self-service status visibility.'
+      text: 'This mirrors the architecture behind a 90% reporting performance improvement, sub-minute dashboard refreshes, clearer handovers, and self-service status visibility.'
     }
   ],
   stack: ['Power BI', 'Power Query', 'DAX', 'Star schema', 'Python synthetic data', 'Construction KPIs'],
@@ -317,53 +317,43 @@ const experience = [
     period: 'May 2025 - Present',
     role: 'Data Analyst / Power BI Developer',
     company: 'DEFOR SA',
-    text: 'Built DEFOR’s first Power BI capability as sole analyst, unifying REST API, Autodesk Construction Cloud, Speckle, and CSV data into a 3D-linked star-schema model for 3–5 concurrent projects and up to 15 stakeholders. Re-architected refreshes from 5–15 minutes to 1–2 minutes using incremental refresh and Fabric ETL. Also co-built a React/Vite browser application for model-linked construction status, connecting analytics requirements with an interactive 2D/3D product workflow.'
+    text: 'Improved reporting performance by 90% by replacing full-reload pipelines with incremental loading and sub-minute dashboard refreshes. Established the company’s first Power BI capability across 10 production stages for 15+ stakeholders, unified 4+ sources into a 3D-linked star-schema model, and engineered Microsoft Fabric ETL with PySpark and SQL to process 5,000+ records per load.'
   },
   {
     period: 'Feb 2023 - Apr 2025',
     role: 'Operations Data & Reporting Analyst',
     company: 'All For Expo',
-    text: 'Replaced WhatsApp, phone, and email tracking with a centralised system covering project stages, materials, stock, invoices, and payment status. Consolidated Google Sheets, Drive, Gmail, and loose PDFs into one source of truth for project, warehouse, logistics, and finance teams.'
+    text: 'Centralised operational tracking across four major divisions, replacing scattered WhatsApp, email, and spreadsheet workflows with one source of truth. Consolidated project, inventory, and finance data to improve integrity and support reliable monitoring throughout each project lifecycle.'
   },
   {
     period: 'Oct 2019 - Sep 2022',
     role: 'Process Control & Operational Reporting Engineer',
     company: 'UFLEX Group',
-    text: 'Produced two operational reports every 24 hours across two production lines, validating Oracle ERP output, inventory, and material consumption against shift checklists and physical output to identify recurring downtime and quality patterns.'
-  },
-  {
-    period: 'Aug 2018 - Apr 2019',
-    role: 'Intern Trainee',
-    company: 'Honda Cars India Ltd',
-    text: 'Supported assembly frame and HR operations while building practical exposure to operational processes and shop-floor coordination.'
+    text: 'Maintained 99% data accuracy by auditing Oracle ERP entries against live production output. Produced high-frequency, twice-daily summaries for engineering-led corrective action and designed automated process controls that established a verification-first approach to operational data.'
   }
 ];
 
 const certifications = [
-  'PL-300 Power BI Data Analyst - in progress',
-  'Extract, Transform and Load Data in Power BI - Microsoft',
-  'Data Analyst with Excel - Microsoft',
-  'SQL for Data Science - UC Davis',
-  'Python for Data Science, AI & Development - IBM'
+  'Microsoft PL-300 Candidate',
+  'Microsoft ETL Specialization',
+  'IBM Python for Data Science',
+  'UC Davis SQL for Data Science',
+  'CSCMP Supply Chain Foundations: Demand Planning',
+  'Salesforce Sales/Operations Professional Certificate'
 ];
 
-const languages = ['English - C1', 'Polish - A2', 'Hindi - Native'];
+const languages = ['English - Fluent (C1)', 'Polish - Elementary (A1)'];
 
 const education = [
   {
     school: 'Poznan University of Technology',
-    detail: 'B.Eng., Engineering / Industrial Management · Grade: 4.5 / 5.0',
-    period: 'Oct 2022 - Mar 2026'
+    detail: 'B.Eng. in Engineering & Industrial Management',
+    period: '2022 - 2026'
   },
   {
     school: 'Babes-Bolyai University',
-    detail: 'Erasmus Blended Intensive Programme, Digital Product Development & Reverse Engineering-2',
-    period: 'Apr 2024 - Jun 2024'
-  },
-  {
-    school: 'Amity University, Greater Noida Campus',
-    detail: 'Mechanical Engineering Studies',
-    period: '2016 - 2019'
+    detail: 'Erasmus Blended Intensive Programme, Romania',
+    period: '2024'
   }
 ];
 
@@ -411,8 +401,8 @@ function Hero() {
         <h1>Om Bhartiya</h1>
         <p className="hero-title">I find the operational problem and <em>build what solves it.</em></p>
         <p className="hero-text">
-          Business Intelligence, Data and Business Analyst with 5+ years across manufacturing, construction, and operations.
-          I translate stakeholder requirements into trusted data models, Power BI products and the software around them—using full-stack development when a dashboard alone is not enough.
+          Operations-focused Data Engineer &amp; Full-Stack Developer with 5+ years across manufacturing and operational environments.
+          I turn fragmented engineering data into scalable pipelines, trusted BI, and production-grade applications with Microsoft Fabric, PySpark, SQL, React, and Node.js.
         </p>
         <div className="impact-grid" aria-label="Portfolio impact metrics">
           {impactMetrics.map((item) => (
@@ -423,28 +413,28 @@ function Hero() {
           ))}
         </div>
         <div className="proof-row" aria-label="Portfolio focus areas">
-          <span><ClipboardCheck size={18} /> Requirements & process analysis</span>
-          <span><Gauge size={18} /> KPI dashboards</span>
-          <span><Code2 size={18} /> Analytics applications</span>
+          <span><Database size={18} /> ETL &amp; semantic models</span>
+          <span><Gauge size={18} /> BI &amp; process visibility</span>
+          <span><Code2 size={18} /> Full-stack applications</span>
         </div>
         <div className="profile-links" aria-label="Profile links and skills">
           <span>SQL</span>
-          <span>DAX</span>
-          <span>Excel</span>
-          <span>Fabric</span>
-          <span>Power Query</span>
+          <span>PySpark</span>
+          <span>Microsoft Fabric</span>
+          <span>Power BI</span>
           <span>React</span>
+          <span>Node.js</span>
           <span>TypeScript</span>
           <a href="https://www.linkedin.com/in/om-bhartiya-b22279185/" target="_blank" rel="noreferrer">LinkedIn</a>
           <a href="https://github.com/OMBHARTIYA?tab=repositories" target="_blank" rel="noreferrer">GitHub</a>
           <a href="mailto:ombhartiya16@gmail.com">Email</a>
         </div>
         <div className="hero-actions">
-          <a className="button primary" href="#data-work"><BarChart3 size={17} /> Data &amp; BI Work</a>
+          <a className="button primary" href="#data-work"><BarChart3 size={17} /> Data Engineering &amp; BI</a>
           <a className="button secondary" href="#applications"><Code2 size={17} /> Applications</a>
           <a className="button secondary" href={assetPath('assets/om-bhartiya-cv.pdf')} download><FileText size={17} /> Download CV</a>
         </div>
-        <p className="availability"><MapPin size={17} /> Poznan, Poland · open to hybrid and on-site work</p>
+        <p className="availability"><MapPin size={17} /> Poznan, Poland · open to on-site, hybrid, and remote work</p>
       </div>
       <div className="hero-visual" aria-label="Executive KPI dashboard preview">
         <div className="visual-caption"><span>Featured work</span><strong>Operations KPI system</strong></div>
@@ -764,7 +754,7 @@ function Experience() {
       <div className="section-heading">
         <div>
           <h2>Experience</h2>
-          <p>5+ years across manufacturing, construction, and operations data—from process control and reporting into BI development.</p>
+          <p>5+ years transforming manufacturing and operational workflows through data engineering, BI, automation, and software delivery.</p>
         </div>
       </div>
       <div className="timeline">
@@ -815,7 +805,7 @@ function Certifications() {
       <div className="section-heading">
         <div>
           <h2>Certifications &amp; Languages</h2>
-          <p>Verified learning across Power BI, Excel, SQL, and Python, plus the languages I use across international teams.</p>
+          <p>Professional learning across Power BI, ETL, Python, SQL, supply chain, and operations—plus the languages I use across international teams.</p>
         </div>
       </div>
       <div className="cert-grid">
@@ -840,8 +830,8 @@ function Contact() {
         <div>
           <h2>Let's Work Together</h2>
           <p>
-            Open to Business Intelligence Analyst, Data Analyst, Business Analyst, Operations Analyst, and Power BI
-            Developer opportunities in Poland. I also bring AI-assisted full-stack product development experience for analytics and operational applications.
+            Open to Data Engineer, BI / Data Analyst, Power BI Developer, Full-Stack Developer, and operations-focused
+            automation opportunities in Poland or remotely.
           </p>
           <div className="contact-lines">
             <a href="mailto:ombhartiya16@gmail.com"><Mail size={18} /> ombhartiya16@gmail.com</a>
@@ -903,8 +893,8 @@ function App() {
       </main>
       <footer>
         <span>© 2026 Om Bhartiya</span>
-        <span>Business Intelligence | Data Analyst | Business Analyst</span>
-        <span>Data models, dashboards, and the software around them</span>
+        <span>Data Engineer | Full-Stack Developer</span>
+        <span>Pipelines, BI, automation, and production-grade applications</span>
       </footer>
     </>
   );

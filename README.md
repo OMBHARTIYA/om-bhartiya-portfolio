@@ -1,6 +1,6 @@
-# Om Bhartiya Data Analyst Portfolio
+# Om Bhartiya Data Engineer & Full-Stack Developer Portfolio
 
-React/Vite portfolio site for Om Bhartiya, positioned as a Business Intelligence, Data and Business Analyst who can also build the software around an operational problem.
+React/Vite portfolio site for Om Bhartiya, positioned as an operations-focused Data Engineer and Full-Stack Developer who delivers data pipelines, BI products, automation, and production-grade applications.
 
 ## Public Proof Sections
 
@@ -20,7 +20,7 @@ React/Vite portfolio site for Om Bhartiya, positioned as a Business Intelligence
 
 ## Portfolio Positioning
 
-This site is positioned first for Data Analyst, Power BI Analyst, Business Analyst, Operations Analyst, and BI Developer roles. Full-stack work is presented as supporting evidence of requirements translation and product delivery, using React, Next.js, TypeScript, Node.js, Express, Three.js, and Vite without displacing the analyst identity.
+This site is positioned for Data Engineer, BI / Data Analyst, Power BI Developer, Full-Stack Developer, and operations-focused automation roles. It presents Microsoft Fabric, PySpark, SQL, Power BI, React, Node.js, TypeScript, and operational process expertise as one end-to-end delivery profile.
 
 ## Run Locally
 
