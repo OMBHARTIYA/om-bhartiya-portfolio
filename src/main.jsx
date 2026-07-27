@@ -64,26 +64,26 @@ const projects = [
   {
     title: 'API Ingestion Pipeline',
     category: 'data',
-    text: 'A runnable raw-to-gold pipeline paired with the Microsoft Fabric API ingestion operating design I authored.',
+    text: 'A public reference implementation of a raw-to-gold ingestion pattern, with runnable code and documented validation.',
     tags: ['Microsoft Fabric', 'OneLake', 'PySpark', 'Delta Lake'],
-    metric: 'PASS',
-    label: 'pipeline validation',
+    metric: 'Code',
+    label: 'publicly reviewable',
     proof: {
       kind: 'pipeline',
-      kicker: 'Reproducible validation',
-      status: 'PASS',
-      value: '45,194',
-      valueLabel: 'status events processed',
+      kicker: 'Repository evidence',
+      status: 'PUBLIC',
+      value: 'Public source',
+      valueLabel: 'runnable raw-to-gold reference pipeline',
       metrics: [
-        { value: '7,500', label: 'work items' },
-        { value: '12/12', label: 'quality checks' }
+        { value: '12 CHECKS', label: 'documented validation coverage' },
+        { value: 'RAW→GOLD', label: 'documented processing flow' }
       ],
       flow: ['RAW', 'BRONZE', 'SILVER', 'GOLD'],
-      source: 'Rerun 26 Jul 2026 · public repository'
+      source: 'Implementation, setup guide and validation report available on GitHub'
     },
     repo: 'https://github.com/OMBHARTIYA/Api-ingestion-pipeline',
     proofUrl: 'https://github.com/OMBHARTIYA/Api-ingestion-pipeline/blob/main/docs/validation-report.md',
-    proofLabel: 'Open validation report',
+    proofLabel: 'Review repository evidence',
     problem: 'Scheduled API reporting is difficult to trust when pages can be missed, run boundaries move during extraction, stale files survive a retry, or state advances after only part of the workflow succeeds.',
     built: 'A public reconstruction of my real operating pattern: frozen incremental windows, explicit page state, parallel incremental and snapshot branches, run-isolated JSON landing, PySpark curation, Delta outputs, archive-before-cleanup, validation gates and commit-on-success state control.',
     outcome: 'The case study shows both the delivered workflow and the hardening decisions I identified—without publishing any real organization, endpoint, project, artifact, connection, schema, path, record or identifier.'
@@ -117,26 +117,26 @@ const projects = [
   {
     title: 'Open IFC Viewer Case Study',
     category: 'application',
-    text: 'A clean-room browser application for locally loading, navigating and inspecting IFC/BIM models.',
+    text: 'A public clean-room application for locally loading, navigating and inspecting IFC/BIM models in the browser.',
     tags: ['React', 'TypeScript', 'Three.js', 'IFC'],
-    metric: 'PASS',
-    label: 'production build',
+    metric: 'Code',
+    label: 'publicly reviewable',
     proof: {
       kind: 'repository',
-      kicker: 'Public clean-room repository',
-      status: 'PASS',
-      value: 'Verified',
-      valueLabel: 'TypeScript + Vite production build',
+      kicker: 'Repository evidence',
+      status: 'PUBLIC',
+      value: 'Public source',
+      valueLabel: 'React + TypeScript clean-room implementation',
       metrics: [
-        { value: 'LOCAL', label: 'IFC loading' },
-        { value: '0', label: 'file uploads' }
+        { value: 'BROWSER', label: 'local IFC processing' },
+        { value: 'THREE.JS', label: 'interactive model scene' }
       ],
       flow: ['LOCAL FILE', '3D VIEW', 'PROPERTIES'],
-      source: 'Built successfully 26 Jul 2026 · no private model used'
+      source: 'Source code, build instructions and verification notes available on GitHub'
     },
     repo: 'https://github.com/OMBHARTIYA/open-ifc-viewer',
     proofUrl: 'https://github.com/OMBHARTIYA/open-ifc-viewer/blob/main/docs/verification.md',
-    proofLabel: 'Review build evidence',
+    proofLabel: 'Review repository evidence',
     problem: 'Technical reviewers need an accessible way to inspect a building model without exposing the file to an external processing service.',
     built: 'A React, TypeScript and Three.js viewer with local browser loading, orbit controls, selection, highlighting, properties and model statistics.',
     outcome: 'A public, inspectable application pattern that demonstrates 3D product delivery while keeping employer models, status data and private source code out of the repository.'
@@ -723,7 +723,7 @@ function ProjectVisual({ project }) {
         <span />
         <span />
         <span />
-        <strong>{proof ? 'VERIFICATION' : 'PROJECT PREVIEW'}</strong>
+        <strong>{proof ? 'EVIDENCE' : 'PROJECT PREVIEW'}</strong>
       </div>
       {project.visualImage && (
         <>
