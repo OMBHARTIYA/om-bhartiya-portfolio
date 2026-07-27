@@ -9,14 +9,11 @@ import {
   Database,
   ExternalLink,
   FileText,
-  Gauge,
   GitBranch,
-  LineChart,
   Mail,
   MapPin,
   Moon,
   Phone,
-  Network,
   ServerCog,
   ShieldCheck,
   Sun,
@@ -25,6 +22,207 @@ import {
 import './styles.css';
 
 const assetPath = (file) => `${import.meta.env.BASE_URL}${file}`;
+
+const profileLinks = {
+  linkedin: 'https://www.linkedin.com/in/om-bhartiya-b22279185/',
+  github: 'https://github.com/OMBHARTIYA?tab=repositories',
+  cv: 'assets/om-bhartiya-cv.pdf'
+};
+
+const verifiedScope = [
+  { value: '5+ years', label: 'operations and data experience' },
+  { value: 'Up to 15', label: 'business stakeholders supported' },
+  { value: '4 sources', label: 'integrated into one reporting model' },
+  { value: '10 stages', label: 'covered by production reporting' }
+];
+
+const caseStudies = [
+  {
+    number: '01',
+    title: 'Construction Progress BI',
+    category: 'Power BI · Operational analytics',
+    summary:
+      'A reporting system for construction and facade operations that brought fragmented progress, issue and delivery data into one decision-ready model.',
+    contribution:
+      'Owned requirements, source integration, semantic modelling, KPI logic, validation and stakeholder delivery across multiple concurrent projects.',
+    engineering:
+      'Combined REST API, Autodesk Construction Cloud, a Speckle failover source and CSV inputs into a 10-stage model, then extended the workflow through Microsoft Fabric, OneLake, notebooks, SQL and pipelines.',
+    outcome:
+      'Reduced the reported refresh range from approximately 5–15 minutes to 1–2 minutes and supported self-service visibility for up to 15 stakeholders.',
+    tags: ['Power BI', 'DAX', 'Power Query', 'Microsoft Fabric', 'Star schema'],
+    visual: 'dashboard',
+    links: [
+      {
+        label: 'Open case repository',
+        href: 'https://github.com/OMBHARTIYA/construction-progress-dashboard'
+      },
+      {
+        label: 'Review KPI documentation',
+        href: 'https://github.com/OMBHARTIYA/construction-progress-dashboard/blob/main/docs/kpi-proof-summary.md'
+      }
+    ]
+  },
+  {
+    number: '02',
+    title: 'API Ingestion Pipeline',
+    category: 'Microsoft Fabric · Data engineering',
+    summary:
+      'A public reference implementation of the ingestion pattern used to turn paginated operational API data into analytics-ready tables.',
+    contribution:
+      'Designed the run controls, incremental windows, pagination, landing structure, transformation sequence, validation gates and failure-recovery approach.',
+    engineering:
+      'Run-isolated JSON landing, Raw-to-Gold processing, deterministic keys, PySpark/SQL transformations, row-level checks and commit-on-success state control.',
+    outcome:
+      'Makes the reliability decisions inspectable: missed pages, stale files, partial runs and replay safety are handled explicitly rather than hidden behind a diagram.',
+    tags: ['Microsoft Fabric', 'PySpark', 'SQL', 'OneLake', 'Data quality'],
+    visual: 'pipeline',
+    links: [
+      {
+        label: 'Open pipeline repository',
+        href: 'https://github.com/OMBHARTIYA/Api-ingestion-pipeline'
+      },
+      {
+        label: 'Review validation report',
+        href: 'https://github.com/OMBHARTIYA/Api-ingestion-pipeline/blob/main/docs/validation-report.md'
+      }
+    ]
+  },
+  {
+    number: '03',
+    title: 'Oracle ERP Reconciliation',
+    category: 'Manufacturing · Data quality',
+    summary:
+      'An operational reconciliation process for finding differences between ERP records, shift reporting and physical production activity.',
+    contribution:
+      'Reviewed production output, inventory movement, material consumption and shift records, then prepared daily reporting for engineering follow-up.',
+    engineering:
+      'Used repeatable source checks, exception tracking and root-cause review to separate reporting errors from genuine operational deviations.',
+    outcome:
+      'Improved the reliability of production reporting and gave engineering teams clearer evidence for downtime, quality and corrective-action discussions.',
+    tags: ['Oracle ERP', 'Excel', 'Reconciliation', 'KPI reporting', 'Root-cause analysis'],
+    visual: 'reconciliation',
+    links: [
+      {
+        label: 'View résumé context',
+        href: assetPath(profileLinks.cv)
+      },
+      {
+        label: 'Discuss the workflow',
+        href: 'mailto:ombhartiya16@gmail.com'
+      }
+    ]
+  }
+];
+
+const additionalWork = [
+  {
+    title: 'Warehouse Management Application',
+    text:
+      'An independently built warehouse product with role-based workflows for warehouses, products, stock, movements and dashboard statistics.',
+    tags: ['Next.js', 'TypeScript', 'Express', 'REST API'],
+    image: 'assets/warehouse-os.png',
+    imageAlt: 'Live warehouse management application interface',
+    links: [
+      { label: 'View live application', href: 'https://project-ytm78.vercel.app/' },
+      { label: 'Open repository', href: 'https://github.com/OMBHARTIYA/Warehouse-Frontend' }
+    ]
+  },
+  {
+    title: 'Open IFC Viewer',
+    text:
+      'A browser-based React and Three.js implementation for loading an IFC file locally, navigating the model and inspecting element properties without uploading the model to a third-party service.',
+    tags: ['React', 'TypeScript', 'Three.js', 'IFC'],
+    links: [
+      { label: 'Open repository', href: 'https://github.com/OMBHARTIYA/open-ifc-viewer' },
+      {
+        label: 'Review verification notes',
+        href: 'https://github.com/OMBHARTIYA/open-ifc-viewer/blob/main/docs/verification.md'
+      }
+    ]
+  }
+];
+
+const experience = [
+  {
+    period: 'May 2025 – Present',
+    role: 'Data Analyst / Power BI Developer',
+    company: 'DEFOR SA',
+    bullets: [
+      'Own reporting and analytical delivery across 3–5 concurrent construction projects.',
+      'Integrated REST API, Autodesk Construction Cloud, Speckle failover and CSV data across 10 production stages for up to 15 stakeholders.',
+      'Reduced the reported refresh range from approximately 5–15 minutes to 1–2 minutes using incremental patterns, then extended the solution through Fabric Lakehouse, notebooks, SQL, pipelines and OneLake.'
+    ]
+  },
+  {
+    period: 'Feb 2023 – Apr 2025',
+    role: 'Operations Data & Reporting Analyst',
+    company: 'All For Expo',
+    bullets: [
+      'Centralised operational tracking across project, inventory and finance workflows.',
+      'Replaced fragmented messages, email threads and spreadsheets with a clearer shared reporting process across four business divisions.'
+    ]
+  },
+  {
+    period: 'Oct 2019 – Sep 2022',
+    role: 'Process Control & Operational Reporting Engineer',
+    company: 'UFLEX Group',
+    bullets: [
+      'Monitored two active manufacturing lines and reconciled Oracle ERP records against shift reports, checklists and physical output.',
+      'Prepared daily operational reporting and supported engineering root-cause analysis for downtime, quality and production deviations.'
+    ]
+  }
+];
+
+const capabilities = [
+  {
+    icon: BarChart3,
+    title: 'Power BI & Analytics',
+    items: ['DAX and Power Query', 'Semantic and star-schema modelling', 'KPI definition and dashboard UX', 'Refresh, publishing and RLS'],
+    evidence: 'Demonstrated in Construction Progress BI'
+  },
+  {
+    icon: ServerCog,
+    title: 'Fabric Data Engineering',
+    items: ['OneLake and Lakehouse patterns', 'PySpark and SQL transformations', 'Incremental API ingestion', 'Orchestration, monitoring and recovery'],
+    evidence: 'Demonstrated in API Ingestion Pipeline'
+  },
+  {
+    icon: ClipboardCheck,
+    title: 'Data Quality & Operations',
+    items: ['Source reconciliation', 'Validation and exception handling', 'Process and root-cause analysis', 'Manufacturing and construction data'],
+    evidence: 'Demonstrated in Oracle ERP Reconciliation'
+  },
+  {
+    icon: Code2,
+    title: 'Workflow Applications',
+    items: ['React, Next.js and TypeScript', 'Node.js and REST APIs', 'Role-based operational workflows', 'BIM / IFC browser applications'],
+    evidence: 'Supporting capability for workflow delivery'
+  }
+];
+
+const learning = [
+  'Microsoft PL-300 — exam candidate',
+  'Microsoft ETL Specialization',
+  'IBM Python for Data Science',
+  'UC Davis SQL for Data Science',
+  'CSCMP Supply Chain Foundations: Demand Planning',
+  'Salesforce Sales / Operations Professional Certificate'
+];
+
+const education = [
+  {
+    school: 'Poznan University of Technology',
+    detail: 'B.Eng. in Engineering & Industrial Management',
+    period: '2022 – 2026'
+  },
+  {
+    school: 'Babes-Bolyai University',
+    detail: 'Erasmus Blended Intensive Programme, Romania',
+    period: '2024'
+  }
+];
+
+const languages = ['English — C1', 'Polish — A1', 'Hindi — Native'];
 
 const getInitialTheme = () => {
   try {
@@ -36,369 +234,6 @@ const getInitialTheme = () => {
   return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
 };
 
-const impactMetrics = [
-  { value: '90%', label: 'reporting performance gain' },
-  { value: '15+', label: 'stakeholders enabled' },
-  { value: '4+', label: 'data sources unified' },
-  { value: '5,000+', label: 'records processed per load' }
-];
-
-const projects = [
-  {
-    title: 'Construction KPI Case Study',
-    category: 'data',
-    text: 'A public-safe reconstruction of construction progress reporting, from event history to stakeholder-ready KPIs.',
-    tags: ['Power BI', 'Python', 'DAX', 'Star Schema'],
-    metric: '12',
-    label: 'model tables',
-    visualImage: 'assets/dashboard-hero.png',
-    visualAlt: 'Construction KPI dashboard generated from the public case-study dataset',
-    visualNote: 'Reproducible demo · public synthetic data',
-    repo: 'https://github.com/OMBHARTIYA/construction-progress-dashboard',
-    proofUrl: 'https://github.com/OMBHARTIYA/construction-progress-dashboard/blob/main/docs/kpi-proof-summary.md',
-    proofLabel: 'Review KPI proof pack',
-    problem: 'Project teams need one trusted view of progress, delays, issues and deliveries instead of fragmented trackers and manual status updates.',
-    built: 'Synthetic construction data, a star-schema design, Power Query cleaning rules and DAX measure patterns for plan-vs-actual, current status and delivery health.',
-    outcome: 'A reviewable, employer-safe case study that demonstrates the reporting logic behind faster refreshes and clearer stakeholder handovers.'
-  },
-  {
-    title: 'API Ingestion Pipeline',
-    category: 'data',
-    text: 'A public reference implementation of a raw-to-gold ingestion pattern, with runnable code and documented validation.',
-    tags: ['Microsoft Fabric', 'OneLake', 'PySpark', 'Delta Lake'],
-    metric: 'Code',
-    label: 'publicly reviewable',
-    proof: {
-      kind: 'pipeline',
-      kicker: 'Repository evidence',
-      status: 'PUBLIC',
-      value: 'Public source',
-      valueLabel: 'runnable raw-to-gold reference pipeline',
-      metrics: [
-        { value: '12 CHECKS', label: 'documented validation coverage' },
-        { value: 'RAW→GOLD', label: 'documented processing flow' }
-      ],
-      flow: ['RAW', 'BRONZE', 'SILVER', 'GOLD'],
-      source: 'Implementation, setup guide and validation report available on GitHub'
-    },
-    repo: 'https://github.com/OMBHARTIYA/Api-ingestion-pipeline',
-    proofUrl: 'https://github.com/OMBHARTIYA/Api-ingestion-pipeline/blob/main/docs/validation-report.md',
-    proofLabel: 'Review repository evidence',
-    problem: 'Scheduled API reporting is difficult to trust when pages can be missed, run boundaries move during extraction, stale files survive a retry, or state advances after only part of the workflow succeeds.',
-    built: 'A public reconstruction of my real operating pattern: frozen incremental windows, explicit page state, parallel incremental and snapshot branches, run-isolated JSON landing, PySpark curation, Delta outputs, archive-before-cleanup, validation gates and commit-on-success state control.',
-    outcome: 'The case study shows both the delivered workflow and the hardening decisions I identified—without publishing any real organization, endpoint, project, artifact, connection, schema, path, record or identifier.'
-  },
-  {
-    title: 'Oracle ERP Reconciliation',
-    category: 'data',
-    text: 'Manufacturing reporting grounded in reconciling system records against real production activity.',
-    tags: ['Oracle ERP', 'Excel', 'Data Quality', 'KPI Reporting'],
-    metric: '99%',
-    label: 'data accuracy',
-    proof: {
-      kind: 'professional',
-      kicker: 'Professional outcome',
-      status: 'RÉSUMÉ',
-      value: '99%',
-      valueLabel: 'reported data accuracy',
-      metrics: [
-        { value: '2×', label: 'daily summaries' },
-        { value: 'ERP', label: 'source reconciled' }
-      ],
-      flow: ['ORACLE ERP', 'SHIFT CHECK', 'PHYSICAL OUTPUT'],
-      source: 'Production data confidential · outcome disclosed in résumé'
-    },
-    proofAsset: 'assets/om-bhartiya-cv.pdf',
-    proofLabel: 'View résumé evidence',
-    problem: 'ERP records, shift reports and physical output can disagree, weakening daily KPI reporting and root-cause analysis.',
-    built: 'A structured reconciliation routine across Oracle ERP output, inventory, material consumption, shift checklists and physical production records.',
-    outcome: 'More reliable twice-daily operational reporting and clearer evidence for downtime, quality and corrective-action discussions.'
-  },
-  {
-    title: 'Open IFC Viewer Case Study',
-    category: 'application',
-    text: 'A public clean-room application for locally loading, navigating and inspecting IFC/BIM models in the browser.',
-    tags: ['React', 'TypeScript', 'Three.js', 'IFC'],
-    metric: 'Code',
-    label: 'publicly reviewable',
-    proof: {
-      kind: 'repository',
-      kicker: 'Repository evidence',
-      status: 'PUBLIC',
-      value: 'Public source',
-      valueLabel: 'React + TypeScript clean-room implementation',
-      metrics: [
-        { value: 'BROWSER', label: 'local IFC processing' },
-        { value: 'THREE.JS', label: 'interactive model scene' }
-      ],
-      flow: ['LOCAL FILE', '3D VIEW', 'PROPERTIES'],
-      source: 'Source code, build instructions and verification notes available on GitHub'
-    },
-    repo: 'https://github.com/OMBHARTIYA/open-ifc-viewer',
-    proofUrl: 'https://github.com/OMBHARTIYA/open-ifc-viewer/blob/main/docs/verification.md',
-    proofLabel: 'Review repository evidence',
-    problem: 'Technical reviewers need an accessible way to inspect a building model without exposing the file to an external processing service.',
-    built: 'A React, TypeScript and Three.js viewer with local browser loading, orbit controls, selection, highlighting, properties and model statistics.',
-    outcome: 'A public, inspectable application pattern that demonstrates 3D product delivery while keeping employer models, status data and private source code out of the repository.'
-  },
-  {
-    title: 'Warehouse Management Application',
-    category: 'application',
-    text: 'An independent full-stack build that turns warehouse requirements into a usable, deployed operational product.',
-    tags: ['Next.js', 'TypeScript', 'Express', 'REST API'],
-    metric: 'Live',
-    label: 'deployed app',
-    visualImage: 'assets/warehouse-os.png',
-    visualAlt: 'Live warehouse management application interface',
-    visualNote: 'Live deployment · independently built',
-    repo: 'https://github.com/OMBHARTIYA/Warehouse-Frontend',
-    live: 'https://project-ytm78.vercel.app',
-    problem: 'Warehouse information spread across messages, calls and manual trackers creates conflicting versions of stock and movement history.',
-    built: 'A Next.js and TypeScript interface plus a clean Express/TypeScript API for users, roles, warehouses, products, stock, movements and dashboard statistics.',
-    outcome: 'A live, authentication-protected frontend and public-safe API design that demonstrates requirements translation, workflow modelling and end-to-end product delivery.'
-  }
-];
-
-const flagshipCaseStudy = {
-  title: 'Flagship Case Study: Construction Progress BI',
-  summary:
-    'A public-safe reconstruction of the reporting pattern I use for construction/facade progress analytics: event history, latest-status logic, issue tracking, KPI visibility, and stakeholder-ready Power BI pages.',
-  steps: [
-    {
-      label: 'Business problem',
-      text: 'Teams needed one trusted view of unit progress, delays, issues, deliveries, and status movement instead of fragmented trackers and manual updates.'
-    },
-    {
-      label: 'Data model',
-      text: 'I shaped synthetic event-history data into dimensions and facts for projects, buildings, levels, zones, units, statuses, plans, quality issues, deliveries, and contractors.'
-    },
-    {
-      label: 'Transformation',
-      text: 'Power Query-style cleaning rules normalize dates, status names, keys, current status snapshots, and plan-vs-actual reporting fields before dashboard use.'
-    },
-    {
-      label: 'Measures',
-      text: 'DAX-style logic covers latest status, completed units, progress percentage, delayed work, issue volume, delivery health, and slicer-ready KPI summaries.'
-    },
-    {
-      label: 'Validation',
-      text: 'Outputs are checked with row counts, key relationships, status validity, latest-event logic, and reviewer-friendly proof summaries.'
-    },
-    {
-      label: 'Business outcome',
-      text: 'This mirrors the architecture behind a 90% reporting performance improvement, sub-minute dashboard refreshes, clearer handovers, and self-service status visibility.'
-    }
-  ],
-  stack: ['Power BI', 'Power Query', 'DAX', 'Star schema', 'Python synthetic data', 'Construction KPIs'],
-  repo: 'https://github.com/OMBHARTIYA/construction-progress-dashboard'
-};
-
-const fabricPipelineCaseStudy = {
-  title: 'Microsoft Fabric API Ingestion Operating Design',
-  summary:
-    'This presents an operating design I authored and documented for scheduled construction-data ingestion. The workflow and engineering decisions come from that real design; only source-specific names, identifiers, paths, connections and records are syntheticized or omitted.',
-  publicModel: {
-    incremental: ['asset_records', 'status_events'],
-    snapshots: ['catalog', 'project_register', 'issue_register'],
-    state: 'control.pipeline_state',
-    landing: 'Files/portfolio_demo/runs/{run_id}/{dataset}/page_{n}.json'
-  },
-  stages: [
-    {
-      icon: ShieldCheck,
-      label: 'Freeze the run window',
-      text: 'Read one committed state row, capture the upper time boundary once, and reuse the same start and end values for every paginated request.'
-    },
-    {
-      icon: GitBranch,
-      label: 'Extract in parallel',
-      text: 'Run incremental event streams beside supporting snapshot branches, then require every reporting-critical branch to join the same success gate.'
-    },
-    {
-      icon: Network,
-      label: 'Paginate and land',
-      text: 'Initialize page state explicitly, follow the documented next-page signal, and persist each response in a run-specific raw JSON location.'
-    },
-    {
-      icon: Database,
-      label: 'Curate with PySpark',
-      text: 'Flatten nested payloads, cast fields, deduplicate by deterministic key, preserve unaffected prior rows, and publish analytics-ready Delta tables.'
-    },
-    {
-      icon: ClipboardCheck,
-      label: 'Validate the load',
-      text: 'Check page and row counts, keys, rejected records, valid categories, timestamp coverage, schema drift, zero-row behavior and output freshness.'
-    },
-    {
-      icon: ServerCog,
-      label: 'Archive, commit, recover',
-      text: 'Archive raw evidence before cleanup. Advance the committed boundary only after all required work passes; otherwise replay the unchanged window.'
-    }
-  ],
-  controls: [
-    {
-      title: 'Stable boundaries',
-      text: 'A source window cannot drift while later pages are being requested.'
-    },
-    {
-      title: 'Replay safety',
-      text: 'A failed run keeps its original lower boundary and uses deterministic replacement logic.'
-    },
-    {
-      title: 'Whole-run visibility',
-      text: 'Extraction, transformation and validation failures route to one actionable failure path.'
-    },
-    {
-      title: 'Scale hardening',
-      text: 'Run isolation, concurrency control, single-call pagination and atomic Delta merge are explicit improvement paths.'
-    }
-  ],
-  repo: 'https://github.com/OMBHARTIYA/Api-ingestion-pipeline'
-};
-
-const walkthroughs = [
-  {
-    title: 'Dashboard Workflow',
-    image: 'assets/walkthrough-dashboard.gif',
-    alt: 'Animated synthetic dashboard walkthrough showing KPI cards, status history, and progress charts',
-    points: ['Power Query-ready event history', 'DAX-style current status logic', 'KPI cards and progress distribution', 'Portfolio-safe synthetic data only']
-  }
-];
-
-const technicalProof = [
-  {
-    title: 'SQL / Reporting Logic',
-    icon: Database,
-    note: 'Latest-status and progress summaries built from event history.',
-    code: `SELECT
-  WorkItemID,
-  MAX(EventDate) AS LatestEventDate
-FROM fact_status_events
-GROUP BY WorkItemID;`
-  },
-  {
-    title: 'DAX Measure Thinking',
-    icon: BarChart3,
-    note: 'Portfolio-safe measure pattern for KPI cards and progress tracking.',
-    code: `Completed Units :=
-CALCULATE(
-  DISTINCTCOUNT(fact_unit_status[UnitID]),
-  dim_status[Status] = "Installed"
-)`
-  },
-  {
-    title: 'Power Query Cleaning',
-    icon: Code2,
-    note: 'Normalize operational fields before semantic modeling.',
-    code: `Table.TransformColumns(
-  Source,
-  {{"StatusName", Text.Proper},
-   {"UpdatedAt", DateTime.From}}
-)`
-  },
-  {
-    title: 'Incremental Pipeline Control',
-    icon: ShieldCheck,
-    note: 'The same frozen window is replayed until the entire required workflow passes.',
-    code: `state = read_one("control.pipeline_state")
-window = [state.last_committed_ms, captured_once()]
-
-extract_all_required_branches(window)
-validate_curated_outputs()
-archive_raw_evidence()
-
-commit(window.end)  # only after full success`
-  }
-];
-
-const skillGroups = [
-  {
-    icon: ClipboardCheck,
-    title: 'Business Analysis & Delivery',
-    items: ['Requirements elicitation', 'Stakeholder management', 'KPI definition', 'Process mapping', 'User acceptance testing', 'Documentation']
-  },
-  {
-    icon: BarChart3,
-    title: 'Business Intelligence',
-    items: ['Power BI Desktop & Service', 'DAX', 'Power Query (M)', 'Semantic models', 'Star schema modelling', 'RLS & workspace publishing']
-  },
-  {
-    icon: Database,
-    title: 'Data & Querying',
-    items: ['SQL', 'Data modelling', 'Dimensional modelling', 'Data quality & validation', 'Advanced Excel', 'Oracle ERP validation']
-  },
-  {
-    icon: Workflow,
-    title: 'Automation, Low-Code & Integration',
-    items: ['REST APIs & JSON', 'Power Automate', 'Excel VBA & macros', 'Scheduled & incremental refresh', 'On-premises gateway', 'ETL pipelines']
-  },
-  {
-    icon: ServerCog,
-    title: 'Microsoft Data Platform',
-    items: ['Microsoft Fabric', 'OneLake', 'Lakehouse notebooks', 'Fabric ETL pipelines', 'Dataflows', 'Refresh monitoring']
-  },
-  {
-    icon: Network,
-    title: 'Frontend Development',
-    items: ['React & Next.js', 'TypeScript & JavaScript', 'Vite', 'Three.js', 'Tailwind CSS', 'Axios & Recharts']
-  },
-  {
-    icon: Code2,
-    title: 'Backend & API Development',
-    items: ['Node.js & Express', 'TypeScript', 'REST API design', 'JWT authentication', 'Role-based access', 'Xano backend workflows', 'Zod validation & API security']
-  },
-  {
-    icon: Gauge,
-    title: 'Operational Domains',
-    items: ['Construction & facade', 'BIM / Revit / IFC / GLB', 'Warehouse & inventory', 'Manufacturing KPIs', 'Project operations', 'Process control']
-  }
-];
-
-const experience = [
-  {
-    period: 'May 2025 - Present',
-    role: 'Data Analyst / Power BI Developer',
-    company: 'DEFOR SA',
-    text: 'Improved reporting performance by 90% by replacing full-reload pipelines with incremental loading and sub-minute dashboard refreshes. Established the company’s first Power BI capability across 10 production stages for 15+ stakeholders, unified 4+ sources into a 3D-linked star-schema model, and engineered Microsoft Fabric ETL with PySpark and SQL to process 5,000+ records per load.'
-  },
-  {
-    period: 'Feb 2023 - Apr 2025',
-    role: 'Operations Data & Reporting Analyst',
-    company: 'All For Expo',
-    text: 'Centralised operational tracking across four major divisions, replacing scattered WhatsApp, email, and spreadsheet workflows with one source of truth. Consolidated project, inventory, and finance data to improve integrity and support reliable monitoring throughout each project lifecycle.'
-  },
-  {
-    period: 'Oct 2019 - Sep 2022',
-    role: 'Process Control & Operational Reporting Engineer',
-    company: 'UFLEX Group',
-    text: 'Maintained 99% data accuracy by auditing Oracle ERP entries against live production output. Produced high-frequency, twice-daily summaries for engineering-led corrective action and designed automated process controls that established a verification-first approach to operational data.'
-  }
-];
-
-const certifications = [
-  'Microsoft PL-300 Candidate',
-  'Microsoft ETL Specialization',
-  'IBM Python for Data Science',
-  'UC Davis SQL for Data Science',
-  'CSCMP Supply Chain Foundations: Demand Planning',
-  'Salesforce Sales/Operations Professional Certificate'
-];
-
-const languages = ['English - Fluent (C1)', 'Polish - Elementary (A1)'];
-
-const education = [
-  {
-    school: 'Poznan University of Technology',
-    detail: 'B.Eng. in Engineering & Industrial Management',
-    period: '2022 - 2026'
-  },
-  {
-    school: 'Babes-Bolyai University',
-    detail: 'Erasmus Blended Intensive Programme, Romania',
-    period: '2024'
-  }
-];
-
 function Header({ theme, onToggleTheme }) {
   return (
     <header className="site-header">
@@ -407,11 +242,10 @@ function Header({ theme, onToggleTheme }) {
         <strong>Om Bhartiya</strong>
       </a>
       <nav aria-label="Primary navigation">
-        <a href="#data-work">Data &amp; BI</a>
-        <a href="#applications">Applications</a>
-        <a href="#flagship">Case Study</a>
-        <a href="#skills">Skills</a>
+        <a href="#work">Selected work</a>
         <a href="#experience">Experience</a>
+        <a href="#capabilities">Capabilities</a>
+        <a href="#credentials">Credentials</a>
         <a href="#contact">Contact</a>
       </nav>
       <div className="header-socials" aria-label="Profile links">
@@ -424,10 +258,10 @@ function Header({ theme, onToggleTheme }) {
         >
           {theme === 'dark' ? <Sun size={17} /> : <Moon size={17} />}
         </button>
-        <a className="header-link" href="https://www.linkedin.com/in/om-bhartiya-b22279185/" target="_blank" rel="noreferrer">
+        <a className="header-link" href={profileLinks.linkedin} target="_blank" rel="noreferrer">
           in
         </a>
-        <a className="header-link" href="https://github.com/OMBHARTIYA?tab=repositories" target="_blank" rel="noreferrer" aria-label="GitHub profile">
+        <a className="header-link" href={profileLinks.github} target="_blank" rel="noreferrer" aria-label="GitHub profile">
           <GitBranch size={17} />
         </a>
       </div>
@@ -439,403 +273,194 @@ function Hero() {
   return (
     <section className="hero section-shell" id="top">
       <div className="hero-copy">
-        <span className="hero-kicker"><span /> Poland-based · TRC holder · Open to employment-contract roles</span>
-        <h1>Om Bhartiya</h1>
-        <p className="hero-title">I find the operational problem and <em>build what solves it.</em></p>
+        <span className="hero-kicker"><span /> Om Bhartiya · Poznań, Poland</span>
+        <h1>Data Engineer <em>&amp; Power BI Developer</em></h1>
+        <p className="hero-title">Operational data, engineered into reliable decisions.</p>
         <p className="hero-text">
-          Operations-focused Data Engineer &amp; Full-Stack Developer with 5+ years across manufacturing and operational environments.
-          I turn fragmented engineering data into scalable pipelines, trusted BI, and production-grade applications with Microsoft Fabric, PySpark, SQL, React, and Node.js.
+          I turn data from APIs, ERP systems, spreadsheets and engineering platforms into reliable pipelines,
+          semantic models, dashboards and workflow tools. My background combines hands-on operations with
+          Microsoft Fabric, SQL, PySpark and Power BI delivery.
         </p>
-        <div className="impact-grid" aria-label="Portfolio impact metrics">
-          {impactMetrics.map((item) => (
-            <span key={item.label}>
-              <strong>{item.value}</strong>
-              {item.label}
-            </span>
-          ))}
-        </div>
-        <div className="proof-row" aria-label="Portfolio focus areas">
-          <span><Database size={18} /> ETL &amp; semantic models</span>
-          <span><Gauge size={18} /> BI &amp; process visibility</span>
-          <span><Code2 size={18} /> Full-stack applications</span>
-        </div>
-        <div className="profile-links" aria-label="Profile links and skills">
-          <span>SQL</span>
-          <span>PySpark</span>
-          <span>Microsoft Fabric</span>
-          <span>Power BI</span>
-          <span>React</span>
-          <span>Node.js</span>
-          <span>TypeScript</span>
-          <a href="https://www.linkedin.com/in/om-bhartiya-b22279185/" target="_blank" rel="noreferrer">LinkedIn</a>
-          <a href="https://github.com/OMBHARTIYA?tab=repositories" target="_blank" rel="noreferrer">GitHub</a>
-          <a href="mailto:ombhartiya16@gmail.com">Email</a>
-        </div>
         <div className="hero-actions">
-          <a className="button primary" href="#data-work"><BarChart3 size={17} /> Data Engineering &amp; BI</a>
-          <a className="button secondary" href="#applications"><Code2 size={17} /> Applications</a>
-          <a className="button secondary" href={assetPath('assets/om-bhartiya-cv.pdf')} download><FileText size={17} /> Download CV</a>
-        </div>
-        <p className="availability"><MapPin size={17} /> Poznan, Poland · open to on-site, hybrid, and remote work</p>
-      </div>
-      <div className="hero-visual" aria-label="Executive KPI dashboard preview">
-        <div className="visual-caption"><span>Featured work</span><strong>Operations KPI system</strong></div>
-        <img src={assetPath('assets/dashboard-hero.png')} alt="Executive KPI dashboard preview with operations, warehouse, manufacturing, and finance reporting" fetchPriority="high" decoding="async" />
-        <div className="visual-note"><strong>From raw events</strong><span>to stakeholder-ready insight</span></div>
-      </div>
-    </section>
-  );
-}
-
-function FlagshipCaseStudy() {
-  return (
-    <section className="section-shell content-section flagship-section" id="flagship">
-      <div className="flagship-layout">
-        <div>
-          <span className="section-label">Deep case study</span>
-          <h2>{flagshipCaseStudy.title}</h2>
-          <p>{flagshipCaseStudy.summary}</p>
-          <div className="tag-row flagship-tags">
-            {flagshipCaseStudy.stack.map((item) => <span key={item}>{item}</span>)}
-          </div>
-          <a className="button primary" href={flagshipCaseStudy.repo} target="_blank" rel="noreferrer">
-            Open Case Repo <ExternalLink size={16} />
+          <a className="button primary" href="#work"><BarChart3 size={17} /> View selected work</a>
+          <a className="button secondary" href={assetPath(profileLinks.cv)} download><FileText size={17} /> Download CV</a>
+          <a className="button secondary" href={profileLinks.linkedin} target="_blank" rel="noreferrer">
+            LinkedIn <ExternalLink size={16} />
           </a>
         </div>
-        <div className="case-flow" aria-label="Construction BI case study workflow">
-          {flagshipCaseStudy.steps.map((step, index) => (
-            <article className="case-flow-step" key={step.label}>
-              <span>{String(index + 1).padStart(2, '0')}</span>
-              <div>
-                <h3>{step.label}</h3>
-                <p>{step.text}</p>
-              </div>
-            </article>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function TechnicalProof() {
-  return (
-    <section className="section-shell content-section" id="proof">
-      <div className="section-heading">
-        <div>
-          <h2>Analyst Proof</h2>
-          <p>Small sanitized examples that show how I think about data modeling, KPI logic, transformation, and delivery checks.</p>
-        </div>
-      </div>
-      <div className="proof-snippet-grid">
-        {technicalProof.map(({ title, icon: Icon, note, code }) => (
-          <article className="proof-snippet-card" key={title}>
-            <div className="proof-snippet-top">
-              <Icon size={22} />
-              <h3>{title}</h3>
-            </div>
-            <p>{note}</p>
-            <pre><code>{code}</code></pre>
-          </article>
-        ))}
-      </div>
-    </section>
-  );
-}
-
-function WorkSection({ id, label, title, description, items }) {
-  return (
-    <section className="section-shell content-section" id={id}>
-      <div className="section-heading">
-        <div>
-          <span className="section-label">{label}</span>
-          <h2>{title}</h2>
-          <p>{description}</p>
-        </div>
-        <a href="https://github.com/OMBHARTIYA?tab=repositories" target="_blank" rel="noreferrer">View GitHub <ArrowRight size={17} /></a>
-      </div>
-      <div className="project-grid">
-        {items.map((project) => (
-          <article className="project-card" key={project.title}>
-            <ProjectVisual project={project} />
-            <div className="project-top">
-              <LineChart size={22} />
-              <div>
-                <strong>{project.metric}</strong>
-                <span>{project.label}</span>
-              </div>
-            </div>
-            <h3>{project.title}</h3>
-            <p>{project.text}</p>
-            <div className="tag-row">
-              {project.tags.map((tag) => <span key={tag}>{tag}</span>)}
-            </div>
-            {(project.proofUrl || project.proofAsset) && (
-              <a
-                className="project-proof-link"
-                href={project.proofUrl || assetPath(project.proofAsset)}
-                target="_blank"
-                rel="noreferrer"
-              >
-                <CheckCircle2 size={14} /> {project.proofLabel} <ExternalLink size={13} />
-              </a>
-            )}
-            <details className="project-details">
-              <summary>Open case study <ArrowRight size={15} /></summary>
-              <div className="case-copy">
-                <h4>The problem</h4>
-                <p>{project.problem}</p>
-                <h4>What I built</h4>
-                <p>{project.built}</p>
-                <h4>The outcome</h4>
-                <p>{project.outcome}</p>
-              </div>
-              <div className="project-link-row">
-                <a href={project.repo || '#contact'} target={project.repo ? '_blank' : undefined} rel={project.repo ? 'noreferrer' : undefined}>
-                  {project.repo ? 'Open repository' : 'Request walkthrough'} <ExternalLink size={14} />
-                </a>
-                {project.live && (
-                  <a href={project.live} target="_blank" rel="noreferrer">
-                    View live demo <ExternalLink size={14} />
-                  </a>
-                )}
-              </div>
-            </details>
-          </article>
-        ))}
-      </div>
-    </section>
-  );
-}
-
-function DataWork() {
-  return (
-    <WorkSection
-      id="data-work"
-      label="Data leads"
-      title="Data & BI Work"
-      description="Operational problems translated into reliable models, reporting logic, quality controls and decision-ready Power BI outputs."
-      items={projects.filter((project) => project.category === 'data')}
-    />
-  );
-}
-
-function FabricPipelineCaseStudy() {
-  const { publicModel } = fabricPipelineCaseStudy;
-
-  return (
-    <section className="pipeline-case-section" id="pipeline-case">
-      <div className="section-shell pipeline-case-shell">
-        <div className="pipeline-case-heading">
-          <div>
-            <span className="pipeline-case-kicker">Real workflow · synthetic identifiers</span>
-            <h2>{fabricPipelineCaseStudy.title}</h2>
-            <p>{fabricPipelineCaseStudy.summary}</p>
-          </div>
-          <a className="button primary" href={fabricPipelineCaseStudy.repo} target="_blank" rel="noreferrer">
-            Review the full case study <ExternalLink size={16} />
-          </a>
-        </div>
-
-        <div className="pipeline-public-model" aria-label="Synthetic public data model">
-          <div>
-            <span>Incremental streams</span>
-            <code>{publicModel.incremental.join(' · ')}</code>
-          </div>
-          <div>
-            <span>Reference snapshots</span>
-            <code>{publicModel.snapshots.join(' · ')}</code>
-          </div>
-          <div>
-            <span>Run state</span>
-            <code>{publicModel.state}</code>
-          </div>
-          <div>
-            <span>Run-isolated landing</span>
-            <code>{publicModel.landing}</code>
-          </div>
-        </div>
-
-        <div className="pipeline-stage-grid">
-          {fabricPipelineCaseStudy.stages.map(({ icon: Icon, label, text }, index) => (
-            <article className="pipeline-stage-card" key={label}>
-              <div className="pipeline-stage-top">
-                <span>{String(index + 1).padStart(2, '0')}</span>
-                <Icon size={21} />
-              </div>
-              <h3>{label}</h3>
-              <p>{text}</p>
-            </article>
-          ))}
-        </div>
-
-        <div className="pipeline-control-panel">
-          <div>
-            <span className="pipeline-case-kicker">Operating controls</span>
-            <h3>What makes the design trustworthy</h3>
-          </div>
-          <div className="pipeline-control-grid">
-            {fabricPipelineCaseStudy.controls.map((control) => (
-              <article key={control.title}>
-                <CheckCircle2 size={18} />
-                <div>
-                  <h4>{control.title}</h4>
-                  <p>{control.text}</p>
-                </div>
-              </article>
-            ))}
-          </div>
-        </div>
-
-        <p className="pipeline-safety-note">
-          Public boundary: the labels above are synthetic. No live API URL, organization name, project identifier,
-          tenant, workspace, lakehouse, warehouse, connection, internal table, storage path, credential, source row,
-          screenshot or exported pipeline definition is included.
+        <p className="availability">
+          <MapPin size={17} /> Poland-based · TRC holder · open to on-site, hybrid and remote employment
         </p>
       </div>
+
+      <aside className="hero-evidence-panel" aria-label="Professional scope">
+        <div className="hero-evidence-heading">
+          <span>Professional scope</span>
+          <strong>Operations → Data → Decisions</strong>
+        </div>
+        <div className="hero-scope-grid">
+          {verifiedScope.map((item) => (
+            <div key={item.label}>
+              <strong>{item.value}</strong>
+              <span>{item.label}</span>
+            </div>
+          ))}
+        </div>
+        <div className="hero-data-flow" aria-label="Typical delivery workflow">
+          <span>API · ERP · files</span>
+          <ArrowRight size={16} />
+          <span>Fabric · SQL</span>
+          <ArrowRight size={16} />
+          <span>Power BI · apps</span>
+        </div>
+        <p><ShieldCheck size={17} /> Evidence below is linked to public repositories or documented professional experience.</p>
+      </aside>
     </section>
   );
 }
 
-function Applications() {
-  return (
-    <WorkSection
-      id="applications"
-      label="Software proves range"
-      title="Applications"
-      description="Working products that show how I move beyond analysis when the business problem needs an interface, workflow or interactive tool."
-      items={projects.filter((project) => project.category === 'application')}
-    />
-  );
-}
-
-function ProjectVisual({ project }) {
-  const { proof } = project;
-  const ProofIcon = proof?.kind === 'professional'
-    ? ShieldCheck
-    : proof?.kind === 'repository'
-      ? GitBranch
-      : Database;
-
-  return (
-    <div className={`project-visual ${proof ? 'evidence-proof' : 'image-proof'}`} aria-label={`${project.title} evidence`}>
-      <div className="visual-header">
-        <span />
-        <span />
-        <span />
-        <strong>{proof ? 'EVIDENCE' : 'PROJECT PREVIEW'}</strong>
+function CaseVisual({ type, title }) {
+  if (type === 'dashboard') {
+    return (
+      <div className="case-visual dashboard-evidence">
+        <img
+          src={assetPath('assets/dashboard-hero.png')}
+          alt="Construction KPI dashboard generated from the public case-study dataset"
+          loading="lazy"
+          decoding="async"
+        />
+        <span>Public demonstration dataset</span>
       </div>
-      {project.visualImage && (
-        <>
-          <img
-            src={assetPath(project.visualImage)}
-            alt={project.visualAlt}
-            loading="lazy"
-            decoding="async"
-          />
-          <div className="visual-proof-badge">
-            <CheckCircle2 size={15} />
-            <span>{project.visualNote}</span>
-          </div>
-        </>
-      )}
-      {proof && (
-        <div className="evidence-panel">
-          <div className="evidence-heading">
-            <div className="evidence-icon"><ProofIcon size={20} /></div>
-            <span>{proof.kicker}</span>
-            <strong>{proof.status}</strong>
-          </div>
-          <div className="evidence-primary">
-            <strong>{proof.value}</strong>
-            <span>{proof.valueLabel}</span>
-          </div>
-          <div className="evidence-metrics">
-            {proof.metrics.map((metric) => (
-              <div key={metric.label}>
-                <strong>{metric.value}</strong>
-                <span>{metric.label}</span>
-              </div>
-            ))}
-          </div>
-          <div className="evidence-flow" aria-label={proof.flow.join(' to ')}>
-            {proof.flow.map((stage, index) => (
-              <React.Fragment key={stage}>
-                <span>{stage}</span>
-                {index < proof.flow.length - 1 && <b aria-hidden="true">→</b>}
-              </React.Fragment>
-            ))}
-          </div>
-          <div className="evidence-source">
-            <CheckCircle2 size={14} />
-            <span>{proof.source}</span>
-          </div>
-        </div>
-      )}
+    );
+  }
+
+  if (type === 'pipeline') {
+    return (
+      <div className="case-visual process-evidence" aria-label={`${title} processing flow`}>
+        {['RAW', 'BRONZE', 'SILVER', 'GOLD'].map((stage, index) => (
+          <React.Fragment key={stage}>
+            <span>{stage}</span>
+            {index < 3 && <ArrowRight size={18} aria-hidden="true" />}
+          </React.Fragment>
+        ))}
+        <p>Incremental window · pagination · validation · commit on success</p>
+      </div>
+    );
+  }
+
+  return (
+    <div className="case-visual process-evidence reconciliation-evidence" aria-label={`${title} reconciliation flow`}>
+      <span>ORACLE ERP</span>
+      <ArrowRight size={18} aria-hidden="true" />
+      <span>SHIFT RECORDS</span>
+      <ArrowRight size={18} aria-hidden="true" />
+      <span>PHYSICAL OUTPUT</span>
+      <p>Compare · investigate exceptions · report verified operational position</p>
     </div>
   );
 }
 
-function Walkthroughs() {
+function CaseStudyCard({ item }) {
   return (
-    <section className="section-shell content-section" id="walkthroughs">
-      <div className="section-heading">
+    <article className="case-study-card">
+      <div className="case-study-intro">
+        <span className="case-number">{item.number}</span>
         <div>
-          <h2>Public Walkthroughs</h2>
-          <p>Sanitized animated previews that show workflow ideas without using confidential dashboards, models, screenshots, or data.</p>
+          <span className="section-label">{item.category}</span>
+          <h3>{item.title}</h3>
+          <p>{item.summary}</p>
         </div>
       </div>
-      <div className={`walkthrough-grid ${walkthroughs.length === 1 ? 'single' : ''}`}>
-        {walkthroughs.map((item) => (
-          <article className="walkthrough-card" key={item.title}>
-            <img src={assetPath(item.image)} alt={item.alt} loading="lazy" decoding="async" />
+
+      <CaseVisual type={item.visual} title={item.title} />
+
+      <dl className="case-study-evidence">
+        <div>
+          <dt>My contribution</dt>
+          <dd>{item.contribution}</dd>
+        </div>
+        <div>
+          <dt>Engineering approach</dt>
+          <dd>{item.engineering}</dd>
+        </div>
+        <div>
+          <dt>Operational result</dt>
+          <dd>{item.outcome}</dd>
+        </div>
+      </dl>
+
+      <div className="case-study-footer">
+        <div className="tag-row">
+          {item.tags.map((tag) => <span key={tag}>{tag}</span>)}
+        </div>
+        <div className="evidence-link-row">
+          {item.links.map((link) => (
+            <a
+              key={link.label}
+              href={link.href}
+              target={link.href.startsWith('http') ? '_blank' : undefined}
+              rel={link.href.startsWith('http') ? 'noreferrer' : undefined}
+            >
+              {link.label} {link.href.startsWith('http') && <ExternalLink size={14} />}
+            </a>
+          ))}
+        </div>
+      </div>
+    </article>
+  );
+}
+
+function SelectedWork() {
+  return (
+    <section className="section-shell content-section" id="work">
+      <div className="section-heading">
+        <div>
+          <span className="section-label">Selected work</span>
+          <h2>Three problems. Three inspectable approaches.</h2>
+          <p>
+            The projects below focus on the work most relevant to Data Engineering, Power BI and operational
+            analytics roles. The essential evidence is visible without opening another panel.
+          </p>
+        </div>
+      </div>
+      <div className="case-study-list">
+        {caseStudies.map((item) => <CaseStudyCard key={item.title} item={item} />)}
+      </div>
+    </section>
+  );
+}
+
+function AdditionalWork() {
+  return (
+    <section className="section-shell content-section supporting-work" id="applications">
+      <div className="section-heading">
+        <div>
+          <span className="section-label">Supporting capability</span>
+          <h2>Applications when reporting needs a workflow.</h2>
+          <p>
+            Application development is a practical extension of my data work: useful when the business needs an
+            interface, controlled process or interactive technical tool.
+          </p>
+        </div>
+      </div>
+      <div className="additional-work-grid">
+        {additionalWork.map((item) => (
+          <article className={`additional-work-card ${item.image ? 'with-image' : ''}`} key={item.title}>
+            {item.image && <img src={assetPath(item.image)} alt={item.imageAlt} loading="lazy" decoding="async" />}
             <div>
               <h3>{item.title}</h3>
-              <ul>
-                {item.points.map((point) => <li key={point}>{point}</li>)}
-              </ul>
+              <p>{item.text}</p>
+              <div className="tag-row">
+                {item.tags.map((tag) => <span key={tag}>{tag}</span>)}
+              </div>
+              <div className="evidence-link-row">
+                {item.links.map((link) => (
+                  <a key={link.label} href={link.href} target="_blank" rel="noreferrer">
+                    {link.label} <ExternalLink size={14} />
+                  </a>
+                ))}
+              </div>
             </div>
-          </article>
-        ))}
-      </div>
-    </section>
-  );
-}
-
-function Confidentiality() {
-  return (
-    <section className="section-shell confidentiality-section" id="confidentiality">
-      <div>
-        <ShieldCheck size={30} />
-        <h2>Confidentiality & Proof</h2>
-      </div>
-      <p>
-        My production work includes real Power BI, API, Fabric, and BIM/model-linked reporting delivery. Public portfolio
-        projects are rebuilt as clean-room case studies with synthetic data so reviewers can inspect my approach without
-        exposing employer dashboards, client files, private model data, source records, endpoints, credentials, project or
-        workspace identifiers, connection names, production schemas, internal screenshots, or exported definitions.
-      </p>
-    </section>
-  );
-}
-
-function Skills() {
-  return (
-    <section className="section-shell content-section" id="skills">
-      <div className="section-heading">
-        <div>
-          <h2>Skills & Toolkit</h2>
-          <p>The stack I use to move from raw data to trusted dashboards, automated refreshes, and clean handovers.</p>
-        </div>
-      </div>
-      <div className="skill-grid">
-        {skillGroups.map(({ icon: Icon, title, items }) => (
-          <article className="skill-column" key={title}>
-            <div className="skill-icon"><Icon size={24} /></div>
-            <h3>{title}</h3>
-            <ul>
-              {items.map((item) => <li key={item}>{item}</li>)}
-            </ul>
           </article>
         ))}
       </div>
@@ -848,8 +473,12 @@ function Experience() {
     <section className="section-shell content-section timeline-section" id="experience">
       <div className="section-heading">
         <div>
-          <h2>Experience</h2>
-          <p>5+ years transforming manufacturing and operational workflows through data engineering, BI, automation, and software delivery.</p>
+          <span className="section-label">Professional experience</span>
+          <h2>Built in operational environments.</h2>
+          <p>
+            More than five years working with manufacturing, project operations, reporting and data delivery—not
+            only portfolio exercises.
+          </p>
         </div>
       </div>
       <div className="timeline">
@@ -860,7 +489,9 @@ function Experience() {
             <div>
               <h3>{item.role}</h3>
               <strong>{item.company}</strong>
-              <p>{item.text}</p>
+              <ul>
+                {item.bullets.map((bullet) => <li key={bullet}>{bullet}</li>)}
+              </ul>
             </div>
           </article>
         ))}
@@ -869,24 +500,25 @@ function Experience() {
   );
 }
 
-function Education() {
+function Capabilities() {
   return (
-    <section className="section-shell content-section" id="education">
+    <section className="section-shell content-section" id="capabilities">
       <div className="section-heading">
         <div>
-          <h2>Education</h2>
-          <p>Academic foundation in engineering, management, analytical thinking, and structured business problem-solving.</p>
+          <span className="section-label">Capabilities</span>
+          <h2>Skills connected to delivered work.</h2>
+          <p>Tools matter when they support a reliable outcome. These are the capabilities represented by the case studies above.</p>
         </div>
       </div>
-      <div className="education-grid">
-        {education.map((item) => (
-          <article className="education-card" key={item.school}>
-            <CheckCircle2 size={22} />
-            <div>
-              <h3>{item.school}</h3>
-              <p>{item.detail}</p>
-              <time>{item.period}</time>
-            </div>
+      <div className="capability-grid">
+        {capabilities.map(({ icon: Icon, title, items, evidence }) => (
+          <article className="capability-card" key={title}>
+            <div className="skill-icon"><Icon size={24} /></div>
+            <h3>{title}</h3>
+            <ul>
+              {items.map((item) => <li key={item}>{item}</li>)}
+            </ul>
+            <p><CheckCircle2 size={15} /> {evidence}</p>
           </article>
         ))}
       </div>
@@ -894,25 +526,50 @@ function Education() {
   );
 }
 
-function Certifications() {
+function Credentials() {
   return (
-    <section className="section-shell content-section" id="certifications">
+    <section className="section-shell content-section" id="credentials">
       <div className="section-heading">
         <div>
-          <h2>Certifications &amp; Languages</h2>
-          <p>Professional learning across Power BI, ETL, Python, SQL, supply chain, and operations—plus the languages I use across international teams.</p>
+          <span className="section-label">Background</span>
+          <h2>Education, learning and languages.</h2>
+          <p>Formal education and professional learning are labelled separately so their status remains clear.</p>
         </div>
       </div>
-      <div className="cert-grid">
-        {certifications.map((cert) => (
-          <article className="cert-card" key={cert}>
-            <ShieldCheck size={22} />
-            <span>{cert}</span>
-          </article>
-        ))}
+      <div className="credentials-layout">
+        <div className="credential-panel">
+          <h3>Education</h3>
+          {education.map((item) => (
+            <article className="credential-item" key={item.school}>
+              <CheckCircle2 size={20} />
+              <div>
+                <strong>{item.school}</strong>
+                <span>{item.detail}</span>
+                <time>{item.period}</time>
+              </div>
+            </article>
+          ))}
+        </div>
+        <div className="credential-panel">
+          <h3>Professional learning</h3>
+          <ul className="learning-list">
+            {learning.map((item) => <li key={item}>{item}</li>)}
+          </ul>
+        </div>
+        <div className="credential-panel">
+          <h3>Languages</h3>
+          <div className="language-stack">
+            {languages.map((language) => <span key={language}>{language}</span>)}
+          </div>
+        </div>
       </div>
-      <div className="language-row" aria-label="Languages">
-        {languages.map((language) => <span key={language}>{language}</span>)}
+      <div className="confidentiality-note">
+        <ShieldCheck size={23} />
+        <p>
+          Production data, employer dashboards and client identifiers remain private. Public repositories use
+          independently created demonstration data while preserving the engineering decisions, validation logic and
+          documentation patterns that reviewers need to inspect.
+        </p>
       </div>
     </section>
   );
@@ -923,31 +580,33 @@ function Contact() {
     <section className="contact-section" id="contact">
       <div className="section-shell contact-grid">
         <div>
-          <h2>Let's Work Together</h2>
+          <span className="section-label">Contact</span>
+          <h2>Looking for reliable data delivery?</h2>
           <p>
-            Open to Data Engineer, BI / Data Analyst, Power BI Developer, Full-Stack Developer, and operations-focused
-            automation opportunities in Poland or remotely.
+            Open to Data Engineer, Power BI Developer and BI / Data Analyst opportunities in Poland or remotely.
           </p>
           <div className="contact-lines">
             <a href="mailto:ombhartiya16@gmail.com"><Mail size={18} /> ombhartiya16@gmail.com</a>
             <a href="tel:+48516901712"><Phone size={18} /> +48 516 901 712</a>
-            <a href="https://www.linkedin.com/in/om-bhartiya-b22279185/" target="_blank" rel="noreferrer">
-              <ExternalLink size={18} /> linkedin.com/in/om-bhartiya-b22279185
+            <a href={profileLinks.linkedin} target="_blank" rel="noreferrer">
+              <ExternalLink size={18} /> LinkedIn profile
             </a>
-            <a href="https://github.com/OMBHARTIYA?tab=repositories" target="_blank" rel="noreferrer">
-              <GitBranch size={18} /> github.com/OMBHARTIYA
+            <a href={profileLinks.github} target="_blank" rel="noreferrer">
+              <GitBranch size={18} /> GitHub repositories
             </a>
-            <span><MapPin size={18} /> Poznan, Poland</span>
+            <span><MapPin size={18} /> Poznań, Poland</span>
           </div>
         </div>
         <aside className="contact-card contact-cta" aria-label="Direct contact options">
-          <span className="section-label">Direct contact</span>
-          <h3>Let's discuss the role or business problem.</h3>
-          <p>The fastest way to reach me is by email or LinkedIn. I usually respond within one business day.</p>
+          <span className="section-label">Next step</span>
+          <h3>Discuss a role, reporting challenge or data platform.</h3>
+          <p>Email and LinkedIn are the fastest ways to reach me.</p>
           <div className="contact-actions">
             <a className="button primary" href="mailto:ombhartiya16@gmail.com"><Mail size={17} /> Email Om</a>
-            <a className="button secondary" href="https://www.linkedin.com/in/om-bhartiya-b22279185/" target="_blank" rel="noreferrer"><ExternalLink size={17} /> Connect on LinkedIn</a>
-            <a className="button secondary" href={assetPath('assets/om-bhartiya-cv.pdf')} download><FileText size={17} /> Download CV</a>
+            <a className="button secondary" href={profileLinks.linkedin} target="_blank" rel="noreferrer">
+              LinkedIn <ExternalLink size={16} />
+            </a>
+            <a className="button secondary" href={assetPath(profileLinks.cv)} download><FileText size={17} /> Download CV</a>
           </div>
         </aside>
       </div>
@@ -973,23 +632,17 @@ function App() {
       <Header theme={theme} onToggleTheme={() => setTheme((value) => value === 'dark' ? 'light' : 'dark')} />
       <main>
         <Hero />
-        <DataWork />
-        <FabricPipelineCaseStudy />
-        <Applications />
-        <FlagshipCaseStudy />
-        <TechnicalProof />
-        <Walkthroughs />
-        <Confidentiality />
-        <Skills />
+        <SelectedWork />
+        <AdditionalWork />
         <Experience />
-        <Education />
-        <Certifications />
+        <Capabilities />
+        <Credentials />
         <Contact />
       </main>
       <footer>
         <span>© 2026 Om Bhartiya</span>
-        <span>Data Engineer | Full-Stack Developer</span>
-        <span>Pipelines, BI, automation, and production-grade applications</span>
+        <span>Data Engineer &amp; Power BI Developer</span>
+        <span>Microsoft Fabric · SQL · PySpark · Power BI</span>
       </footer>
     </>
   );

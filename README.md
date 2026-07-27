@@ -1,26 +1,21 @@
-# Om Bhartiya Data Engineer & Full-Stack Developer Portfolio
+# Om Bhartiya Data Engineer & Power BI Developer Portfolio
 
-React/Vite portfolio site for Om Bhartiya, positioned as an operations-focused Data Engineer and Full-Stack Developer who delivers data pipelines, BI products, automation, and production-grade applications.
+React/Vite portfolio site for Om Bhartiya, positioned as an operations-focused Data Engineer and Power BI Developer who delivers reliable pipelines, semantic models, operational reporting, and supporting workflow applications.
 
-## Public Proof Sections
+## Portfolio Structure
 
-- Selected project cards
-- Outcome-led hero with direct CV download
-- Live Warehouse Management App project card and case study
-- Separate Data & BI Work and Applications paths
-- Problem / What I Built / Outcome structure across every project
-- Flagship construction progress BI case study
-- Analyst proof snippets for SQL, DAX, Power Query, and delivery checks
-- "How I Built This" case-study notes
-- Dedicated Microsoft Fabric API ingestion case study presenting an operating design authored and documented by Om
-- Visible six-stage workflow covering frozen incremental windows, parallel branches, pagination, run-isolated OneLake landing, PySpark/Delta curation, quality gates, raw-file lifecycle, and failure-safe state commits
-- Synthetic public model showing safe example dataset, state-table, and run-path conventions without reproducing source-specific identifiers
-- Public-safe animated walkthroughs for the dashboard and IFC viewer workflows
-- Confidentiality note explaining why production work is represented with synthetic/clean-room case studies
+- Focused Data Engineer & Power BI Developer positioning
+- Verified professional scope without unsupported headline metrics
+- Three visible case studies: Construction Progress BI, API Ingestion Pipeline, and Oracle ERP Reconciliation
+- Supporting Warehouse Management and IFC application work
+- Experience written as concise, evidence-based bullets
+- Skills connected directly to case-study evidence
+- Education, professional learning, and languages labelled separately
+- One concise confidentiality statement
 
 ## Portfolio Positioning
 
-This site is positioned for Data Engineer, BI / Data Analyst, Power BI Developer, Full-Stack Developer, and operations-focused automation roles. It presents Microsoft Fabric, PySpark, SQL, Power BI, React, Node.js, TypeScript, and operational process expertise as one end-to-end delivery profile.
+This site is positioned primarily for Data Engineer, Power BI Developer, and BI / Data Analyst roles. Microsoft Fabric, PySpark, SQL, Power BI, and operational process expertise lead the story; React, Node.js, and TypeScript are presented as supporting workflow-delivery capabilities.
 
 ## Run Locally
 
