@@ -42,13 +42,15 @@ const caseStudies = [
     title: 'Construction Progress BI',
     category: 'Power BI · Operational analytics',
     summary:
-      'A reporting system for construction and facade operations that brought fragmented progress, issue and delivery data into one decision-ready model.',
+      'A production reporting system for construction and facade operations that brought fragmented progress, issue and delivery data into one decision-ready model.',
     contribution:
       'Owned requirements, source integration, semantic modelling, KPI logic, validation and stakeholder delivery across multiple concurrent projects.',
     engineering:
-      'Combined REST API, Autodesk Construction Cloud, a Speckle failover source and CSV inputs into a 10-stage model, then extended the workflow through Microsoft Fabric, OneLake, notebooks, SQL and pipelines.',
+      'Built API-driven Power BI report variants with multi-table semantic models, reusable DAX KPI measures, mobile layouts and BIM-linked visual analysis; extended ingestion through Fabric, OneLake, notebooks and SQL.',
     outcome:
       'Reduced the reported refresh range from approximately 5–15 minutes to 1–2 minutes and supported self-service visibility for up to 15 stakeholders.',
+    evidenceNote:
+      'Professional delivery is described at system level. The linked repository uses independently created demonstration data; production reports, model files and client data remain private.',
     tags: ['Power BI', 'DAX', 'Power Query', 'Microsoft Fabric', 'Star schema'],
     visual: 'dashboard',
     links: [
@@ -67,13 +69,15 @@ const caseStudies = [
     title: 'API Ingestion Pipeline',
     category: 'Microsoft Fabric · Data engineering',
     summary:
-      'A public reference implementation of the ingestion pattern used to turn paginated operational API data into analytics-ready tables.',
+      'A Microsoft Fabric workflow for turning paginated operational REST data into analytics-ready Delta tables.',
     contribution:
-      'Designed the run controls, incremental windows, pagination, landing structure, transformation sequence, validation gates and failure-recovery approach.',
+      'Implemented and documented frozen incremental windows, manual pagination, parallel extraction branches, OneLake staging, PySpark transformation, archival controls and success-gated watermark updates.',
     engineering:
-      'Run-isolated JSON landing, Raw-to-Gold processing, deterministic keys, PySpark/SQL transformations, row-level checks and commit-on-success state control.',
+      'Landed and archived raw JSON, flattened and deduplicated records in notebooks, wrote Delta outputs and advanced pipeline state only after the complete run succeeded.',
     outcome:
-      'Makes the reliability decisions inspectable: missed pages, stale files, partial runs and replay safety are handled explicitly rather than hidden behind a diagram.',
+      'Produced repeatable operating guidance for incremental and full-refresh entities, including recovery, rerun and production-support procedures.',
+    evidenceNote:
+      'Delivered controls and documented hardening recommendations are kept distinct. The linked repository is a sanitized reference—not a copy of employer code, endpoints or data.',
     tags: ['Microsoft Fabric', 'PySpark', 'SQL', 'OneLake', 'Data quality'],
     visual: 'pipeline',
     links: [
@@ -99,6 +103,8 @@ const caseStudies = [
       'Used repeatable source checks, exception tracking and root-cause review to separate reporting errors from genuine operational deviations.',
     outcome:
       'Improved the reliability of production reporting and gave engineering teams clearer evidence for downtime, quality and corrective-action discussions.',
+    evidenceNote:
+      'This case is supported by documented professional experience. ERP records, production figures and employer documents are not reproduced publicly.',
     tags: ['Oracle ERP', 'Excel', 'Reconciliation', 'KPI reporting', 'Root-cause analysis'],
     visual: 'reconciliation',
     links: [
@@ -128,14 +134,14 @@ const additionalWork = [
     ]
   },
   {
-    title: 'Open IFC Viewer',
+    title: 'BIM Model Workflow & Public IFC Viewer',
     text:
-      'A browser-based React and Three.js implementation for loading an IFC file locally, navigating the model and inspecting element properties without uploading the model to a third-party service.',
-    tags: ['React', 'TypeScript', 'Three.js', 'IFC'],
+      'Professional work included a Vite and Three.js BIM workflow using That Open, web-ifc and Python tooling for IFC, FRAG and GLB models, with property inspection, filtering, clipping and synchronized plan/3D views. The linked React/TypeScript repository is an independent public adaptation—not the employer implementation.',
+    tags: ['IFC / BIM', 'Three.js', 'web-ifc', 'Public React adaptation'],
     links: [
-      { label: 'Open repository', href: 'https://github.com/OMBHARTIYA/open-ifc-viewer' },
+      { label: 'Open public adaptation', href: 'https://github.com/OMBHARTIYA/open-ifc-viewer' },
       {
-        label: 'Review verification notes',
+        label: 'Review public verification notes',
         href: 'https://github.com/OMBHARTIYA/open-ifc-viewer/blob/main/docs/verification.md'
       }
     ]
@@ -177,14 +183,14 @@ const capabilities = [
   {
     icon: BarChart3,
     title: 'Power BI & Analytics',
-    items: ['DAX and Power Query', 'Semantic and star-schema modelling', 'KPI definition and dashboard UX', 'Refresh, publishing and RLS'],
-    evidence: 'Demonstrated in Construction Progress BI'
+    items: ['DAX and Power Query', 'Semantic and star-schema modelling', 'KPI definition and dashboard UX', 'Refresh, publishing and mobile layouts'],
+    evidence: 'Supported by sanitized production artifacts and a public case repository'
   },
   {
     icon: ServerCog,
     title: 'Fabric Data Engineering',
-    items: ['OneLake and Lakehouse patterns', 'PySpark and SQL transformations', 'Incremental API ingestion', 'Orchestration, monitoring and recovery'],
-    evidence: 'Demonstrated in API Ingestion Pipeline'
+    items: ['OneLake and Lakehouse patterns', 'PySpark and SQL transformations', 'Incremental API ingestion', 'Orchestration, run control and recovery'],
+    evidence: 'Supported by an operating guide and sanitized public reference'
   },
   {
     icon: ClipboardCheck,
@@ -195,8 +201,8 @@ const capabilities = [
   {
     icon: Code2,
     title: 'Workflow Applications',
-    items: ['React, Next.js and TypeScript', 'Node.js and REST APIs', 'Role-based operational workflows', 'BIM / IFC browser applications'],
-    evidence: 'Supporting capability for workflow delivery'
+    items: ['React, Next.js and TypeScript', 'Node.js and REST APIs', 'Three.js, That Open and web-ifc', 'IFC / FRAG / GLB model workflows'],
+    evidence: 'Professional BIM workflow kept separate from the public adaptation'
   }
 ];
 
@@ -343,7 +349,7 @@ function CaseVisual({ type, title }) {
             {index < 3 && <ArrowRight size={18} aria-hidden="true" />}
           </React.Fragment>
         ))}
-        <p>Incremental window · pagination · validation · commit on success</p>
+        <p>Incremental window · pagination · archive · watermark on success</p>
       </div>
     );
   }
@@ -389,6 +395,11 @@ function CaseStudyCard({ item }) {
         </div>
       </dl>
 
+      <p className="case-evidence-note">
+        <ShieldCheck size={16} aria-hidden="true" />
+        <span><strong>Evidence boundary:</strong> {item.evidenceNote}</span>
+      </p>
+
       <div className="case-study-footer">
         <div className="tag-row">
           {item.tags.map((tag) => <span key={tag}>{tag}</span>)}
@@ -419,7 +430,8 @@ function SelectedWork() {
           <h2>Three problems. Three inspectable approaches.</h2>
           <p>
             The projects below focus on the work most relevant to Data Engineering, Power BI and operational
-            analytics roles. The essential evidence is visible without opening another panel.
+            analytics roles. Each case separates professional delivery from public demonstration evidence and states
+            what remains confidential.
           </p>
         </div>
       </div>
@@ -566,9 +578,9 @@ function Credentials() {
       <div className="confidentiality-note">
         <ShieldCheck size={23} />
         <p>
-          Production data, employer dashboards and client identifiers remain private. Public repositories use
-          independently created demonstration data while preserving the engineering decisions, validation logic and
-          documentation patterns that reviewers need to inspect.
+          Production data, employer dashboards, source files, endpoints and client identifiers remain private.
+          Public repositories use independently created demonstration data and clean-room implementations while
+          preserving the engineering decisions and documentation patterns that reviewers need to inspect.
         </p>
       </div>
     </section>
