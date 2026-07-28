@@ -86,7 +86,7 @@ const caseStudies = [
         href: 'https://github.com/OMBHARTIYA/Api-ingestion-pipeline'
       },
       {
-        label: 'Review validation report',
+        label: 'Review synthetic pipeline validation',
         href: 'https://github.com/OMBHARTIYA/Api-ingestion-pipeline/blob/main/docs/validation-report.md'
       }
     ]
@@ -129,7 +129,7 @@ const additionalWork = [
     image: 'assets/warehouse-os.png',
     imageAlt: 'Live warehouse management application interface',
     links: [
-      { label: 'View live application', href: 'https://project-ytm78.vercel.app/' },
+      { label: 'View live application', href: 'https://warehouse-os-app.vercel.app/' },
       { label: 'Open repository', href: 'https://github.com/OMBHARTIYA/Warehouse-Frontend' }
     ]
   },
