@@ -11,7 +11,7 @@ export const profile = {
   linkedin: 'https://www.linkedin.com/in/om-bhartiya-b22279185/',
   github: 'https://github.com/OMBHARTIYA?tab=repositories',
   portfolio: 'https://ombhartiya.github.io/om-bhartiya-portfolio/',
-  cvAsset: 'assets/om-bhartiya-cv.pdf',
+  cvAsset: 'assets/om-bhartiya-data-analyst-cv.pdf',
   availability: 'Poland-based · TRC holder · open to on-site, hybrid and remote employment',
   targetRoles: 'Data Analyst, BI Analyst, Power BI Developer and Operations Data Analyst roles in Poland or remotely.',
   footerSkills: 'Power BI · SQL · Microsoft Fabric · Python',
@@ -150,10 +150,10 @@ export const experience = [
     role: 'Data Analyst / Power BI Developer',
     company: 'DEFOR SA',
     bullets: [
-      'Reduced report refresh time by approximately 90%—from 15 minutes to under 2—by re-architecting data pipelines with incremental loading.',
-      'Established the company’s first Power BI Center of Excellence and delivered end-to-end analytics to 15+ stakeholders across 10 production stages.',
-      'Unified 4+ fragmented sources in a centralized semantic model, improving unit tracking and site visibility through 3D-linked BIM data.',
-      'Built scalable Microsoft Fabric ETL workflows with PySpark and SQL, processing 5,000+ records per load for production-unit ingestion.'
+      'Cut Power BI refresh time by approximately 90%, from 15 minutes to under 2 minutes, by replacing full reloads with incremental data loading.',
+      'Established DEFOR’s first Power BI Center of Excellence, delivering standardized reporting to 15+ stakeholders across 10 production stages.',
+      'Unified 4+ fragmented data sources in a centralized star-schema semantic model, improving production-unit tracking and 3D-linked site visibility.',
+      'Built Microsoft Fabric ETL workflows with PySpark and SQL, processing 5,000+ records per load for production-unit ingestion.'
     ]
   },
   {
@@ -161,9 +161,9 @@ export const experience = [
     role: 'Operations Data & Reporting Analyst',
     company: 'All For Expo',
     bullets: [
-      'Centralized operational tracking in an enterprise portal, replacing fragmented WhatsApp and email workflows with one source of truth across four divisions.',
-      'Consolidated disparate datasets to support reliable inventory control and financial monitoring throughout project lifecycles.',
-      'Translated operational requirements into automated digital workflows and practical technical solutions.'
+      'Centralized operational tracking across four divisions, replacing fragmented WhatsApp, email and spreadsheet workflows with one enterprise portal.',
+      'Consolidated inventory, project and financial datasets across four divisions, improving data consistency and lifecycle monitoring for active projects.',
+      'Translated business requirements into automated digital workflows, reducing reliance on manual operational handoffs.'
     ]
   },
   {
@@ -171,11 +171,49 @@ export const experience = [
     role: 'Process Control & Reporting Engineer',
     company: 'UFLEX Group',
     bullets: [
-      'Reconciled Oracle ERP entries against live production output, identifying discrepancies before they reached management reporting.',
-      'Produced high-frequency production summaries that supported engineering action on downtime and quality issues.',
-      'Designed repeatable process controls linking engineering requirements, ERP data, validation and process documentation.'
+      'Maintained 99% reporting accuracy through Oracle ERP reconciliation, comparing entries against live production output before management reporting.',
+      'Produced twice-daily production summaries, helping engineering teams identify downtime and quality issues and prioritize corrective action.',
+      'Designed repeatable process controls, linking engineering requirements with ERP data validation and process documentation.'
     ]
   }
+];
+
+export const cvSkillGroups = [
+  {
+    title: 'Data Analytics & BI',
+    skills: 'Power BI (DAX, Power Query), SQL, Microsoft Fabric, semantic modelling, Excel, KPI reporting'
+  },
+  {
+    title: 'Data Engineering & Automation',
+    skills: 'ETL pipelines, OneLake, PySpark, Python, REST APIs, data quality and reconciliation'
+  },
+  {
+    title: 'Process & Operations',
+    skills: 'Oracle ERP, requirements gathering, root-cause analysis, process mapping, manufacturing and construction analytics'
+  }
+];
+
+export const cvProjects = [
+  {
+    title: 'Warehouse Management System',
+    text:
+      'Designed and built a role-based application for products, stock movements and dashboard statistics, replacing fragmented inventory workflows with one operational view.'
+  },
+  {
+    title: 'Building Information Application',
+    text:
+      'Co-built a 3D web application for IFC and GLB models with value overlays, filtering and synchronized plan/3D views to improve cross-functional site visibility.'
+  }
+];
+
+export const cvCredentials = [
+  'Microsoft ETL Specialization',
+  'IBM Python for Data Science',
+  'UC Davis SQL for Data Science',
+  'CSCMP Supply Chain Foundations: Demand Planning Professional Certificate',
+  'Salesforce Sales/Operations Professional Certificate',
+  'Microsoft Power BI Data Analyst (PL-300) — certification preparation',
+  'Microsoft Fabric Analytics Engineer (DP-600) — certification preparation'
 ];
 
 export const capabilityGroups = [

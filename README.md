@@ -33,7 +33,7 @@ Open `http://127.0.0.1:5174/`.
 npm run build
 ```
 
-The build first regenerates `public/assets/om-bhartiya-cv.pdf` from
+The build first regenerates `public/assets/om-bhartiya-data-analyst-cv.pdf` from
 `src/profileData.mjs`, then builds the website. Update the shared profile data
 once and both the portfolio content and downloadable CV stay aligned.
 

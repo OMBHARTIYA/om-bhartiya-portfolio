@@ -5,29 +5,24 @@ import { fileURLToPath } from 'node:url';
 import PDFDocument from 'pdfkit';
 
 import {
-  additionalWork,
-  capabilityGroups,
-  caseStudies,
+  cvCredentials,
+  cvProjects,
+  cvSkillGroups,
   education,
   experience,
   languages,
-  learning,
   profile
 } from '../src/profileData.mjs';
 
 
 const scriptDir = dirname(fileURLToPath(import.meta.url));
 const projectRoot = resolve(scriptDir, '..');
-const canonicalPath = resolve(projectRoot, 'public', 'assets', 'om-bhartiya-cv.pdf');
-const legacyPath = resolve(projectRoot, 'public', 'assets', 'Om Bhartiya Resume.pdf');
+const canonicalPath = resolve(projectRoot, 'public', 'assets', 'om-bhartiya-data-analyst-cv.pdf');
 
 const colors = {
-  ink: '#12221f',
-  muted: '#53645f',
-  teal: '#087d70',
-  tealSoft: '#d9eee8',
-  line: '#d7dfdc',
-  paper: '#fffdf7'
+  blue: '#3f7fdf',
+  ink: '#111111',
+  line: '#8f8f8f'
 };
 
 const clean = (value) => String(value)
@@ -37,12 +32,11 @@ const clean = (value) => String(value)
   .replace(/[‘’]/g, "'")
   .replace(/[“”]/g, '"')
   .replace(/·/g, '|')
-  .replace(/→/g, 'to')
   .replace(/\u00a0/g, ' ');
 
 const doc = new PDFDocument({
   size: 'A4',
-  margins: { top: 36, bottom: 38, left: 42, right: 42 },
+  margins: { top: 52, bottom: 48, left: 54, right: 54 },
   bufferPages: true,
   info: {
     Title: `${profile.name} - Data Analyst CV`,
@@ -60,244 +54,172 @@ const completed = new Promise((resolvePromise, rejectPromise) => {
 });
 
 const contentWidth = doc.page.width - doc.page.margins.left - doc.page.margins.right;
-const bottomLimit = () => doc.page.height - doc.page.margins.bottom - 16;
+const pageBottom = () => doc.page.height - doc.page.margins.bottom;
 
 const ensureSpace = (height) => {
-  if (doc.y + height > bottomLimit()) doc.addPage();
+  if (doc.y + height > pageBottom()) doc.addPage();
 };
 
-const sectionHeading = (title) => {
-  ensureSpace(32);
-  doc.moveDown(0.55);
+const sectionHeading = (title, options = {}) => {
+  if (options.rule) {
+    doc
+      .moveTo(doc.page.margins.left, doc.y)
+      .lineTo(doc.page.width - doc.page.margins.right, doc.y)
+      .lineWidth(0.65)
+      .strokeColor(colors.line)
+      .stroke();
+    doc.y += 13;
+  } else {
+    doc.moveDown(0.68);
+  }
+
+  ensureSpace(28);
   doc
     .font('Helvetica-Bold')
-    .fontSize(10.5)
-    .fillColor(colors.teal)
-    .text(clean(title).toUpperCase(), { characterSpacing: 0.7 });
-  doc
-    .moveTo(doc.page.margins.left, doc.y + 3)
-    .lineTo(doc.page.width - doc.page.margins.right, doc.y + 3)
-    .lineWidth(0.6)
-    .strokeColor(colors.line)
-    .stroke();
-  doc.y += 9;
+    .fontSize(12.2)
+    .fillColor(colors.blue)
+    .text(clean(title));
+  doc.y += 5;
 };
 
 const bullet = (text, options = {}) => {
-  const fontSize = options.fontSize ?? 8.55;
-  const left = doc.page.margins.left + (options.indent ?? 8);
-  const width = contentWidth - (options.indent ?? 8);
+  const fontSize = options.fontSize ?? 9.55;
+  const left = doc.page.margins.left + 16;
+  const width = contentWidth - 16;
   const cleaned = clean(text);
+  const commaIndex = options.boldLead === false ? -1 : cleaned.indexOf(',');
+  const lead = commaIndex > 0 ? cleaned.slice(0, commaIndex) : '';
+  const rest = commaIndex > 0 ? cleaned.slice(commaIndex) : cleaned;
   const height = doc.heightOfString(cleaned, {
-    width: width - 10,
+    width: width - 12,
     font: 'Helvetica',
     fontSize,
     lineGap: 1.2
   });
-  ensureSpace(height + 6);
+
+  ensureSpace(height + 7);
   const y = doc.y;
-  doc.circle(left + 2, y + 4.2, 1.35).fillColor(colors.teal).fill();
+  doc.circle(left + 2.5, y + 5, 1.75).fillColor(colors.ink).fill();
   doc
-    .font('Helvetica')
+    .font(lead ? 'Helvetica-Bold' : 'Helvetica')
     .fontSize(fontSize)
     .fillColor(colors.ink)
-    .text(cleaned, left + 9, y, {
-      width: width - 9,
-      lineGap: 1.2
+    .text(lead || rest, left + 10, y, {
+      width: width - 10,
+      lineGap: 1.2,
+      continued: Boolean(lead)
     });
+  if (lead) {
+    doc
+      .font('Helvetica')
+      .text(rest, {
+        width: width - 10,
+        lineGap: 1.2
+      });
+  }
   doc.y += 3;
 };
 
-const smallLabel = (label, value) => {
-  const startY = doc.y;
-  doc.font('Helvetica-Bold').fontSize(8.7).fillColor(colors.ink).text(clean(label), {
-    continued: true
-  });
-  doc.font('Helvetica').fillColor(colors.muted).text(` ${clean(value)}`);
-  doc.y = Math.max(doc.y, startY + 12);
+const labelledLine = (label, value) => {
+  ensureSpace(28);
+  doc
+    .font('Helvetica-Bold')
+    .fontSize(10.1)
+    .fillColor(colors.blue)
+    .text(clean(label));
+  doc
+    .font('Helvetica')
+    .fontSize(9.7)
+    .fillColor(colors.ink)
+    .text(clean(value), { lineGap: 1.2 });
+  doc.y += 4;
 };
 
 doc
-  .rect(0, 0, doc.page.width, 98)
-  .fillColor(colors.paper)
-  .fill();
+  .font('Helvetica-Bold')
+  .fontSize(17.2)
+  .fillColor(colors.blue)
+  .text(clean(profile.name));
 
 doc
-  .font('Helvetica-Bold')
-  .fontSize(24)
+  .font('Helvetica')
+  .fontSize(10.2)
   .fillColor(colors.ink)
-  .text(clean(profile.name), doc.page.margins.left, 34);
+  .text(clean(`${profile.location} | ${profile.phoneDisplay}`));
 
 doc
-  .font('Helvetica-Bold')
-  .fontSize(11.5)
-  .fillColor(colors.teal)
-  .text(clean(profile.headline), doc.page.margins.left, 63);
+  .fillColor('#0057c8')
+  .text(clean(profile.email), { link: `mailto:${profile.email}`, underline: true, continued: true })
+  .fillColor(colors.ink)
+  .text(' | ', { continued: true })
+  .fillColor('#0057c8')
+  .text('LinkedIn', { link: profile.linkedin, underline: true, continued: true })
+  .fillColor(colors.ink)
+  .text(' | ', { continued: true })
+  .fillColor('#0057c8')
+  .text('GitHub', { link: profile.github, underline: true, continued: true })
+  .fillColor(colors.ink)
+  .text(' | ', { continued: true })
+  .fillColor('#0057c8')
+  .text('Portfolio', { link: profile.portfolio, underline: true });
 
-doc
-  .font('Helvetica')
-  .fontSize(8.4)
-  .fillColor(colors.muted)
-  .text(
-    clean(`${profile.location} | ${profile.phoneDisplay} | ${profile.email}`),
-    doc.page.margins.left,
-    81,
-    { continued: true }
-  )
-  .fillColor(colors.teal)
-  .text(' | LinkedIn', { link: profile.linkedin, continued: true })
-  .text(' | GitHub', { link: profile.github, continued: true })
-  .text(' | Portfolio', { link: profile.portfolio });
-
-doc.y = 110;
-sectionHeading('Professional summary');
+sectionHeading('Professional Summary');
 doc
   .font('Helvetica')
-  .fontSize(9.1)
+  .fontSize(9.8)
   .fillColor(colors.ink)
   .text(clean(profile.summary), {
     width: contentWidth,
-    lineGap: 1.8
+    lineGap: 1.7,
+    align: 'left'
   });
 
-sectionHeading('Core capabilities');
-for (const group of capabilityGroups) {
-  smallLabel(`${group.title}:`, group.items.join(' | '));
-}
-
-sectionHeading('Professional experience');
+sectionHeading('Work Experience');
 for (const item of experience) {
-  ensureSpace(48);
-  const headingY = doc.y;
+  ensureSpace(58);
   doc
-    .font('Helvetica-Bold')
-    .fontSize(9.3)
-    .fillColor(colors.ink)
-    .text(clean(`${item.role} | ${item.company}`), doc.page.margins.left, headingY, {
-      width: contentWidth - 115
-    });
+    .font('Helvetica-BoldOblique')
+    .fontSize(10.3)
+    .fillColor(colors.blue)
+    .text(clean(`${item.role} | ${item.company}`));
   doc
     .font('Helvetica-Oblique')
-    .fontSize(8.2)
-    .fillColor(colors.teal)
-    .text(clean(item.period), doc.page.width - doc.page.margins.right - 115, headingY + 1, {
-      width: 115,
-      align: 'right'
-    });
-  doc.y = Math.max(doc.y, headingY + 15);
+    .fontSize(9.4)
+    .fillColor(colors.ink)
+    .text(clean(item.period));
+  doc.y += 2;
   for (const itemBullet of item.bullets) bullet(itemBullet);
-  doc.y += 3;
+  doc.y += 5;
 }
 
 doc.addPage();
-doc
-  .font('Helvetica-Bold')
-  .fontSize(15)
-  .fillColor(colors.ink)
-  .text(clean(profile.name), doc.page.margins.left, 36, { continued: true })
-  .font('Helvetica')
-  .fontSize(9)
-  .fillColor(colors.teal)
-  .text(`  |  ${clean(profile.headline)}`);
-doc.y = 64;
+sectionHeading('Skills', { rule: true });
+for (const group of cvSkillGroups) labelledLine(group.title, group.skills);
 
-sectionHeading('Selected projects');
-for (const project of caseStudies) {
-  ensureSpace(72);
-  doc
-    .font('Helvetica-Bold')
-    .fontSize(9.5)
-    .fillColor(colors.ink)
-    .text(clean(project.title), { continued: true })
-    .font('Helvetica-Oblique')
-    .fontSize(8)
-    .fillColor(colors.teal)
-    .text(`  |  ${clean(project.category)}`);
-  bullet(project.summary, { fontSize: 8.45 });
-  bullet(project.outcome, { fontSize: 8.45 });
-  const repository = project.links.find((link) => link.href.startsWith('https://github.com/'));
-  if (repository) {
-    doc
-      .font('Helvetica-Bold')
-      .fontSize(7.7)
-      .fillColor(colors.teal)
-      .text('Evidence: public repository', {
-        link: repository.href,
-        underline: true
-      });
-    doc.y += 5;
-  } else {
-    doc.y += 3;
-  }
-}
-
-sectionHeading('Supporting applications');
-for (const project of additionalWork) {
-  ensureSpace(38);
-  doc
-    .font('Helvetica-Bold')
-    .fontSize(8.9)
-    .fillColor(colors.ink)
-    .text(clean(project.title), { continued: true })
-    .font('Helvetica')
-    .fillColor(colors.muted)
-    .text(` - ${clean(project.text)}`, {
-      width: contentWidth,
-      lineGap: 1.1
-    });
-  doc.y += 3;
+sectionHeading('Selected Projects');
+for (const project of cvProjects) {
+  bullet(`${project.title}: ${project.text}`, { fontSize: 9.7, boldLead: false });
 }
 
 sectionHeading('Education');
 for (const item of education) {
-  smallLabel(`${item.detail} | ${item.school}`, item.period);
+  bullet(`${item.detail} | ${item.school} (${item.period})`, {
+    fontSize: 9.7,
+    boldLead: false
+  });
 }
 
-sectionHeading('Professional learning');
-for (const item of learning) bullet(item, { fontSize: 8.2 });
+sectionHeading('Certifications & Professional Learning');
+for (const item of cvCredentials) bullet(item, { fontSize: 9.45, boldLead: false });
 
-sectionHeading('Languages & availability');
-doc
-  .font('Helvetica-Bold')
-  .fontSize(8.8)
-  .fillColor(colors.ink)
-  .text(clean(languages.join(' | ')));
-doc
-  .font('Helvetica')
-  .fontSize(8.3)
-  .fillColor(colors.muted)
-  .text(clean(profile.availability), { lineGap: 1.1 });
-
-const pageRange = doc.bufferedPageRange();
-for (let index = pageRange.start; index < pageRange.start + pageRange.count; index += 1) {
-  doc.switchToPage(index);
-  const footerY = doc.page.height - doc.page.margins.bottom - 10;
-  doc
-    .moveTo(doc.page.margins.left, footerY - 5)
-    .lineTo(doc.page.width - doc.page.margins.right, footerY - 5)
-    .lineWidth(0.5)
-    .strokeColor(colors.line)
-    .stroke();
-  doc
-    .font('Helvetica')
-    .fontSize(7)
-    .fillColor(colors.muted)
-    .text(
-      `Automatically generated from the portfolio profile data | Page ${index + 1} of ${pageRange.count}`,
-      doc.page.margins.left,
-      footerY,
-      { width: contentWidth, align: 'center' }
-    );
-}
+sectionHeading('Languages');
+bullet(languages.join(' | '), { fontSize: 9.7, boldLead: false });
 
 doc.end();
 await completed;
 
 const pdfBuffer = Buffer.concat(chunks);
 await mkdir(dirname(canonicalPath), { recursive: true });
-await Promise.all([
-  writeFile(canonicalPath, pdfBuffer),
-  writeFile(legacyPath, pdfBuffer)
-]);
+await writeFile(canonicalPath, pdfBuffer);
 
 console.log(`Generated ${canonicalPath}`);
