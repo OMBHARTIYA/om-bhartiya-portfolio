@@ -16,7 +16,7 @@ React/Vite portfolio site for Om Bhartiya, positioned as a Data Analyst and Powe
 
 ## Portfolio Positioning
 
-This site is positioned primarily for Data Analyst, BI Analyst, Power BI Developer, and Operations Data Analyst roles. Power BI, SQL, data modelling, Microsoft Fabric, and operational domain expertise lead the story; AI-assisted automation and workflow applications are presented as complementary capabilities.
+This site is positioned primarily for Data Analyst, BI Analyst, Power BI Developer, and Operations Data Analyst roles. Power BI, SQL, data modeling, Microsoft Fabric, and operational domain expertise lead the story; AI-assisted automation and workflow applications are presented as complementary capabilities.
 
 ## Run Locally
 

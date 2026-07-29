@@ -11,12 +11,12 @@ export const profile = {
   linkedin: 'https://www.linkedin.com/in/om-bhartiya-b22279185/',
   github: 'https://github.com/OMBHARTIYA?tab=repositories',
   portfolio: 'https://ombhartiya.github.io/om-bhartiya-portfolio/',
-  cvAsset: 'assets/om-bhartiya-data-analyst-cv.pdf',
+  cvAsset: 'assets/om-bhartiya-data-analyst-cv.pdf?v=20260730-2',
   availability: 'Poland-based · TRC holder · open to on-site, hybrid and remote employment',
   targetRoles: 'Data Analyst, BI Analyst, Power BI Developer and Operations Data Analyst roles in Poland or remotely.',
   footerSkills: 'Power BI · SQL · Microsoft Fabric · Python',
   summary:
-    'Data Analyst and Power BI Developer with 5+ years of experience connecting manufacturing and project operations with decision-ready data. Builds governed pipelines, semantic models and dashboards using SQL, Power BI, Power Query, DAX and Microsoft Fabric to improve visibility, data quality and operational decisions.'
+    'Data Analyst and Power BI Developer with 5+ years of experience transforming manufacturing and project operations into decision-ready data. Skilled in building governed pipelines, semantic models and dashboards with SQL, Power BI, Power Query, DAX and Microsoft Fabric to improve visibility, data quality and operational decisions.'
 };
 
 export const verifiedScope = [
@@ -32,7 +32,7 @@ export const coreSkills = [
   'Power BI',
   'DAX',
   'Power Query',
-  'Data modelling',
+  'Data modeling',
   'Microsoft Fabric',
   'Excel',
   'Python'
@@ -46,7 +46,7 @@ export const caseStudies = [
     summary:
       'A production reporting system for construction and facade operations that brought fragmented progress, issue and delivery data into one decision-ready model.',
     contribution:
-      'Owned requirements, source integration, semantic modelling, KPI logic, validation and stakeholder delivery across multiple concurrent projects.',
+      'Owned requirements, source integration, semantic modeling, KPI logic, validation and stakeholder delivery across multiple concurrent projects.',
     engineering:
       'Built API-driven Power BI report variants with multi-table semantic models, reusable DAX KPI measures, mobile layouts and BIM-linked visual analysis; extended ingestion through Fabric, OneLake, notebooks and SQL.',
     outcome:
@@ -172,7 +172,7 @@ export const experience = [
     company: 'UFLEX Group',
     bullets: [
       'Maintained 99% reporting accuracy through Oracle ERP reconciliation, comparing entries against live production output before management reporting.',
-      'Produced twice-daily production summaries, helping engineering teams identify downtime and quality issues and prioritize corrective action.',
+      'Delivered 2 production summaries per day, enabling engineering teams to identify downtime and quality issues and prioritize corrective actions.',
       'Designed repeatable process controls, linking engineering requirements with ERP data validation and process documentation.'
     ]
   }
@@ -181,7 +181,7 @@ export const experience = [
 export const cvSkillGroups = [
   {
     title: 'Data Analytics & BI',
-    skills: 'Power BI (DAX, Power Query), SQL, Microsoft Fabric, semantic modelling, Excel, KPI reporting'
+    skills: 'Power BI (DAX, Power Query), SQL, Microsoft Fabric, semantic modeling, Excel, KPI reporting'
   },
   {
     title: 'Data Engineering & Automation',
@@ -220,12 +220,12 @@ export const capabilityGroups = [
   {
     iconKey: 'analytics',
     title: 'Power BI & Analytics',
-    items: ['DAX and Power Query', 'KPI definition and dashboard UX', 'Refresh optimisation', 'Publishing and mobile layouts'],
+    items: ['DAX and Power Query', 'KPI definition and dashboard UX', 'Refresh optimization', 'Publishing and mobile layouts'],
     evidence: 'Supported by sanitized production artifacts and a public case repository'
   },
   {
     iconKey: 'modelling',
-    title: 'SQL & Data Modelling',
+    title: 'SQL & Data Modeling',
     items: ['SQL querying and transformation', 'Star-schema design', 'Semantic models and relationships', 'Source reconciliation and validation'],
     evidence: 'Demonstrated across the Power BI, Fabric and Oracle ERP case studies'
   },
@@ -260,7 +260,7 @@ export const education = [
   },
   {
     school: 'Babes-Bolyai University',
-    detail: 'Erasmus Blended Intensive Programme, Romania',
+    detail: 'Erasmus Blended Intensive Program, Romania',
     period: '2024'
   }
 ];
