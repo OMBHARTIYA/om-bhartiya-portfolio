@@ -4,8 +4,6 @@ import {
   ArrowRight,
   BarChart3,
   CheckCircle2,
-  ClipboardCheck,
-  Code2,
   Database,
   ExternalLink,
   FileText,
@@ -35,6 +33,17 @@ const verifiedScope = [
   { value: '15+', label: 'business stakeholders supported' },
   { value: '4+', label: 'sources unified in one model' },
   { value: '10', label: 'production stages covered' }
+];
+
+const coreSkills = [
+  'SQL',
+  'Power BI',
+  'DAX',
+  'Power Query',
+  'Data modelling',
+  'Microsoft Fabric',
+  'Excel',
+  'Python'
 ];
 
 const caseStudies = [
@@ -152,7 +161,7 @@ const additionalWork = [
 const experience = [
   {
     period: 'May 2025 – Present',
-    role: 'Data & Operations Analyst',
+    role: 'Data Analyst / Power BI Developer',
     company: 'DEFOR SA',
     bullets: [
       'Reduced report refresh time by approximately 90%—from 15 minutes to under 2—by re-architecting data pipelines with incremental loading.',
@@ -187,26 +196,26 @@ const capabilities = [
   {
     icon: BarChart3,
     title: 'Power BI & Analytics',
-    items: ['DAX and Power Query', 'Semantic and star-schema modelling', 'KPI definition and dashboard UX', 'Refresh, publishing and mobile layouts'],
+    items: ['DAX and Power Query', 'KPI definition and dashboard UX', 'Refresh optimisation', 'Publishing and mobile layouts'],
     evidence: 'Supported by sanitized production artifacts and a public case repository'
   },
   {
+    icon: Database,
+    title: 'SQL & Data Modelling',
+    items: ['SQL querying and transformation', 'Star-schema design', 'Semantic models and relationships', 'Source reconciliation and validation'],
+    evidence: 'Demonstrated across the Power BI, Fabric and Oracle ERP case studies'
+  },
+  {
     icon: ServerCog,
-    title: 'Fabric Data Engineering',
+    title: 'Fabric & Data Pipelines',
     items: ['OneLake and Lakehouse patterns', 'PySpark and SQL transformations', 'Incremental API ingestion', 'Orchestration, run control and recovery'],
     evidence: 'Supported by an operating guide and sanitized public reference'
   },
   {
-    icon: ClipboardCheck,
-    title: 'Data Quality & Operations',
-    items: ['Source reconciliation', 'Validation and exception handling', 'Process and root-cause analysis', 'Manufacturing and construction data'],
-    evidence: 'Demonstrated in Oracle ERP Reconciliation'
-  },
-  {
-    icon: Code2,
-    title: 'Workflow Applications',
-    items: ['React, Next.js and TypeScript', 'Node.js and REST APIs', 'AI-assisted rapid delivery', 'IFC / GLB and 3D data visualisation'],
-    evidence: 'Professional BIM workflow kept separate from the public adaptation'
+    icon: Workflow,
+    title: 'Operations & Automation',
+    items: ['Process and root-cause analysis', 'Low-code and AI-assisted workflows', 'REST APIs and workflow applications', 'Manufacturing and construction data'],
+    evidence: 'Demonstrated through reporting, reconciliation and independently built workflow tools'
   }
 ];
 
@@ -214,15 +223,16 @@ const learning = [
   'Completed — Microsoft ETL Specialization',
   'Completed — IBM Python for Data Science',
   'Completed — UC Davis SQL for Data Science',
-  'In progress — Microsoft Fabric Analytics Engineer Associate (DP-600)',
-  'In progress — Microsoft Power BI Data Analyst (PL-300)'
+  'Certification preparation — Microsoft Power BI Data Analyst (PL-300)',
+  'Certification preparation — Microsoft Fabric Analytics Engineer (DP-600)',
+  'Developing — Agentic AI workflows: tool use, RAG, guardrails and evaluation'
 ];
 
 const education = [
   {
     school: 'Poznan University of Technology',
     detail: 'B.Eng. in Engineering & Industrial Management',
-    period: '2022 – 2026'
+    period: 'Awarded March 2026'
   },
   {
     school: 'Babes-Bolyai University',
@@ -267,7 +277,13 @@ function Header({ theme, onToggleTheme }) {
         >
           {theme === 'dark' ? <Sun size={17} /> : <Moon size={17} />}
         </button>
-        <a className="header-link" href={profileLinks.linkedin} target="_blank" rel="noreferrer">
+        <a
+          className="header-link"
+          href={profileLinks.linkedin}
+          target="_blank"
+          rel="noreferrer"
+          aria-label="LinkedIn profile"
+        >
           in
         </a>
         <a className="header-link" href={profileLinks.github} target="_blank" rel="noreferrer" aria-label="GitHub profile">
@@ -283,13 +299,16 @@ function Hero() {
     <section className="hero section-shell" id="top">
       <div className="hero-copy">
         <span className="hero-kicker"><span /> Om Bhartiya · Poznań, Poland</span>
-        <h1>Data &amp; Operations Analyst <em>Power BI · Microsoft Fabric</em></h1>
+        <h1>Data Analyst <em>Power BI · SQL · Microsoft Fabric</em></h1>
         <p className="hero-title">From operational complexity to decision-ready data.</p>
         <p className="hero-text">
-          I connect manufacturing and project operations with management-ready data. Using Microsoft Fabric,
-          SQL, PySpark, Power BI and workflow applications, I build governed pipelines, semantic models and
-          reporting that improve visibility, data quality and day-to-day decisions.
+          I turn manufacturing and project-operations data into trusted reporting and actionable insight. Using
+          SQL, Power BI, Power Query, DAX and Microsoft Fabric, I build governed pipelines, semantic models and
+          dashboards that improve visibility, data quality and day-to-day decisions.
         </p>
+        <ul className="core-skills" aria-label="Core data skills">
+          {coreSkills.map((skill) => <li key={skill}>{skill}</li>)}
+        </ul>
         <div className="hero-actions">
           <a className="button primary" href="#work"><BarChart3 size={17} /> View selected work</a>
           <a className="button secondary" href={assetPath(profileLinks.cv)} download><FileText size={17} /> Download CV</a>
@@ -598,8 +617,8 @@ function Contact() {
           <span className="section-label">Contact</span>
           <h2>Looking for reliable data delivery?</h2>
           <p>
-            Open to Data &amp; Operations Analyst, Power BI Developer and Microsoft Fabric-focused data roles in
-            Poland or remotely.
+            Open to Data Analyst, BI Analyst, Power BI Developer and Operations Data Analyst roles in Poland or
+            remotely.
           </p>
           <div className="contact-lines">
             <a href="mailto:ombhartiya16@gmail.com"><Mail size={18} /> ombhartiya16@gmail.com</a>
@@ -645,8 +664,9 @@ function App() {
 
   return (
     <>
+      <a className="skip-link" href="#main-content">Skip to main content</a>
       <Header theme={theme} onToggleTheme={() => setTheme((value) => value === 'dark' ? 'light' : 'dark')} />
-      <main>
+      <main id="main-content">
         <Hero />
         <SelectedWork />
         <AdditionalWork />
@@ -657,8 +677,8 @@ function App() {
       </main>
       <footer>
         <span>© 2026 Om Bhartiya</span>
-        <span>Data &amp; Operations Analyst</span>
-        <span>Microsoft Fabric · SQL · PySpark · Power BI</span>
+        <span>Data Analyst / Power BI Developer</span>
+        <span>Power BI · SQL · Microsoft Fabric · Python</span>
       </footer>
     </>
   );

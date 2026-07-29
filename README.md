@@ -1,10 +1,10 @@
-# Om Bhartiya Data & Operations Analyst Portfolio
+# Om Bhartiya Data Analyst & Power BI Developer Portfolio
 
-React/Vite portfolio site for Om Bhartiya, positioned as a Data & Operations Analyst with a technical focus on Power BI and Microsoft Fabric. The site connects manufacturing and project-operations experience with evidence-backed pipelines, semantic models, reporting, and workflow applications.
+React/Vite portfolio site for Om Bhartiya, positioned as a Data Analyst and Power BI Developer with a technical focus on SQL and Microsoft Fabric. The site connects manufacturing and project-operations experience with evidence-backed pipelines, semantic models, reporting, and workflow automation.
 
 ## Portfolio Structure
 
-- Focused Data & Operations Analyst positioning with Power BI and Microsoft Fabric specialization
+- Focused Data Analyst / Power BI Developer positioning with SQL and Microsoft Fabric specialization
 - Verified professional scope without unsupported headline metrics
 - Three visible case studies: Construction Progress BI, API Ingestion Pipeline, and Oracle ERP Reconciliation
 - Supporting Warehouse Management and IFC application work
@@ -15,7 +15,7 @@ React/Vite portfolio site for Om Bhartiya, positioned as a Data & Operations Ana
 
 ## Portfolio Positioning
 
-This site is positioned primarily for Data & Operations Analyst, Power BI Developer, and Microsoft Fabric-focused data roles. Operational process expertise, Microsoft Fabric, PySpark, SQL, and Power BI lead the story; React, Node.js, and TypeScript are presented as supporting workflow-delivery capabilities.
+This site is positioned primarily for Data Analyst, BI Analyst, Power BI Developer, and Operations Data Analyst roles. Power BI, SQL, data modelling, Microsoft Fabric, and operational domain expertise lead the story; AI-assisted automation and workflow applications are presented as complementary capabilities.
 
 ## Run Locally
 

@@ -40,6 +40,26 @@ button, input, textarea { font: inherit; }
 
 ::selection { color: #fff; background: var(--teal); }
 
+.skip-link {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 100;
+  padding: 10px 14px;
+  border-radius: 8px;
+  color: #fff;
+  background: var(--teal-dark);
+  transform: translateY(-160%);
+  transition: transform .18s ease;
+}
+
+.skip-link:focus { transform: translateY(0); }
+
+:where(a, button):focus-visible {
+  outline: 3px solid #64d6bd;
+  outline-offset: 3px;
+}
+
 .site-header {
   position: sticky;
   top: 14px;
@@ -149,6 +169,25 @@ button, input, textarea { font: inherit; }
 }
 .hero-title em { color: var(--teal); font-style: normal; }
 .hero-text { max-width: 640px; margin: 0; color: #52615c; font-size: 17px; line-height: 1.72; }
+
+.core-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 22px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.core-skills li {
+  padding: 7px 10px;
+  border: 1px solid rgba(8, 125, 112, .23);
+  border-radius: 999px;
+  color: var(--teal-dark);
+  background: rgba(217, 238, 232, .62);
+  font-size: 11px;
+  font-weight: 800;
+}
 
 .impact-grid {
   display: grid;
@@ -1129,6 +1168,11 @@ body,
 
 [data-theme='dark'] .confidentiality-note {
   border-color: rgba(100, 214, 189, .2);
+}
+
+[data-theme='dark'] .core-skills li {
+  color: #bcebdd;
+  background: rgba(100, 214, 189, .08);
 }
 
 @media (max-width: 1050px) {
