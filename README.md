@@ -12,6 +12,7 @@ React/Vite portfolio site for Om Bhartiya, positioned as a Data Analyst and Powe
 - Skills connected directly to case-study evidence
 - Education, professional learning, and languages labelled separately
 - One concise confidentiality statement
+- Automatically generated downloadable CV sourced from the same profile data as the website
 
 ## Portfolio Positioning
 
@@ -31,6 +32,10 @@ Open `http://127.0.0.1:5174/`.
 ```bash
 npm run build
 ```
+
+The build first regenerates `public/assets/om-bhartiya-cv.pdf` from
+`src/profileData.mjs`, then builds the website. Update the shared profile data
+once and both the portfolio content and downloadable CV stay aligned.
 
 ## Profile Sources Reflected
 
