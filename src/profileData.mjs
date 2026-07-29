@@ -11,12 +11,12 @@ export const profile = {
   linkedin: 'https://www.linkedin.com/in/om-bhartiya-b22279185/',
   github: 'https://github.com/OMBHARTIYA?tab=repositories',
   portfolio: 'https://ombhartiya.github.io/om-bhartiya-portfolio/',
-  cvAsset: 'assets/om-bhartiya-data-analyst-cv.pdf?v=20260730-2',
+  cvAsset: 'assets/om-bhartiya-data-analyst-cv.pdf?v=20260730-3',
   availability: 'Poland-based · TRC holder · open to on-site, hybrid and remote employment',
   targetRoles: 'Data Analyst, BI Analyst, Power BI Developer and Operations Data Analyst roles in Poland or remotely.',
   footerSkills: 'Power BI · SQL · Microsoft Fabric · Python',
   summary:
-    'Data Analyst and Power BI Developer with 5+ years of experience transforming manufacturing and project operations into decision-ready data. Skilled in building governed pipelines, semantic models and dashboards with SQL, Power BI, Power Query, DAX and Microsoft Fabric to improve visibility, data quality and operational decisions.'
+    'Data Analyst and Power BI Developer with 5+ years of experience transforming manufacturing, construction and project operations into decision-ready data. Experienced in building governed pipelines, semantic models and dashboards with SQL, Power BI, DAX, Power Query and Microsoft Fabric, combining process automation and user enablement to improve visibility, data quality and operational adoption.'
 };
 
 export const verifiedScope = [
@@ -150,10 +150,10 @@ export const experience = [
     role: 'Data Analyst / Power BI Developer',
     company: 'DEFOR SA',
     bullets: [
-      'Cut Power BI refresh time by approximately 90%, from 15 minutes to under 2 minutes, by replacing full reloads with incremental data loading.',
-      'Established DEFOR’s first Power BI Center of Excellence, delivering standardized reporting to 15+ stakeholders across 10 production stages.',
-      'Unified 4+ fragmented data sources in a centralized star-schema semantic model, improving production-unit tracking and 3D-linked site visibility.',
-      'Built Microsoft Fabric ETL workflows with PySpark and SQL, processing 5,000+ records per load for production-unit ingestion.'
+      'Built DEFOR’s first centralized Power BI reporting capability as the sole analyst, supporting 15+ stakeholders across 3-5 concurrent projects and 10 production stages.',
+      'Unified four sources - REST API, Autodesk Construction Cloud, Speckle and CSV - in a star-schema semantic model, replacing manual reconciliation with one trusted operational view.',
+      'Reduced Power BI refresh time from 5-15 minutes to 1-2 minutes with incremental loading, enabling near-live self-service reporting.',
+      'Designed a paginated REST-to-Fabric pipeline processing 5,000+ records per load, using OneLake, PySpark, Delta tables, incremental watermarks and Bronze-to-Silver transformations.'
     ]
   },
   {
@@ -163,7 +163,7 @@ export const experience = [
     bullets: [
       'Centralized operational tracking across four divisions, replacing fragmented WhatsApp, email and spreadsheet workflows with one enterprise portal.',
       'Consolidated inventory, project and financial datasets across four divisions, improving data consistency and lifecycle monitoring for active projects.',
-      'Translated business requirements into automated digital workflows, reducing reliance on manual operational handoffs.'
+      'Bridged business requirements and technical delivery, producing onboarding documentation and digital learning resources that supported user adoption and process compliance.'
     ]
   },
   {
@@ -171,9 +171,9 @@ export const experience = [
     role: 'Process Control & Reporting Engineer',
     company: 'UFLEX Group',
     bullets: [
-      'Maintained 99% reporting accuracy through Oracle ERP reconciliation, comparing entries against live production output before management reporting.',
+      'Maintained 99% reporting accuracy through Oracle ERP reconciliation, comparing entries with live production output and catching discrepancies before management reporting.',
       'Delivered 2 production summaries per day, enabling engineering teams to identify downtime and quality issues and prioritize corrective actions.',
-      'Designed repeatable process controls, linking engineering requirements with ERP data validation and process documentation.'
+      'Designed repeatable process controls and training documentation, linking engineering requirements with ERP validation and process compliance.'
     ]
   }
 ];
@@ -185,11 +185,15 @@ export const cvSkillGroups = [
   },
   {
     title: 'Data Engineering & Automation',
-    skills: 'ETL pipelines, OneLake, PySpark, Python, REST APIs, data quality and reconciliation'
+    skills: 'ETL pipelines, OneLake, PySpark, Python, REST APIs, AI-assisted workflow automation, low-code/no-code'
   },
   {
-    title: 'Process & Operations',
-    skills: 'Oracle ERP, requirements gathering, root-cause analysis, process mapping, manufacturing and construction analytics'
+    title: 'Operations & Process Improvement',
+    skills: 'Requirements gathering, root-cause analysis, workflow mapping, data validation, SOP and onboarding documentation'
+  },
+  {
+    title: 'Business Applications & Integration',
+    skills: 'Oracle ERP, Autodesk Construction Cloud, React, TypeScript, BPMN/UML, IFC and GLB data'
   }
 ];
 
@@ -197,12 +201,12 @@ export const cvProjects = [
   {
     title: 'Warehouse Management System',
     text:
-      'Designed and built a role-based application for products, stock movements and dashboard statistics, replacing fragmented inventory workflows with one operational view.'
+      'Designed and built a business-focused inventory application for products, stock movements and dashboard statistics, replacing fragmented manual communication with one operational view.'
   },
   {
     title: 'Building Information Application',
     text:
-      'Co-built a 3D web application for IFC and GLB models with value overlays, filtering and synchronized plan/3D views to improve cross-functional site visibility.'
+      'Co-built a React and Vite application for IFC, FRAG and GLB models with status overlays, filtering and synchronized plan/3D views to improve engineering inspection and site visibility.'
   }
 ];
 
