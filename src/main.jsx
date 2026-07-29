@@ -241,7 +241,7 @@ const education = [
   }
 ];
 
-const languages = ['English — Fluent (C1)', 'Polish — Elementary (A2)'];
+const languages = ['English — Fluent (C1)', 'Polish — Beginner (A1)'];
 
 const getInitialTheme = () => {
   try {
