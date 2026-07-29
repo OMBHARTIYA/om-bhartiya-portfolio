@@ -31,7 +31,7 @@ panel_fill = "#092f2a"
 draw.text((48, 123), "Om Bhartiya", font=font("georgia.ttf", 82), fill=ink)
 draw.text(
     (51, 255),
-    "Data Engineer  |  Full-Stack Developer",
+    "Data & Operations Analyst",
     font=font("arialbd.ttf", 28),
     fill=ink,
 )
@@ -39,19 +39,19 @@ draw.line((52, 319, 585, 319), fill=teal, width=3)
 draw.ellipse((47, 313, 59, 325), fill=teal)
 draw.text(
     (51, 357),
-    "Microsoft Fabric  |  PySpark  |  SQL",
+    "Power BI  |  Microsoft Fabric  |  SQL",
     font=font("arialbd.ttf", 28),
     fill=teal,
 )
 draw.text(
     (51, 409),
-    "React  |  Node.js  |  Power BI",
+    "PySpark  |  ETL  |  Workflow Apps",
     font=font("arialbd.ttf", 28),
     fill=teal,
 )
 draw.multiline_text(
     (51, 485),
-    "Turning operational complexity\ninto scalable systems.",
+    "Turning shop-floor operations\ninto decision-ready data.",
     font=font("arial.ttf", 31),
     fill=ink,
     spacing=10,
@@ -69,7 +69,7 @@ for index, value in enumerate(("90%", "15+", "5K+")):
         width=2,
     )
     draw.text((x + 15, card_y + 16), value, font=font("arialbd.ttf", 27), fill=mint)
-    label = ("faster", "people", "rows/load")[index]
+    label = ("refresh", "stakeholders", "rows/load")[index]
     draw.text((x + 15, card_y + 60), label, font=font("arial.ttf", 14), fill="#9bc2b9")
 
 # Trend panel.

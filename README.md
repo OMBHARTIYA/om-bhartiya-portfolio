@@ -1,10 +1,10 @@
-# Om Bhartiya Data Engineer & Power BI Developer Portfolio
+# Om Bhartiya Data & Operations Analyst Portfolio
 
-React/Vite portfolio site for Om Bhartiya, positioned as an operations-focused Data Engineer and Power BI Developer who delivers reliable pipelines, semantic models, operational reporting, and supporting workflow applications.
+React/Vite portfolio site for Om Bhartiya, positioned as a Data & Operations Analyst with a technical focus on Power BI and Microsoft Fabric. The site connects manufacturing and project-operations experience with evidence-backed pipelines, semantic models, reporting, and workflow applications.
 
 ## Portfolio Structure
 
-- Focused Data Engineer & Power BI Developer positioning
+- Focused Data & Operations Analyst positioning with Power BI and Microsoft Fabric specialization
 - Verified professional scope without unsupported headline metrics
 - Three visible case studies: Construction Progress BI, API Ingestion Pipeline, and Oracle ERP Reconciliation
 - Supporting Warehouse Management and IFC application work
@@ -15,7 +15,7 @@ React/Vite portfolio site for Om Bhartiya, positioned as an operations-focused D
 
 ## Portfolio Positioning
 
-This site is positioned primarily for Data Engineer, Power BI Developer, and BI / Data Analyst roles. Microsoft Fabric, PySpark, SQL, Power BI, and operational process expertise lead the story; React, Node.js, and TypeScript are presented as supporting workflow-delivery capabilities.
+This site is positioned primarily for Data & Operations Analyst, Power BI Developer, and Microsoft Fabric-focused data roles. Operational process expertise, Microsoft Fabric, PySpark, SQL, and Power BI lead the story; React, Node.js, and TypeScript are presented as supporting workflow-delivery capabilities.
 
 ## Run Locally
 
@@ -43,4 +43,4 @@ npm run build
   - `https://github.com/OMBHARTIYA/Api-ingestion-pipeline`
   - `https://github.com/OMBHARTIYA/open-ifc-viewer`
 - Live personal project:
-  - `https://project-ytm78.vercel.app`
+  - `https://warehouse-os-app.vercel.app/`

@@ -31,9 +31,10 @@ const profileLinks = {
 
 const verifiedScope = [
   { value: '5+ years', label: 'operations and data experience' },
-  { value: 'Up to 15', label: 'business stakeholders supported' },
-  { value: '4 sources', label: 'integrated into one reporting model' },
-  { value: '10 stages', label: 'covered by production reporting' }
+  { value: '90%', label: 'reported refresh-time reduction' },
+  { value: '15+', label: 'business stakeholders supported' },
+  { value: '4+', label: 'sources unified in one model' },
+  { value: '10', label: 'production stages covered' }
 ];
 
 const caseStudies = [
@@ -48,7 +49,7 @@ const caseStudies = [
     engineering:
       'Built API-driven Power BI report variants with multi-table semantic models, reusable DAX KPI measures, mobile layouts and BIM-linked visual analysis; extended ingestion through Fabric, OneLake, notebooks and SQL.',
     outcome:
-      'Reduced the reported refresh range from approximately 5–15 minutes to 1–2 minutes and supported self-service visibility for up to 15 stakeholders.',
+      'Reduced report refresh time by approximately 90%, from 15 minutes to under 2 minutes, while supporting 15+ stakeholders across 10 production stages.',
     evidenceNote:
       'Professional delivery is described at system level. The linked repository uses independently created demonstration data; production reports, model files and client data remain private.',
     tags: ['Power BI', 'DAX', 'Power Query', 'Microsoft Fabric', 'Star schema'],
@@ -151,12 +152,13 @@ const additionalWork = [
 const experience = [
   {
     period: 'May 2025 – Present',
-    role: 'Data Analyst / Power BI Developer',
+    role: 'Data & Operations Analyst',
     company: 'DEFOR SA',
     bullets: [
-      'Own reporting and analytical delivery across 3–5 concurrent construction projects.',
-      'Integrated REST API, Autodesk Construction Cloud, Speckle failover and CSV data across 10 production stages for up to 15 stakeholders.',
-      'Reduced the reported refresh range from approximately 5–15 minutes to 1–2 minutes using incremental patterns, then extended the solution through Fabric Lakehouse, notebooks, SQL, pipelines and OneLake.'
+      'Reduced report refresh time by approximately 90%—from 15 minutes to under 2—by re-architecting data pipelines with incremental loading.',
+      'Established the company’s first Power BI Center of Excellence and delivered end-to-end analytics to 15+ stakeholders across 10 production stages.',
+      'Unified 4+ fragmented sources in a centralized semantic model, improving unit tracking and site visibility through 3D-linked BIM data.',
+      'Built scalable Microsoft Fabric ETL workflows with PySpark and SQL, processing 5,000+ records per load for production-unit ingestion.'
     ]
   },
   {
@@ -164,17 +166,19 @@ const experience = [
     role: 'Operations Data & Reporting Analyst',
     company: 'All For Expo',
     bullets: [
-      'Centralised operational tracking across project, inventory and finance workflows.',
-      'Replaced fragmented messages, email threads and spreadsheets with a clearer shared reporting process across four business divisions.'
+      'Centralized operational tracking in an enterprise portal, replacing fragmented WhatsApp and email workflows with one source of truth across four divisions.',
+      'Consolidated disparate datasets to support reliable inventory control and financial monitoring throughout project lifecycles.',
+      'Translated operational requirements into automated digital workflows and practical technical solutions.'
     ]
   },
   {
     period: 'Oct 2019 – Sep 2022',
-    role: 'Process Control & Operational Reporting Engineer',
+    role: 'Process Control & Reporting Engineer',
     company: 'UFLEX Group',
     bullets: [
-      'Monitored two active manufacturing lines and reconciled Oracle ERP records against shift reports, checklists and physical output.',
-      'Prepared daily operational reporting and supported engineering root-cause analysis for downtime, quality and production deviations.'
+      'Reconciled Oracle ERP entries against live production output, identifying discrepancies before they reached management reporting.',
+      'Produced high-frequency production summaries that supported engineering action on downtime and quality issues.',
+      'Designed repeatable process controls linking engineering requirements, ERP data, validation and process documentation.'
     ]
   }
 ];
@@ -201,18 +205,17 @@ const capabilities = [
   {
     icon: Code2,
     title: 'Workflow Applications',
-    items: ['React, Next.js and TypeScript', 'Node.js and REST APIs', 'Three.js, That Open and web-ifc', 'IFC / FRAG / GLB model workflows'],
+    items: ['React, Next.js and TypeScript', 'Node.js and REST APIs', 'AI-assisted rapid delivery', 'IFC / GLB and 3D data visualisation'],
     evidence: 'Professional BIM workflow kept separate from the public adaptation'
   }
 ];
 
 const learning = [
-  'Microsoft PL-300 — exam candidate',
-  'Microsoft ETL Specialization',
-  'IBM Python for Data Science',
-  'UC Davis SQL for Data Science',
-  'CSCMP Supply Chain Foundations: Demand Planning',
-  'Salesforce Sales / Operations Professional Certificate'
+  'Completed — Microsoft ETL Specialization',
+  'Completed — IBM Python for Data Science',
+  'Completed — UC Davis SQL for Data Science',
+  'In progress — Microsoft Fabric Analytics Engineer Associate (DP-600)',
+  'In progress — Microsoft Power BI Data Analyst (PL-300)'
 ];
 
 const education = [
@@ -228,7 +231,7 @@ const education = [
   }
 ];
 
-const languages = ['English — C1', 'Polish — A1', 'Hindi — Native'];
+const languages = ['English — Fluent (C1)', 'Polish — Elementary (A2)'];
 
 const getInitialTheme = () => {
   try {
@@ -280,12 +283,12 @@ function Hero() {
     <section className="hero section-shell" id="top">
       <div className="hero-copy">
         <span className="hero-kicker"><span /> Om Bhartiya · Poznań, Poland</span>
-        <h1>Data Engineer <em>&amp; Power BI Developer</em></h1>
-        <p className="hero-title">Operational data, engineered into reliable decisions.</p>
+        <h1>Data &amp; Operations Analyst <em>Power BI · Microsoft Fabric</em></h1>
+        <p className="hero-title">From operational complexity to decision-ready data.</p>
         <p className="hero-text">
-          I turn data from APIs, ERP systems, spreadsheets and engineering platforms into reliable pipelines,
-          semantic models, dashboards and workflow tools. My background combines hands-on operations with
-          Microsoft Fabric, SQL, PySpark and Power BI delivery.
+          I connect manufacturing and project operations with management-ready data. Using Microsoft Fabric,
+          SQL, PySpark, Power BI and workflow applications, I build governed pipelines, semantic models and
+          reporting that improve visibility, data quality and day-to-day decisions.
         </p>
         <div className="hero-actions">
           <a className="button primary" href="#work"><BarChart3 size={17} /> View selected work</a>
@@ -302,7 +305,7 @@ function Hero() {
       <aside className="hero-evidence-panel" aria-label="Professional scope">
         <div className="hero-evidence-heading">
           <span>Professional scope</span>
-          <strong>Operations → Data → Decisions</strong>
+          <strong>Shop floor → Data → Decisions</strong>
         </div>
         <div className="hero-scope-grid">
           {verifiedScope.map((item) => (
@@ -488,8 +491,8 @@ function Experience() {
           <span className="section-label">Professional experience</span>
           <h2>Built in operational environments.</h2>
           <p>
-            More than five years working with manufacturing, project operations, reporting and data delivery—not
-            only portfolio exercises.
+            More than five years bridging manufacturing and project operations with reporting, automation and
+            decision-ready data.
           </p>
         </div>
       </div>
@@ -595,7 +598,8 @@ function Contact() {
           <span className="section-label">Contact</span>
           <h2>Looking for reliable data delivery?</h2>
           <p>
-            Open to Data Engineer, Power BI Developer and BI / Data Analyst opportunities in Poland or remotely.
+            Open to Data &amp; Operations Analyst, Power BI Developer and Microsoft Fabric-focused data roles in
+            Poland or remotely.
           </p>
           <div className="contact-lines">
             <a href="mailto:ombhartiya16@gmail.com"><Mail size={18} /> ombhartiya16@gmail.com</a>
@@ -653,7 +657,7 @@ function App() {
       </main>
       <footer>
         <span>© 2026 Om Bhartiya</span>
-        <span>Data Engineer &amp; Power BI Developer</span>
+        <span>Data &amp; Operations Analyst</span>
         <span>Microsoft Fabric · SQL · PySpark · Power BI</span>
       </footer>
     </>
