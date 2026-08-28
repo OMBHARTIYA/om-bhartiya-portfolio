@@ -1,8 +1,8 @@
 export const profile = {
   name: 'Om Bhartiya',
-  headline: 'Data Analyst / Power BI Developer',
-  heroPrimary: 'Data Analyst',
-  heroStack: 'Power BI · SQL · Microsoft Fabric',
+  headline: 'Data & Reporting Analyst | Power BI Analyst',
+  heroPrimary: 'Data & Reporting Analyst',
+  heroStack: 'Power BI · SQL · Operational Analytics',
   heroTagline: 'From operational complexity to decision-ready data.',
   location: 'Poznań, Poland',
   email: 'ombhartiya16@gmail.com',
@@ -11,31 +11,31 @@ export const profile = {
   linkedin: 'https://www.linkedin.com/in/om-bhartiya-b22279185/',
   github: 'https://github.com/OMBHARTIYA?tab=repositories',
   portfolio: 'https://ombhartiya.github.io/om-bhartiya-portfolio/',
-  cvAsset: 'assets/om-bhartiya-data-analyst-cv.pdf?v=20260730-3',
-  availability: 'Poland-based · TRC holder · open to on-site, hybrid and remote employment',
-  targetRoles: 'Data Analyst, BI Analyst, Power BI Developer and Operations Data Analyst roles in Poland or remotely.',
-  footerSkills: 'Power BI · SQL · Microsoft Fabric · Python',
+  cvAsset: 'assets/om-bhartiya-data-reporting-cv.pdf?v=20260828-1',
+  availability: 'Poznań-based · full work rights in Poland · open to on-site, hybrid and remote roles',
+  targetRoles: 'Data Analyst, Reporting Analyst, BI Analyst, Power BI Analyst and Operations Data Analyst roles in Poland or remotely.',
+  footerSkills: 'Power BI · SQL · Data Quality · Operational Reporting',
   summary:
-    'Data Analyst and Power BI Developer with 5+ years of experience transforming manufacturing, construction and project operations into decision-ready data. Experienced in building governed pipelines, semantic models and dashboards with SQL, Power BI, DAX, Power Query and Microsoft Fabric, combining process automation and user enablement to improve visibility, data quality and operational adoption.'
+    'Data and Reporting Analyst with 5+ years of total cross-domain experience across manufacturing reporting, process control, project operations and business reporting, including recent dedicated Power BI work. Uses Power BI, SQL, Power Query and DAX to improve reporting speed, data consistency and operational visibility. Brings additional experience in Oracle ERP reconciliation, requirements gathering and process documentation, with Microsoft Fabric and Python used primarily in guided or project-based work.'
 };
 
 export const verifiedScope = [
-  { value: '5+ years', label: 'operations and data experience' },
-  { value: '90%', label: 'reported refresh-time reduction' },
-  { value: '15+', label: 'business stakeholders supported' },
-  { value: '4+', label: 'sources unified in one model' },
+  { value: '5+ years', label: 'operations and reporting experience' },
+  { value: '~90%', label: 'reported refresh-time reduction' },
+  { value: 'Up to 15', label: 'business stakeholders supported' },
+  { value: '4', label: 'data sources unified in one model' },
   { value: '10', label: 'production stages covered' }
 ];
 
 export const coreSkills = [
-  'SQL',
   'Power BI',
   'DAX',
   'Power Query',
-  'Data modeling',
-  'Microsoft Fabric',
+  'SQL',
   'Excel',
-  'Python'
+  'Data modeling',
+  'KPI reporting',
+  'Data validation'
 ];
 
 export const caseStudies = [
@@ -46,11 +46,11 @@ export const caseStudies = [
     summary:
       'A production reporting system for construction and facade operations that brought fragmented progress, issue and delivery data into one decision-ready model.',
     contribution:
-      'Owned requirements, source integration, semantic modeling, KPI logic, validation and stakeholder delivery across multiple concurrent projects.',
+      'Gathered and translated reporting requirements, integrated four data sources, built semantic models and KPI logic, validated outputs and supported delivery across multiple concurrent projects.',
     engineering:
-      'Built API-driven Power BI report variants with multi-table semantic models, reusable DAX KPI measures, mobile layouts and BIM-linked visual analysis; extended ingestion through Fabric, OneLake, notebooks and SQL.',
+      'Built API-driven Power BI report variants with multi-table semantic models, reusable DAX KPI measures, mobile layouts and BIM-linked visual analysis; used Fabric, OneLake and notebook patterns in guided project work supporting ingestion and analysis.',
     outcome:
-      'Reduced report refresh time by approximately 90%, from 15 minutes to under 2 minutes, while supporting 15+ stakeholders across 10 production stages.',
+      'Reduced report refresh time by approximately 90%, from 15 minutes to under 2 minutes, while supporting up to 15 stakeholders across 10 production stages.',
     evidenceNote:
       'Professional delivery is described at system level. The linked repository uses independently created demonstration data; production reports, model files and client data remain private.',
     tags: ['Power BI', 'DAX', 'Power Query', 'Microsoft Fabric', 'Star schema'],
@@ -68,33 +68,6 @@ export const caseStudies = [
   },
   {
     number: '02',
-    title: 'API Ingestion Pipeline',
-    category: 'Microsoft Fabric · Data engineering',
-    summary:
-      'A Microsoft Fabric workflow for turning paginated operational REST data into analytics-ready Delta tables.',
-    contribution:
-      'Implemented and documented frozen incremental windows, manual pagination, parallel extraction branches, OneLake staging, PySpark transformation, archival controls and success-gated watermark updates.',
-    engineering:
-      'Landed and archived raw JSON, flattened and deduplicated records in notebooks, wrote Delta outputs and advanced pipeline state only after the complete run succeeded.',
-    outcome:
-      'Produced repeatable operating guidance for incremental and full-refresh entities, including recovery, rerun and production-support procedures.',
-    evidenceNote:
-      'Delivered controls and documented hardening recommendations are kept distinct. The linked repository is a sanitized reference—not a copy of employer code, endpoints or data.',
-    tags: ['Microsoft Fabric', 'PySpark', 'SQL', 'OneLake', 'Data quality'],
-    visual: 'pipeline',
-    links: [
-      {
-        label: 'Open pipeline repository',
-        href: 'https://github.com/OMBHARTIYA/Api-ingestion-pipeline'
-      },
-      {
-        label: 'Review synthetic pipeline validation',
-        href: 'https://github.com/OMBHARTIYA/Api-ingestion-pipeline/blob/main/docs/validation-report.md'
-      }
-    ]
-  },
-  {
-    number: '03',
     title: 'Oracle ERP Reconciliation',
     category: 'Manufacturing · Data quality',
     summary:
@@ -113,6 +86,33 @@ export const caseStudies = [
       { label: 'View résumé context', href: profile.cvAsset },
       { label: 'Discuss the workflow', href: `mailto:${profile.email}` }
     ]
+  },
+  {
+    number: '03',
+    title: 'API Ingestion Pipeline',
+    category: 'Microsoft Fabric · Guided project exposure',
+    summary:
+      'A sanitized reference showing a Microsoft Fabric pattern for turning paginated operational REST data into analytics-ready Delta tables.',
+    contribution:
+      'Supported implementation and documentation of incremental windows, pagination, extraction branches, OneLake staging, PySpark transformation, archival controls and success-gated watermark updates through guided and AI-assisted project work.',
+    engineering:
+      'Worked with patterns for landing and archiving raw JSON, flattening and deduplicating records in notebooks, writing Delta outputs and advancing pipeline state only after a complete run succeeded.',
+    outcome:
+      'Documented repeatable operating guidance for incremental and full-refresh entities, including recovery, rerun and production-support procedures.',
+    evidenceNote:
+      'The linked repository is a sanitized learning and reference implementation—not a copy of employer code, endpoints or data, and not evidence of independent production ownership.',
+    tags: ['Microsoft Fabric', 'PySpark', 'SQL', 'OneLake', 'Data quality'],
+    visual: 'pipeline',
+    links: [
+      {
+        label: 'Open pipeline repository',
+        href: 'https://github.com/OMBHARTIYA/Api-ingestion-pipeline'
+      },
+      {
+        label: 'Review synthetic pipeline validation',
+        href: 'https://github.com/OMBHARTIYA/Api-ingestion-pipeline/blob/main/docs/validation-report.md'
+      }
+    ]
   }
 ];
 
@@ -120,8 +120,8 @@ export const additionalWork = [
   {
     title: 'Warehouse Management Application',
     text:
-      'An independently built warehouse product with role-based workflows for warehouses, products, stock, movements and dashboard statistics.',
-    tags: ['Next.js', 'TypeScript', 'Express', 'REST API'],
+      'An AI-assisted warehouse application prototype. I designed the operational workflow and used generative-AI coding support to implement role-based views for warehouses, products, stock movements and dashboard statistics.',
+    tags: ['AI-assisted prototype', 'Next.js', 'TypeScript', 'REST API'],
     image: 'assets/warehouse-os.png',
     imageAlt: 'Live warehouse management application interface',
     links: [
@@ -132,7 +132,7 @@ export const additionalWork = [
   {
     title: 'BIM Model Workflow & Public IFC Viewer',
     text:
-      'Professional work included a Vite and Three.js BIM workflow using That Open, web-ifc and Python tooling for IFC, FRAG and GLB models, with property inspection, filtering, clipping and synchronized plan/3D views. The linked React/TypeScript repository is an independent public adaptation—not the employer implementation.',
+      'Professional work included collaboration on an AI-assisted Vite and Three.js BIM workflow using That Open, web-ifc and Python tooling for IFC, FRAG and GLB models, with property inspection, filtering, clipping and synchronized plan/3D views. The linked React/TypeScript repository is an independent public adaptation—not the employer implementation.',
     tags: ['IFC / BIM', 'Three.js', 'web-ifc', 'Public React adaptation'],
     links: [
       { label: 'Open public adaptation', href: 'https://github.com/OMBHARTIYA/open-ifc-viewer' },
@@ -150,10 +150,10 @@ export const experience = [
     role: 'Data Analyst / Power BI Developer',
     company: 'DEFOR SA',
     bullets: [
-      'Built DEFOR’s first centralized Power BI reporting capability as the sole analyst, supporting 15+ stakeholders across 3-5 concurrent projects and 10 production stages.',
+      'Built DEFOR’s first centralized Power BI reporting capability as the sole analyst, supporting up to 15 stakeholders across 3-5 concurrent projects and 10 production stages.',
       'Unified four sources - REST API, Autodesk Construction Cloud, Speckle and CSV - in a star-schema semantic model, replacing manual reconciliation with one trusted operational view.',
       'Reduced Power BI refresh time from 5-15 minutes to 1-2 minutes with incremental loading, enabling near-live self-service reporting.',
-      'Designed a paginated REST-to-Fabric pipeline processing 5,000+ records per load, using OneLake, PySpark, Delta tables, incremental watermarks and Bronze-to-Silver transformations.'
+      'Supported development and testing of a paginated REST-to-Fabric ingestion workflow using OneLake, PySpark and Delta tables, including incremental watermarks and Bronze-to-Silver processing for 5,000+ records per load.'
     ]
   },
   {
@@ -185,7 +185,7 @@ export const cvSkillGroups = [
   },
   {
     title: 'Data Engineering & Automation',
-    skills: 'ETL pipelines, OneLake, PySpark, Python, REST APIs, AI-assisted workflow automation, low-code/no-code'
+    skills: 'Guided/project exposure to ETL pipelines, OneLake, PySpark, Python and REST APIs; AI-assisted workflow automation and low-code/no-code'
   },
   {
     title: 'Operations & Process Improvement',
@@ -201,7 +201,7 @@ export const cvProjects = [
   {
     title: 'Warehouse Management System',
     text:
-      'Designed and built a business-focused inventory application for products, stock movements and dashboard statistics, replacing fragmented manual communication with one operational view.'
+      'Designed the business workflow and used generative-AI coding support to create an inventory application prototype for products, stock movements and dashboard statistics.'
   },
   {
     title: 'Building Information Application',
@@ -230,14 +230,14 @@ export const capabilityGroups = [
   {
     iconKey: 'modelling',
     title: 'SQL & Data Modeling',
-    items: ['SQL querying and transformation', 'Star-schema design', 'Semantic models and relationships', 'Source reconciliation and validation'],
-    evidence: 'Demonstrated across the Power BI, Fabric and Oracle ERP case studies'
+    items: ['SQL foundations for querying and validation', 'Star-schema design', 'Semantic models and relationships', 'Source reconciliation and data-quality checks'],
+    evidence: 'Applied in reporting work and being strengthened through structured practice'
   },
   {
     iconKey: 'pipelines',
-    title: 'Fabric & Data Pipelines',
-    items: ['OneLake and Lakehouse patterns', 'PySpark and SQL transformations', 'Incremental API ingestion', 'Orchestration, run control and recovery'],
-    evidence: 'Supported by an operating guide and sanitized public reference'
+    title: 'Fabric & Pipeline Exposure',
+    items: ['OneLake and Lakehouse patterns', 'Guided PySpark and SQL transformations', 'Incremental API-ingestion patterns', 'Run control, recovery and documentation'],
+    evidence: 'Supported by guided project work, an operating guide and a sanitized public reference'
   },
   {
     iconKey: 'automation',
@@ -253,6 +253,7 @@ export const learning = [
   'Completed — UC Davis SQL for Data Science',
   'Certification preparation — Microsoft Power BI Data Analyst (PL-300)',
   'Certification preparation — Microsoft Fabric Analytics Engineer (DP-600)',
+  'Developing — SQL foundations: joins, aggregations, CTEs and data validation',
   'Developing — Agentic AI workflows: tool use, RAG, guardrails and evaluation'
 ];
 

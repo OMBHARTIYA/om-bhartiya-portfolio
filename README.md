@@ -1,10 +1,10 @@
-# Om Bhartiya Data Analyst & Power BI Developer Portfolio
+# Om Bhartiya Data & Reporting Analyst Portfolio
 
-React/Vite portfolio site for Om Bhartiya, positioned as a Data Analyst and Power BI Developer with a technical focus on SQL and Microsoft Fabric. The site connects manufacturing and project-operations experience with evidence-backed pipelines, semantic models, reporting, and workflow automation.
+React/Vite portfolio site for Om Bhartiya, positioned as a Data & Reporting Analyst and Power BI Analyst. The site connects manufacturing and project-operations experience with evidence-backed reporting, semantic models, data quality and guided technical project exposure.
 
 ## Portfolio Structure
 
-- Focused Data Analyst / Power BI Developer positioning with SQL and Microsoft Fabric specialization
+- Focused Data & Reporting Analyst / Power BI Analyst positioning
 - Verified professional scope without unsupported headline metrics
 - Three visible case studies: Construction Progress BI, API Ingestion Pipeline, and Oracle ERP Reconciliation
 - Supporting Warehouse Management and IFC application work
@@ -12,11 +12,11 @@ React/Vite portfolio site for Om Bhartiya, positioned as a Data Analyst and Powe
 - Skills connected directly to case-study evidence
 - Education, professional learning, and languages labelled separately
 - One concise confidentiality statement
-- Automatically generated downloadable CV sourced from the same profile data as the website
+- Manually maintained downloadable CV using the clear, recruiter-ready master format
 
 ## Portfolio Positioning
 
-This site is positioned primarily for Data Analyst, BI Analyst, Power BI Developer, and Operations Data Analyst roles. Power BI, SQL, data modeling, Microsoft Fabric, and operational domain expertise lead the story; AI-assisted automation and workflow applications are presented as complementary capabilities.
+This site is positioned primarily for Data Analyst, Reporting Analyst, BI Analyst, Power BI Analyst and Operations Data Analyst roles. Power BI, reporting, SQL foundations, data modeling, data quality and operational domain experience lead the story. Fabric, Python, AI-assisted automation and workflow applications are explicitly labelled as guided, project-based or complementary exposure.
 
 ## Run Locally
 
@@ -33,9 +33,10 @@ Open `http://127.0.0.1:5174/`.
 npm run build
 ```
 
-The build first regenerates `public/assets/om-bhartiya-data-analyst-cv.pdf` from
-`src/profileData.mjs`, then builds the website. Update the shared profile data
-once and both the portfolio content and downloadable CV stay aligned.
+The build preserves the manually maintained CV at
+`public/assets/om-bhartiya-data-reporting-cv.pdf`. Update the website and CV
+deliberately when confirmed facts change so the clear résumé layout is never
+replaced by an automatic generator.
 
 ## Profile Sources Reflected
 

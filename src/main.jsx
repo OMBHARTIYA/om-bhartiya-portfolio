@@ -143,7 +143,7 @@ function Hero() {
         <div className="hero-data-flow" aria-label="Typical delivery workflow">
           <span>API · ERP · files</span>
           <ArrowRight size={16} />
-          <span>Fabric · SQL</span>
+          <span>Power Query · SQL</span>
           <ArrowRight size={16} />
           <span>Power BI · apps</span>
         </div>
@@ -257,9 +257,9 @@ function SelectedWork() {
           <span className="section-label">Selected work</span>
           <h2>Three problems. Three inspectable approaches.</h2>
           <p>
-            The projects below focus on the work most relevant to Data Engineering, Power BI and operational
-            analytics roles. Each case separates professional delivery from public demonstration evidence and states
-            what remains confidential.
+            The projects below focus on the work most relevant to reporting, Power BI and operational analytics
+            roles. Each case separates professional delivery, guided project exposure and public demonstration
+            evidence while stating what remains confidential.
           </p>
         </div>
       </div>
@@ -316,8 +316,8 @@ function Experience() {
           <span className="section-label">Professional experience</span>
           <h2>Built in operational environments.</h2>
           <p>
-            More than five years bridging manufacturing and project operations with reporting, automation and
-            decision-ready data.
+            More than five years across manufacturing, process control, project operations and reporting, with
+            recent work focused on Power BI and decision-ready data.
           </p>
         </div>
       </div>
@@ -347,7 +347,7 @@ function Capabilities() {
         <div>
           <span className="section-label">Capabilities</span>
           <h2>Skills connected to delivered work.</h2>
-          <p>Tools matter when they support a reliable outcome. These are the capabilities represented by the case studies above.</p>
+          <p>Tools matter when they support a reliable outcome. Capability levels are labelled so professional delivery, guided exposure and current learning remain distinct.</p>
         </div>
       </div>
       <div className="capability-grid">
