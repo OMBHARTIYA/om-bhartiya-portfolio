@@ -600,20 +600,32 @@ body,
 /* Focused portfolio structure */
 
 .hero {
-  grid-template-columns: minmax(0, 1.03fr) minmax(420px, .97fr);
-  gap: clamp(44px, 6vw, 82px);
+  min-height: auto;
+  grid-template-columns: minmax(0, 1.42fr) minmax(390px, .78fr);
+  gap: clamp(38px, 4.5vw, 62px);
+  padding: 68px 0 76px;
 }
 
 .hero h1 {
-  max-width: 760px;
-  font-size: clamp(52px, 6vw, 88px);
-  line-height: .96;
+  max-width: 790px;
+  font-size: clamp(46px, 4.1vw, 60px);
+  line-height: .98;
+  letter-spacing: -.05em;
+}
+
+.hero h1 > span {
+  display: block;
 }
 
 .hero h1 em {
   display: block;
+  max-width: 780px;
+  margin-top: 14px;
   color: var(--teal);
+  font-size: .64em;
   font-style: normal;
+  line-height: 1.08;
+  letter-spacing: -.035em;
 }
 
 .hero-title {
@@ -883,35 +895,32 @@ body,
   grid-column: 1 / -1;
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
   margin: 0;
-  overflow: hidden;
-  border: 1px solid var(--line);
-  border-radius: 15px;
 }
 
 .case-study-evidence > div {
-  padding: 22px;
-  border-right: 1px solid var(--line);
-}
-
-.case-study-evidence > div:last-child {
-  border-right: 0;
+  min-height: 176px;
+  padding: 22px 23px;
+  border: 1px solid var(--line);
+  border-radius: 15px;
+  background: color-mix(in srgb, var(--paper) 88%, var(--teal-soft));
 }
 
 .case-study-evidence dt {
-  margin-bottom: 9px;
+  margin-bottom: 12px;
   color: var(--teal-dark);
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 800;
-  letter-spacing: .09em;
+  letter-spacing: .075em;
   text-transform: uppercase;
 }
 
 .case-study-evidence dd {
   margin: 0;
-  color: var(--muted);
-  font-size: 12px;
-  line-height: 1.65;
+  color: var(--ink);
+  font-size: 14px;
+  line-height: 1.7;
 }
 
 .case-evidence-note {
@@ -925,8 +934,8 @@ body,
   border-radius: 12px;
   color: var(--muted);
   background: var(--teal-soft);
-  font-size: 11px;
-  line-height: 1.6;
+  font-size: 12.5px;
+  line-height: 1.65;
 }
 
 .case-evidence-note svg {
@@ -1191,12 +1200,7 @@ body,
   }
 
   .case-study-evidence > div {
-    border-right: 0;
-    border-bottom: 1px solid var(--line);
-  }
-
-  .case-study-evidence > div:last-child {
-    border-bottom: 0;
+    min-height: auto;
   }
 
   .additional-work-grid {
@@ -1206,7 +1210,14 @@ body,
 
 @media (max-width: 760px) {
   .hero h1 {
-    font-size: clamp(47px, 14vw, 66px);
+    font-size: clamp(43px, 12.5vw, 60px);
+    line-height: 1;
+  }
+
+  .hero h1 em {
+    margin-top: 12px;
+    font-size: .68em;
+    line-height: 1.12;
   }
 
   .hero-evidence-heading,
@@ -1257,7 +1268,7 @@ body,
   }
 
   .case-study-evidence > div {
-    padding: 18px;
+    padding: 19px;
   }
 
   .capability-card,

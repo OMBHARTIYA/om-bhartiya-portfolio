@@ -109,7 +109,10 @@ function Hero() {
     <section className="hero section-shell" id="top">
       <div className="hero-copy">
         <span className="hero-kicker"><span /> {profile.name} · {profile.location}</span>
-        <h1>{profile.heroPrimary} <em>{profile.heroStack}</em></h1>
+        <h1>
+          <span>{profile.heroPrimary}</span>
+          <em>{profile.heroStack}</em>
+        </h1>
         <p className="hero-title">{profile.heroTagline}</p>
         <p className="hero-text">{profile.summary}</p>
         <ul className="core-skills" aria-label="Core data skills">
