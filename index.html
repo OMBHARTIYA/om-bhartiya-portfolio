@@ -28,13 +28,13 @@
     <title>Om Bhartiya | Data &amp; Reporting Analyst</title>
     <script>
       (() => {
-        let saved;
-        try { saved = localStorage.getItem('portfolio-theme'); } catch {}
-        const theme = saved === 'light' || saved === 'dark'
-          ? saved
-          : (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        let mode;
+        try { mode = localStorage.getItem('portfolio-theme-mode-v2'); } catch {}
+        const systemTheme = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        const theme = mode === 'light' || mode === 'dark' ? mode : systemTheme;
         document.documentElement.dataset.theme = theme;
         document.documentElement.style.colorScheme = theme;
+        document.querySelector('meta[name="theme-color"]').content = theme === 'dark' ? '#0e2421' : '#f4f1e8';
       })();
     </script>
   </head>

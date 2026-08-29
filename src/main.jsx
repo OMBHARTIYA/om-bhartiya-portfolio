@@ -10,6 +10,7 @@ import {
   GitBranch,
   Mail,
   MapPin,
+  Monitor,
   Moon,
   Phone,
   ServerCog,
@@ -53,17 +54,32 @@ const capabilities = capabilityGroups.map((group) => ({
   icon: capabilityIcons[group.iconKey]
 }));
 
-const getInitialTheme = () => {
+const THEME_MODE_KEY = 'portfolio-theme-mode-v2';
+
+const getSystemTheme = () => (
+  window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+);
+
+const getInitialThemeMode = () => {
   try {
-    const savedTheme = window.localStorage.getItem('portfolio-theme');
-    if (savedTheme === 'light' || savedTheme === 'dark') return savedTheme;
+    const savedMode = window.localStorage.getItem(THEME_MODE_KEY);
+    if (savedMode === 'system' || savedMode === 'light' || savedMode === 'dark') return savedMode;
   } catch {
-    // Use the visitor's system preference when storage is unavailable.
+    // System mode still works when storage is unavailable.
   }
-  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  return 'system';
 };
 
-function Header({ theme, onToggleTheme }) {
+const getNextThemeMode = (themeMode, systemTheme) => {
+  if (themeMode === 'system') return systemTheme === 'dark' ? 'light' : 'dark';
+  if (themeMode !== systemTheme) return systemTheme;
+  return 'system';
+};
+
+function Header({ theme, themeMode, systemTheme, onToggleTheme }) {
+  const nextMode = getNextThemeMode(themeMode, systemTheme);
+  const themeLabel = themeMode === 'system' ? `system (${theme})` : themeMode;
+
   return (
     <header className="site-header">
       <a className="brand" href="#top" aria-label={`${profile.name} home`}>
@@ -82,10 +98,12 @@ function Header({ theme, onToggleTheme }) {
           className="theme-toggle"
           type="button"
           onClick={onToggleTheme}
-          aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
-          title={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
+          aria-label={`Theme: ${themeLabel}. Switch to ${nextMode} mode`}
+          title={`Theme: ${themeLabel}. Switch to ${nextMode} mode`}
         >
-          {theme === 'dark' ? <Sun size={17} /> : <Moon size={17} />}
+          {themeMode === 'system'
+            ? <Monitor size={17} />
+            : themeMode === 'dark' ? <Moon size={17} /> : <Sun size={17} />}
         </button>
         <a
           className="header-link"
@@ -458,22 +476,49 @@ function Contact() {
 }
 
 function App() {
-  const [theme, setTheme] = useState(getInitialTheme);
+  const [themeMode, setThemeMode] = useState(getInitialThemeMode);
+  const [systemTheme, setSystemTheme] = useState(getSystemTheme);
+  const theme = themeMode === 'system' ? systemTheme : themeMode;
+
+  useEffect(() => {
+    const systemPreference = window.matchMedia('(prefers-color-scheme: dark)');
+    const updateSystemTheme = (event) => setSystemTheme(event.matches ? 'dark' : 'light');
+
+    setSystemTheme(systemPreference.matches ? 'dark' : 'light');
+    systemPreference.addEventListener('change', updateSystemTheme);
+    return () => systemPreference.removeEventListener('change', updateSystemTheme);
+  }, []);
 
   useEffect(() => {
     document.documentElement.dataset.theme = theme;
     document.documentElement.style.colorScheme = theme;
+    document.querySelector('meta[name="theme-color"]')?.setAttribute(
+      'content',
+      theme === 'dark' ? '#0e2421' : '#f4f1e8'
+    );
+  }, [theme]);
+
+  useEffect(() => {
     try {
-      window.localStorage.setItem('portfolio-theme', theme);
+      window.localStorage.setItem(THEME_MODE_KEY, themeMode);
     } catch {
       // Theme switching still works when storage is blocked.
     }
-  }, [theme]);
+  }, [themeMode]);
+
+  const cycleThemeMode = () => {
+    setThemeMode((currentMode) => getNextThemeMode(currentMode, systemTheme));
+  };
 
   return (
     <>
       <a className="skip-link" href="#main-content">Skip to main content</a>
-      <Header theme={theme} onToggleTheme={() => setTheme((value) => value === 'dark' ? 'light' : 'dark')} />
+      <Header
+        theme={theme}
+        themeMode={themeMode}
+        systemTheme={systemTheme}
+        onToggleTheme={cycleThemeMode}
+      />
       <main id="main-content">
         <Hero />
         <SelectedWork />
