@@ -278,8 +278,8 @@ function SelectedWork() {
           <span className="section-label">Selected work</span>
           <h2>Three problems. Three inspectable approaches.</h2>
           <p>
-            The projects below focus on the work most relevant to reporting, Power BI and operational analytics
-            roles. Each case separates professional delivery, guided project exposure and public demonstration
+            These examples show the reporting, reconciliation and process skills I bring to supply chain and logistics.
+            Each case separates professional delivery, guided project exposure and public demonstration
             evidence while stating what remains confidential.
           </p>
         </div>
@@ -442,7 +442,7 @@ function Contact() {
       <div className="section-shell contact-grid">
         <div>
           <span className="section-label">Contact</span>
-          <h2>Looking for reliable data delivery?</h2>
+          <h2>Make operational information easier to act on.</h2>
           <p>
             Open to {profile.targetRoles}
           </p>
@@ -460,7 +460,7 @@ function Contact() {
         </div>
         <aside className="contact-card contact-cta" aria-label="Direct contact options">
           <span className="section-label">Next step</span>
-          <h3>Discuss a role, reporting challenge or data platform.</h3>
+          <h3>Discuss a supply chain role or operational reporting challenge.</h3>
           <p>Email and LinkedIn are the fastest ways to reach me.</p>
           <div className="contact-actions">
             <a className="button primary" href={`mailto:${profile.email}`}><Mail size={17} /> Email Om</a>

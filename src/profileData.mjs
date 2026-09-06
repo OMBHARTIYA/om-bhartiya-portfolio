@@ -1,8 +1,8 @@
 export const profile = {
   name: 'Om Bhartiya',
-  headline: 'Data & Reporting Analyst | Power BI Analyst',
-  heroPrimary: 'Data & Reporting Analyst',
-  heroStack: 'Power BI · SQL · Operational Analytics',
+  headline: 'Supply Chain & Operations Analytics',
+  heroPrimary: 'Supply Chain & Operations Analytics',
+  heroStack: 'Power BI · Excel · Process Improvement',
   heroTagline: 'From operational complexity to decision-ready data.',
   location: 'Poznań, Poland',
   email: 'ombhartiya16@gmail.com',
@@ -11,17 +11,16 @@ export const profile = {
   linkedin: 'https://www.linkedin.com/in/om-bhartiya-b22279185/',
   github: 'https://github.com/OMBHARTIYA?tab=repositories',
   portfolio: 'https://ombhartiya.github.io/om-bhartiya-portfolio/',
-  cvAsset: 'assets/om-bhartiya-data-reporting-cv.pdf?v=20260828-1',
-  availability: 'Poznań-based · full work rights in Poland · open to on-site, hybrid and remote roles',
-  targetRoles: 'Data Analyst, Reporting Analyst, BI Analyst, Power BI Analyst and Operations Data Analyst roles in Poland or remotely.',
-  footerSkills: 'Power BI · SQL · Data Quality · Operational Reporting',
+  cvAsset: 'assets/om-bhartiya-supply-chain-operations-cv.pdf?v=20260906-1',
+  availability: 'Poznań-based · open to relocation and on-site, hybrid or remote opportunities',
+  targetRoles: 'Supply Chain Analyst, Logistics Analyst, Inventory Analyst and Operations Analyst roles where reporting, data quality and process improvement support better operational decisions.',
+  footerSkills: 'Operational Reporting · Oracle ERP · Power BI · Excel',
   summary:
-    'Data and Reporting Analyst with 5+ years of total cross-domain experience across manufacturing reporting, process control, project operations and business reporting, including recent dedicated Power BI work. Uses Power BI, SQL, Power Query and DAX to improve reporting speed, data consistency and operational visibility. Brings additional experience in Oracle ERP reconciliation, requirements gathering and process documentation, with Microsoft Fabric and Python used primarily in guided or project-based work.'
+    'My career focus is supply chain and logistics, combining an engineering and industrial management background with 5+ years across manufacturing, process control, operations and reporting. I bring hands-on Power BI and Excel reporting, Oracle ERP reconciliation, data validation and stakeholder requirements work. My contribution is making operational information clearer and more reliable. I am strengthening SQL through practical projects; Fabric and Python experience is guided or project-based.'
 };
 
 export const verifiedScope = [
   { value: '5+ years', label: 'operations and reporting experience' },
-  { value: '~90%', label: 'reported refresh-time reduction' },
   { value: 'Up to 15', label: 'business stakeholders supported' },
   { value: '4', label: 'data sources unified in one model' },
   { value: '10', label: 'production stages covered' }
@@ -31,7 +30,7 @@ export const coreSkills = [
   'Power BI',
   'DAX',
   'Power Query',
-  'SQL',
+  'Oracle ERP reconciliation',
   'Excel',
   'Data modeling',
   'KPI reporting',
@@ -50,7 +49,7 @@ export const caseStudies = [
     engineering:
       'Built API-driven Power BI report variants with multi-table semantic models, reusable DAX KPI measures, mobile layouts and BIM-linked visual analysis; used Fabric, OneLake and notebook patterns in guided project work supporting ingestion and analysis.',
     outcome:
-      'Reduced report refresh time by approximately 90%, from 15 minutes to under 2 minutes, while supporting up to 15 stakeholders across 10 production stages.',
+      'Improved report refresh performance and operational visibility while supporting up to 15 stakeholders across 10 production stages.',
     evidenceNote:
       'Professional delivery is described at system level. The linked repository uses independently created demonstration data; production reports, model files and client data remain private.',
     tags: ['Power BI', 'DAX', 'Power Query', 'Microsoft Fabric', 'Star schema'],
@@ -146,14 +145,14 @@ export const additionalWork = [
 
 export const experience = [
   {
-    period: 'May 2025 – Present',
-    role: 'Data Analyst / Power BI Developer',
+    period: 'May 2025 – Jul 2026',
+    role: 'Data & Operations Analyst',
     company: 'DEFOR SA',
     bullets: [
-      'Built DEFOR’s first centralized Power BI reporting capability as the sole analyst, supporting up to 15 stakeholders across 3-5 concurrent projects and 10 production stages.',
+      'Helped construction and facade-production teams track progress through Power BI reporting, supporting up to 15 stakeholders across concurrent projects and 10 production stages.',
       'Unified four sources - REST API, Autodesk Construction Cloud, Speckle and CSV - in a star-schema semantic model, replacing manual reconciliation with one trusted operational view.',
-      'Reduced Power BI refresh time from 5-15 minutes to 1-2 minutes with incremental loading, enabling near-live self-service reporting.',
-      'Supported development and testing of a paginated REST-to-Fabric ingestion workflow using OneLake, PySpark and Delta tables, including incremental watermarks and Bronze-to-Silver processing for 5,000+ records per load.'
+      'Built Power Query transformations, reusable DAX measures and source checks, improving report refresh performance and supporting user testing.',
+      'Gained guided project exposure to Microsoft Fabric ingestion workflows. From May 2026, work shifted towards internal web applications; the contract ended in July 2026.'
     ]
   },
   {
@@ -171,7 +170,7 @@ export const experience = [
     role: 'Process Control & Reporting Engineer',
     company: 'UFLEX Group',
     bullets: [
-      'Maintained 99% reporting accuracy through Oracle ERP reconciliation, comparing entries with live production output and catching discrepancies before management reporting.',
+      'Reconciled Oracle ERP entries with production outputs and shift records, investigating discrepancies before management reporting.',
       'Delivered 2 production summaries per day, enabling engineering teams to identify downtime and quality issues and prioritize corrective actions.',
       'Designed repeatable process controls and training documentation, linking engineering requirements with ERP validation and process compliance.'
     ]
@@ -181,7 +180,7 @@ export const experience = [
 export const cvSkillGroups = [
   {
     title: 'Data Analytics & BI',
-    skills: 'Power BI (DAX, Power Query), SQL, Microsoft Fabric, semantic modeling, Excel, KPI reporting'
+    skills: 'Power BI (DAX, Power Query), semantic modeling, Excel, KPI reporting; developing SQL foundations'
   },
   {
     title: 'Data Engineering & Automation',
@@ -193,7 +192,7 @@ export const cvSkillGroups = [
   },
   {
     title: 'Business Applications & Integration',
-    skills: 'Oracle ERP, Autodesk Construction Cloud, React, TypeScript, BPMN/UML, IFC and GLB data'
+    skills: 'Oracle ERP reconciliation, Autodesk Construction Cloud, React, TypeScript, IFC and GLB data'
   }
 ];
 
@@ -225,13 +224,13 @@ export const capabilityGroups = [
     iconKey: 'analytics',
     title: 'Power BI & Analytics',
     items: ['DAX and Power Query', 'KPI definition and dashboard UX', 'Refresh optimization', 'Publishing and mobile layouts'],
-    evidence: 'Supported by sanitized production artifacts and a public case repository'
+    evidence: 'Professional reporting experience; the public repository uses demonstration data'
   },
   {
     iconKey: 'modelling',
     title: 'SQL & Data Modeling',
     items: ['SQL foundations for querying and validation', 'Star-schema design', 'Semantic models and relationships', 'Source reconciliation and data-quality checks'],
-    evidence: 'Applied in reporting work and being strengthened through structured practice'
+    evidence: 'Semantic models and reconciliation from reporting work; SQL is being strengthened through practice'
   },
   {
     iconKey: 'pipelines',
@@ -254,7 +253,7 @@ export const learning = [
   'Certification preparation — Microsoft Power BI Data Analyst (PL-300)',
   'Certification preparation — Microsoft Fabric Analytics Engineer (DP-600)',
   'Developing — SQL foundations: joins, aggregations, CTEs and data validation',
-  'Developing — Agentic AI workflows: tool use, RAG, guardrails and evaluation'
+  'Planned practice — inventory and delivery performance reporting using synthetic data; not yet a completed project'
 ];
 
 export const education = [
