@@ -1,8 +1,8 @@
 export const profile = {
   name: 'Om Bhartiya',
-  headline: 'Supply Chain & Operations Analytics',
-  heroPrimary: 'Supply Chain & Operations Analytics',
-  heroStack: 'Power BI · Excel · Process Improvement',
+  headline: 'Data & Reporting Analyst',
+  heroPrimary: 'Data & Reporting Analyst',
+  heroStack: 'Power BI · SQL · Oracle ERP · Process Automation',
   heroTagline: 'From operational complexity to decision-ready data.',
   location: 'Poznań, Poland',
   email: 'ombhartiya16@gmail.com',
@@ -11,16 +11,16 @@ export const profile = {
   linkedin: 'https://www.linkedin.com/in/om-bhartiya-b22279185/',
   github: 'https://github.com/OMBHARTIYA?tab=repositories',
   portfolio: 'https://ombhartiya.github.io/om-bhartiya-portfolio/',
-  cvAsset: 'assets/om-bhartiya-supply-chain-operations-cv.pdf?v=20260906-1',
+  cvAsset: 'assets/om-bhartiya-cv-2026.pdf?v=20261010-1',
   availability: 'Poznań-based · open to relocation and on-site, hybrid or remote opportunities',
-  targetRoles: 'Supply Chain Analyst, Logistics Analyst, Inventory Analyst and Operations Analyst roles where reporting, data quality and process improvement support better operational decisions.',
-  footerSkills: 'Operational Reporting · Oracle ERP · Power BI · Excel',
+  targetRoles: 'Data Analyst, Business Intelligence Analyst, Reporting Analyst and Operations Analyst roles in Poland — junior positions included — where reporting, data quality and automation support better decisions.',
+  footerSkills: 'Power BI · SQL · Oracle ERP · Process Automation',
   summary:
-    'My career focus is supply chain and logistics, combining an engineering and industrial management background with 5+ years across manufacturing, process control, operations and reporting. I bring hands-on Power BI and Excel reporting, Oracle ERP reconciliation, data validation and stakeholder requirements work. My contribution is making operational information clearer and more reliable. I am strengthening SQL through practical projects; Fabric and Python experience is guided or project-based.'
+    'I work where operational process meets reporting. Four years across manufacturing operations and analytics, with a B.Eng. in Engineering Management from Poznań University of Technology. Three years at Flex Films Europa (UFlex Group) working daily inside Oracle ERP — reconciling system records against live production output, issuing daily management reporting and maintaining the process documentation behind recurring checks. Most recently at DEFOR SA, where I set up the company’s first centralised Power BI reporting as sole analyst before moving into the development department. I build with AI-assisted tooling and say so. I am strengthening SQL through practical projects; my Fabric and Python work is guided or project-based.'
 };
 
 export const verifiedScope = [
-  { value: '5+ years', label: 'operations and reporting experience' },
+  { value: 'Four years', label: 'operations and reporting experience' },
   { value: 'Up to 15', label: 'business stakeholders supported' },
   { value: '4', label: 'data sources unified in one model' },
   { value: '10', label: 'production stages covered' }
@@ -152,23 +152,23 @@ export const experience = [
       'Helped construction and facade-production teams track progress through Power BI reporting, supporting up to 15 stakeholders across concurrent projects and 10 production stages.',
       'Unified four sources - REST API, Autodesk Construction Cloud, Speckle and CSV - in a star-schema semantic model, replacing manual reconciliation with one trusted operational view.',
       'Built Power Query transformations, reusable DAX measures and source checks, improving report refresh performance and supporting user testing.',
-      'Gained guided project exposure to Microsoft Fabric ingestion workflows. From May 2026, work shifted towards internal web applications; the contract ended in July 2026.'
+      'Gained guided project exposure to Microsoft Fabric ingestion workflows. From May 2026 I moved into the development department as a junior programmer working on internal web applications; the contract ended in July 2026.'
     ]
   },
   {
-    period: 'Feb 2023 – Apr 2025',
-    role: 'Operations Data & Reporting Analyst',
-    company: 'All For Expo',
+    period: '2022 – Feb 2026',
+    role: 'B.Eng. Engineering Management (full-time studies)',
+    company: 'Poznan University of Technology',
     bullets: [
-      'Centralized operational tracking across four divisions, replacing fragmented WhatsApp, email and spreadsheet workflows with one enterprise portal.',
-      'Consolidated inventory, project and financial datasets across four divisions, improving data consistency and lifecycle monitoring for active projects.',
-      'Bridged business requirements and technical delivery, producing onboarding documentation and digital learning resources that supported user adoption and process compliance.'
+      'Full-time engineering degree in Poznań, completed alongside the transition from manufacturing operations into analytics.',
+      'Final GPA 4.44 / 5 (“very good”); discipline: Management and Quality Studies.',
+      'Erasmus Blended Intensive Programme at Babeș-Bolyai University, Romania (2024).'
     ]
   },
   {
     period: 'Oct 2019 – Sep 2022',
     role: 'Process Control & Reporting Engineer',
-    company: 'UFLEX Group',
+    company: 'Flex Films Europa Sp. z o.o. (UFlex Group)',
     bullets: [
       'Reconciled Oracle ERP entries with production outputs and shift records, investigating discrepancies before management reporting.',
       'Delivered 2 production summaries per day, enabling engineering teams to identify downtime and quality issues and prioritize corrective actions.',
@@ -252,20 +252,24 @@ export const learning = [
   'Completed — UC Davis SQL for Data Science',
   'Certification preparation — Microsoft Power BI Data Analyst (PL-300)',
   'Certification preparation — Microsoft Fabric Analytics Engineer (DP-600)',
-  'Developing — SQL foundations: joins, aggregations, CTEs and data validation',
-  'Planned practice — inventory and delivery performance reporting using synthetic data; not yet a completed project'
+  'Developing — SQL foundations: joins, aggregations, CTEs and data validation'
 ];
 
 export const education = [
   {
     school: 'Poznan University of Technology',
-    detail: 'B.Eng. in Engineering & Industrial Management',
-    period: 'Awarded March 2026'
+    detail: 'B.Eng. (inżynier) in Engineering Management · Final GPA 4.44 / 5',
+    period: '2022 – 2026 · Awarded February 2026'
   },
   {
     school: 'Babes-Bolyai University',
-    detail: 'Erasmus Blended Intensive Program, Romania',
+    detail: 'Erasmus Blended Intensive Programme, Romania',
     period: '2024'
+  },
+  {
+    school: 'Amity University Uttar Pradesh',
+    detail: 'Diploma in Mechanical Engineering, India',
+    period: '2016 – 2019'
   }
 ];
 

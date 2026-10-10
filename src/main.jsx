@@ -278,7 +278,7 @@ function SelectedWork() {
           <span className="section-label">Selected work</span>
           <h2>Three problems. Three inspectable approaches.</h2>
           <p>
-            These examples show the reporting, reconciliation and process skills I bring to supply chain and logistics.
+            These examples show the reporting, reconciliation and automation skills I bring to data and BI work.
             Each case separates professional delivery, guided project exposure and public demonstration
             evidence while stating what remains confidential.
           </p>
@@ -337,7 +337,7 @@ function Experience() {
           <span className="section-label">Professional experience</span>
           <h2>Built in operational environments.</h2>
           <p>
-            More than five years across manufacturing, process control, project operations and reporting, with
+            Four years across manufacturing, process control and operational reporting, with
             recent work focused on Power BI and decision-ready data.
           </p>
         </div>
@@ -460,7 +460,7 @@ function Contact() {
         </div>
         <aside className="contact-card contact-cta" aria-label="Direct contact options">
           <span className="section-label">Next step</span>
-          <h3>Discuss a supply chain role or operational reporting challenge.</h3>
+          <h3>Discuss a data, BI or reporting role.</h3>
           <p>Email and LinkedIn are the fastest ways to reach me.</p>
           <div className="contact-actions">
             <a className="button primary" href={`mailto:${profile.email}`}><Mail size={17} /> Email Om</a>
