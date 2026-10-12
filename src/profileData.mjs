@@ -145,14 +145,15 @@ export const additionalWork = [
 
 export const experience = [
   {
-    period: 'May 2025 – Jul 2026',
-    role: 'Data & Operations Analyst',
+    period: '19.05.2025 – 31.07.2026',
+    role: 'Pracownik Działu Technicznego ALU (to Mar 2026) → Młodszy Programista / Junior Programmer (from Apr 2026)',
     company: 'DEFOR SA',
     bullets: [
+      'Formal job titles above are the contractual ones. From September 2025 my actual work was operational reporting and business intelligence, as the company’s only analyst.',
       'Helped construction and facade-production teams track progress through Power BI reporting, supporting up to 15 stakeholders across concurrent projects and 10 production stages.',
       'Unified four sources - REST API, Autodesk Construction Cloud, Speckle and CSV - in a star-schema semantic model, replacing manual reconciliation with one trusted operational view.',
       'Built Power Query transformations, reusable DAX measures and source checks, improving report refresh performance and supporting user testing.',
-      'Gained guided project exposure to Microsoft Fabric ingestion workflows. From May 2026 I moved into the development department as a junior programmer working on internal web applications; the contract ended in July 2026.'
+      'Gained guided project exposure to Microsoft Fabric ingestion workflows. From April 2026 my title changed to Junior Programmer and I worked in the development department on internal web applications; the contract ended by mutual agreement in July 2026.'
     ]
   },
   {
