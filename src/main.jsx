@@ -279,7 +279,7 @@ function SelectedWork() {
           <h2>Three problems. Three inspectable approaches.</h2>
           <p>
             These examples show the reporting, reconciliation and automation skills I bring to data and BI work.
-            Each case separates professional delivery, guided project exposure and public demonstration
+            Each case separates professional delivery, AI-assisted work and public demonstration
             evidence while stating what remains confidential.
           </p>
         </div>
@@ -368,7 +368,7 @@ function Capabilities() {
         <div>
           <span className="section-label">Capabilities</span>
           <h2>Skills connected to delivered work.</h2>
-          <p>Tools matter when they support a reliable outcome. Capability levels are labelled so professional delivery, guided exposure and current learning remain distinct.</p>
+          <p>Tools matter when they support a reliable outcome. Capability levels are labelled so professional delivery, AI-assisted work and current learning remain distinct.</p>
         </div>
       </div>
       <div className="capability-grid">

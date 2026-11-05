@@ -11,12 +11,12 @@ export const profile = {
   linkedin: 'https://www.linkedin.com/in/om-bhartiya-b22279185/',
   github: 'https://github.com/OMBHARTIYA?tab=repositories',
   portfolio: 'https://ombhartiya.github.io/om-bhartiya-portfolio/',
-  cvAsset: 'assets/om-bhartiya-cv-2026.pdf?v=20261010-1',
+  cvAsset: 'assets/om-bhartiya-reporting-analyst-cv.pdf',
   availability: 'Poznań-based · open to relocation and on-site, hybrid or remote opportunities',
   targetRoles: 'Data Analyst, Business Intelligence Analyst, Reporting Analyst and Operations Analyst roles in Poland — junior positions included — where reporting, data quality and automation support better decisions.',
   footerSkills: 'Power BI · SQL · Oracle ERP · Process Automation',
   summary:
-    'I work where operational process meets reporting. Four years across manufacturing operations and analytics, with a B.Eng. in Engineering Management from Poznań University of Technology. Three years at Flex Films Europa (UFlex Group) working daily inside Oracle ERP — reconciling system records against live production output, issuing daily management reporting and maintaining the process documentation behind recurring checks. Most recently at DEFOR SA, where I set up the company’s first centralised Power BI reporting as sole analyst. I build with AI-assisted tooling and say so. I am strengthening SQL through practical projects; my Fabric and Python work is guided or project-based.'
+    'I work where operational process meets reporting. Four years across manufacturing operations and analytics, with a B.Eng. in Engineering Management from Poznań University of Technology. Three years at Flex Films Europa (UFlex Group) working daily inside Oracle ERP — reconciling system records against live production output, issuing daily management reporting and maintaining the process documentation behind recurring checks. Most recently at DEFOR SA, where I set up the company’s first centralised Power BI reporting as sole analyst. I build with AI-assisted tooling and say so. My SQL is at a basic level and I am strengthening it through practical projects.'
 };
 
 export const verifiedScope = [
@@ -47,7 +47,7 @@ export const caseStudies = [
     contribution:
       'Gathered and translated reporting requirements, integrated four data sources, built semantic models and KPI logic, validated outputs and supported delivery across multiple concurrent projects.',
     engineering:
-      'Built API-driven Power BI report variants with multi-table semantic models, reusable DAX KPI measures, mobile layouts and BIM-linked visual analysis; used Fabric, OneLake and notebook patterns in guided project work supporting ingestion and analysis.',
+      'Built API-driven Power BI report variants with multi-table semantic models, reusable DAX KPI measures, mobile layouts and BIM-linked visual analysis; built the REST API ingestion into Microsoft Fabric with AI-assisted coding.',
     outcome:
       'Improved report refresh performance and operational visibility while supporting up to 15 stakeholders across 10 production stages.',
     evidenceNote:
@@ -89,18 +89,18 @@ export const caseStudies = [
   {
     number: '03',
     title: 'API Ingestion Pipeline',
-    category: 'Microsoft Fabric · Guided project exposure',
+    category: 'Microsoft Fabric · AI-assisted',
     summary:
-      'A sanitized reference showing a Microsoft Fabric pattern for turning paginated operational REST data into analytics-ready Delta tables.',
+      'Getting large volumes of paginated operational REST data into Microsoft Fabric without the memory spikes that full reloads caused.',
     contribution:
-      'Supported implementation and documentation of incremental windows, pagination, extraction branches, OneLake staging, PySpark transformation, archival controls and success-gated watermark updates through guided and AI-assisted project work.',
+      'Built the REST API ingestion into Microsoft Fabric with AI-assisted coding: API calls, pagination and incremental loads of 5,000+ records.',
     engineering:
-      'Worked with patterns for landing and archiving raw JSON, flattening and deduplicating records in notebooks, writing Delta outputs and advancing pipeline state only after a complete run succeeded.',
+      'Fetched data in chunks with pagination and incremental loads instead of reloading everything each time. The linked repository shows the raw-to-gold pattern on generated data.',
     outcome:
-      'Documented repeatable operating guidance for incremental and full-refresh entities, including recovery, rerun and production-support procedures.',
+      'Replaced full reloads that caused memory spikes.',
     evidenceNote:
-      'The linked repository is a sanitized learning and reference implementation—not a copy of employer code, endpoints or data, and not evidence of independent production ownership.',
-    tags: ['Microsoft Fabric', 'PySpark', 'SQL', 'OneLake', 'Data quality'],
+      'Built with AI-assisted coding. The linked repository is a public reference using generated data, not a copy of employer code, endpoints or data.',
+    tags: ['Microsoft Fabric', 'REST API', 'Pagination', 'Incremental loads', 'AI-assisted'],
     visual: 'pipeline',
     links: [
       {
@@ -248,9 +248,9 @@ export const capabilityGroups = [
   },
   {
     iconKey: 'pipelines',
-    title: 'Fabric & Pipeline Exposure',
-    items: ['OneLake and Lakehouse patterns', 'Guided PySpark and SQL transformations', 'Incremental API-ingestion patterns', 'Run control, recovery and documentation'],
-    evidence: 'Supported by guided project work, an operating guide and a sanitized public reference'
+    title: 'Fabric & API Ingestion',
+    items: ['REST API ingestion into Microsoft Fabric', 'API calls and pagination', 'Incremental loads of 5,000+ records', 'Replacing full reloads that caused memory spikes'],
+    evidence: 'Built at work with AI-assisted coding; the public reference uses generated data'
   },
   {
     iconKey: 'automation',

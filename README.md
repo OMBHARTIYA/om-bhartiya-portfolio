@@ -1,6 +1,6 @@
 # Om Bhartiya Data & Reporting Analyst Portfolio
 
-React/Vite portfolio site for Om Bhartiya, positioned as a Data & Reporting Analyst and Power BI Analyst. The site connects manufacturing and project-operations experience with evidence-backed reporting, semantic models, data quality and guided technical project exposure.
+React/Vite portfolio site for Om Bhartiya, positioned as a Data & Reporting Analyst and Power BI Analyst. The site connects manufacturing and project-operations experience with evidence-backed reporting, semantic models, data quality and AI-assisted technical work.
 
 ## Portfolio Structure
 
@@ -16,7 +16,7 @@ React/Vite portfolio site for Om Bhartiya, positioned as a Data & Reporting Anal
 
 ## Portfolio Positioning
 
-This site is positioned primarily for Data Analyst, Reporting Analyst, BI Analyst, Power BI Analyst and Operations Data Analyst roles. Power BI, reporting, SQL foundations, data modeling, data quality and operational domain experience lead the story. Fabric, Python, AI-assisted automation and workflow applications are explicitly labelled as guided, project-based or complementary exposure.
+This site is positioned primarily for Data Analyst, Reporting Analyst, BI Analyst, Power BI Analyst and Operations Data Analyst roles. Power BI, reporting, SQL foundations, data modeling, data quality and operational domain experience lead the story. Microsoft Fabric API ingestion and workflow applications are labelled as AI-assisted.
 
 ## Run Locally
 
@@ -34,7 +34,7 @@ npm run build
 ```
 
 The build preserves the manually maintained CV at
-`public/assets/om-bhartiya-data-reporting-cv.pdf`. Update the website and CV
+`public/assets/om-bhartiya-reporting-analyst-cv.pdf`. Update the website and CV
 deliberately when confirmed facts change so the clear résumé layout is never
 replaced by an automatic generator.
 
