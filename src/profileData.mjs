@@ -16,7 +16,7 @@ export const profile = {
   targetRoles: 'Data Analyst, Business Intelligence Analyst, Reporting Analyst and Operations Analyst roles in Poland — junior positions included — where reporting, data quality and automation support better decisions.',
   footerSkills: 'Power BI · SQL · Oracle ERP · Process Automation',
   summary:
-    'I work where operational process meets reporting. Four years across manufacturing operations and analytics, with a B.Eng. in Engineering Management from Poznań University of Technology. Three years at Flex Films Europa (UFlex Group) working daily inside Oracle ERP — reconciling system records against live production output, issuing daily management reporting and maintaining the process documentation behind recurring checks. Most recently at DEFOR SA, where I set up the company’s first centralised Power BI reporting as sole analyst before moving into the development department. I build with AI-assisted tooling and say so. I am strengthening SQL through practical projects; my Fabric and Python work is guided or project-based.'
+    'I work where operational process meets reporting. Four years across manufacturing operations and analytics, with a B.Eng. in Engineering Management from Poznań University of Technology. Three years at Flex Films Europa (UFlex Group) working daily inside Oracle ERP — reconciling system records against live production output, issuing daily management reporting and maintaining the process documentation behind recurring checks. Most recently at DEFOR SA, where I set up the company’s first centralised Power BI reporting as sole analyst. I build with AI-assisted tooling and say so. I am strengthening SQL through practical projects; my Fabric and Python work is guided or project-based.'
 };
 
 export const verifiedScope = [
@@ -145,15 +145,17 @@ export const additionalWork = [
 
 export const experience = [
   {
-    period: '19.05.2025 – 31.07.2026',
-    role: 'Pracownik Działu Technicznego ALU (to Mar 2026) → Młodszy Programista / Junior Programmer (from Apr 2026)',
-    company: 'DEFOR SA',
+    period: 'May 2025 – Jul 2026',
+    role: 'Operations & Reporting Analytics (Junior Programmer)',
+    company: 'DEFOR SA · Śrem, Poland',
     bullets: [
-      'Formal job titles above are the contractual ones. From September 2025 my actual work was operational reporting and business intelligence, as the company’s only analyst.',
-      'Helped construction and facade-production teams track progress through Power BI reporting, supporting up to 15 stakeholders across concurrent projects and 10 production stages.',
-      'Unified four sources - REST API, Autodesk Construction Cloud, Speckle and CSV - in a star-schema semantic model, replacing manual reconciliation with one trusted operational view.',
-      'Built Power Query transformations, reusable DAX measures and source checks, improving report refresh performance and supporting user testing.',
-      'Gained guided project exposure to Microsoft Fabric ingestion workflows. From April 2026 my title changed to Junior Programmer and I worked in the development department on internal web applications; the contract ended by mutual agreement in July 2026.'
+      'Built the company’s first centralized Power BI reporting as its only analyst, giving construction and façade-production teams one view of progress across projects.',
+      'Built a star-schema model combining four data sources (REST APIs, Autodesk Construction Cloud and CSV files) across 10 production stages, with DAX measures and Power Query transformations.',
+      'Gathered reporting requirements and feedback from manufacturing and on-site managers, and agreed KPI definitions with the CEO and department managers.',
+      'Delivered dashboards to up to 15 stakeholders across 3–5 concurrent projects; managers used them to spot delayed stages and off-target KPIs, and I refined the reports from their feedback.',
+      'Built the REST API ingestion into Microsoft Fabric with AI-assisted coding (API calls, pagination, incremental loads of 5,000+ records), replacing full reloads that caused memory spikes.',
+      'Cut report refresh time from 5–15 minutes to 1–2 minutes with incremental refresh.',
+      'Built internal web applications with AI-assisted coding (Codex), using React/Vite, Xano and Python, including 2D/3D views of construction status.'
     ]
   },
   {
@@ -169,11 +171,22 @@ export const experience = [
   {
     period: 'Oct 2019 – Sep 2022',
     role: 'Process Control & Reporting Engineer',
-    company: 'Flex Films Europa Sp. z o.o. (UFlex Group)',
+    company: 'Flex Films Europa (UFlex Group) · Września, Poland',
     bullets: [
-      'Reconciled Oracle ERP entries with production outputs and shift records, investigating discrepancies before management reporting.',
-      'Delivered 2 production summaries per day, enabling engineering teams to identify downtime and quality issues and prioritize corrective actions.',
-      'Designed repeatable process controls and training documentation, linking engineering requirements with ERP validation and process compliance.'
+      'Produced the plant’s daily production reporting and kept ERP data in line with the shop floor at a BOPET and metallised packaging film plant.',
+      'Produced daily MIS reports for night and day shifts: production output, material used, downtime, and normal and special batch details.',
+      'Reconciled Oracle ERP records with shop-floor data and investigated discrepancies in production reporting.',
+      'Monitored production KPIs across 2 active lines per shift and fixed faults and errors as they came up.',
+      'Analysed efficiency gaps, downtime and quality issues to support root-cause analysis and follow-up actions.',
+      'Maintained SOPs and daily operations and maintenance checklists, ran process controls, and prepared training material.'
+    ]
+  },
+  {
+    period: 'Aug 2018 – Apr 2019',
+    role: 'Intern Trainee',
+    company: 'Honda Cars India Ltd · Greater Noida, India',
+    bullets: [
+      'Internship in the assembly frame department and HR operations: production documentation, quality checks and shop-floor coordination in automotive manufacturing.'
     ]
   }
 ];
