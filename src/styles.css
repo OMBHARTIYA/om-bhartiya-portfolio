@@ -831,7 +831,7 @@ body,
   position: absolute;
   inset: 0;
   content: '';
-  background: linear-gradient(180deg, transparent 62%, rgba(4, 17, 13, .76));
+  background: linear-gradient(180deg, transparent 84%, rgba(4, 17, 13, .6));
 }
 
 .dashboard-evidence > span {

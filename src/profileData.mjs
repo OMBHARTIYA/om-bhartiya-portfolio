@@ -121,8 +121,8 @@ export const additionalWork = [
     text:
       'An AI-assisted warehouse application prototype. I designed the operational workflow and used generative-AI coding support to implement role-based views for warehouses, products, stock movements and dashboard statistics.',
     tags: ['AI-assisted prototype', 'Next.js', 'TypeScript', 'REST API'],
-    image: 'assets/warehouse-os.png',
-    imageAlt: 'Live warehouse management application interface',
+    image: 'assets/warehouse-os-stock.jpg',
+    imageAlt: 'Warehouse OS stock screen with synthetic demonstration data',
     links: [
       { label: 'View live application', href: 'https://warehouse-os-app.vercel.app/' },
       { label: 'Open repository', href: 'https://github.com/OMBHARTIYA/Warehouse-Frontend' }
@@ -268,11 +268,6 @@ export const education = [
     school: 'Babes-Bolyai University',
     detail: 'Erasmus Blended Intensive Programme, Romania',
     period: '2024'
-  },
-  {
-    school: 'Amity University Uttar Pradesh',
-    detail: 'Diploma in Mechanical Engineering, India',
-    period: '2016 – 2019'
   }
 ];
 

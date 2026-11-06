@@ -179,12 +179,12 @@ function CaseVisual({ type, title }) {
     return (
       <div className="case-visual dashboard-evidence">
         <img
-          src={assetPath('assets/dashboard-hero.png')}
-          alt="Construction KPI dashboard generated from the public case-study dataset"
+          src={assetPath('assets/dashboard-preview.svg')}
+          alt="Construction progress preview generated from the synthetic public case-study dataset"
           loading="lazy"
           decoding="async"
         />
-        <span>Public demonstration dataset</span>
+        <span>Synthetic public dataset</span>
       </div>
     );
   }
