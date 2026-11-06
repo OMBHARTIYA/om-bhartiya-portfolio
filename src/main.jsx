@@ -393,8 +393,8 @@ function Credentials() {
       <div className="section-heading">
         <div>
           <span className="section-label">Background</span>
-          <h2>Education, learning and languages.</h2>
-          <p>Formal education and professional learning are labelled separately so their status remains clear.</p>
+          <h2>Education, certificates and languages.</h2>
+          <p>Formal education and certificates are listed separately so their status remains clear.</p>
         </div>
       </div>
       <div className="credentials-layout">
@@ -412,7 +412,7 @@ function Credentials() {
           ))}
         </div>
         <div className="credential-panel">
-          <h3>Professional learning</h3>
+          <h3>Certificates</h3>
           <ul className="learning-list">
             {learning.map((item) => <li key={item}>{item}</li>)}
           </ul>

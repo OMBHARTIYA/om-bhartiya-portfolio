@@ -16,7 +16,7 @@ export const profile = {
   targetRoles: 'Data Analyst, Business Intelligence Analyst, Reporting Analyst and Operations Analyst roles in Poland — junior positions included — where reporting, data quality and automation support better decisions.',
   footerSkills: 'Power BI · SQL · Oracle ERP · Process Automation',
   summary:
-    'I work where operational process meets reporting. Four years across manufacturing operations and analytics, with a B.Eng. in Engineering Management from Poznań University of Technology. Three years at Flex Films Europa (UFlex Group) working daily inside Oracle ERP — reconciling system records against live production output, issuing daily management reporting and maintaining the process documentation behind recurring checks. Most recently at DEFOR SA, where I set up the company’s first centralised Power BI reporting as sole analyst. I build with AI-assisted tooling and say so. My SQL is at a basic level and I am strengthening it through practical projects.'
+    'I work where operational process meets reporting. Four years across manufacturing operations and analytics, with a B.Eng. in Engineering & Industrial Management from Poznań University of Technology. Three years at Flex Films Europa (UFlex Group) working daily inside Oracle ERP — reconciling system records against live production output, issuing daily management reporting and maintaining the process documentation behind recurring checks. Most recently at DEFOR SA, where I set up the company’s first centralised Power BI reporting as sole analyst. I build with AI-assisted tooling and say so. My SQL is at a basic level and I am strengthening it through practical projects.'
 };
 
 export const verifiedScope = [
@@ -160,11 +160,11 @@ export const experience = [
   },
   {
     period: '2022 – Feb 2026',
-    role: 'B.Eng. Engineering Management (full-time studies)',
+    role: 'B.Eng. Engineering & Industrial Management (full-time studies)',
     company: 'Poznan University of Technology',
     bullets: [
       'Full-time engineering degree in Poznań, completed alongside the transition from manufacturing operations into analytics.',
-      'Final GPA 4.44 / 5 (“very good”); discipline: Management and Quality Studies.',
+      'Awarded February 2026, approx. 4.5/5.',
       'Erasmus Blended Intensive Programme at Babeș-Bolyai University, Romania (2024).'
     ]
   },
@@ -224,13 +224,7 @@ export const cvProjects = [
 ];
 
 export const cvCredentials = [
-  'Microsoft ETL Specialization',
-  'IBM Python for Data Science',
-  'UC Davis SQL for Data Science',
-  'CSCMP Supply Chain Foundations: Demand Planning Professional Certificate',
-  'Salesforce Sales/Operations Professional Certificate',
-  'Microsoft Power BI Data Analyst (PL-300) — certification preparation',
-  'Microsoft Fabric Analytics Engineer (DP-600) — certification preparation'
+  'SQL for Data Science, UC Davis (Coursera), 2024'
 ];
 
 export const capabilityGroups = [
@@ -261,18 +255,13 @@ export const capabilityGroups = [
 ];
 
 export const learning = [
-  'Completed — Microsoft ETL Specialization',
-  'Completed — IBM Python for Data Science',
-  'Completed — UC Davis SQL for Data Science',
-  'Certification preparation — Microsoft Power BI Data Analyst (PL-300)',
-  'Certification preparation — Microsoft Fabric Analytics Engineer (DP-600)',
-  'Developing — SQL foundations: joins, aggregations, CTEs and data validation'
+  'SQL for Data Science, UC Davis (Coursera), 2024'
 ];
 
 export const education = [
   {
     school: 'Poznan University of Technology',
-    detail: 'B.Eng. (inżynier) in Engineering Management · Final GPA 4.44 / 5',
+    detail: 'B.Eng. in Engineering & Industrial Management · approx. 4.5/5',
     period: '2022 – 2026 · Awarded February 2026'
   },
   {
@@ -287,4 +276,4 @@ export const education = [
   }
 ];
 
-export const languages = ['English — Fluent (C1)', 'Polish — Beginner (A1)'];
+export const languages = ['English — Professional', 'Polish — A1, learning'];
